@@ -191,5 +191,8 @@ rom_data.zip
 *.out
 todo.md
 tmp.py
-.DS_Store
+*.DS_Store
+*/*.DS_Store
+*/*/*.DS_Store
+*/*/*/*.DS_Store
 tmp*

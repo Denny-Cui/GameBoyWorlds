@@ -21,7 +21,7 @@ from poke_worlds.utils import (
     load_parameters,
     verify_parameters,
 )
-from poke_worlds.emulation.parser import StateParser
+from poke_worlds.emulation.parser import StateParser, _get_proper_regions
 
 from typing import Set, List, Type, Dict, Optional, Tuple
 import os
@@ -47,31 +47,6 @@ class AgentState(Enum):
     IN_DIALOGUE = 1
     IN_MENU = 2
     IN_BATTLE = 3
-
-
-def _get_proper_regions(
-    override_regions: List[Tuple[str, int, int, int, int]],
-    base_regions: List[Tuple[str, int, int, int, int]],
-) -> List[Tuple[str, int, int, int, int]]:
-    """
-    Merges base regions with override regions, giving precedence to override regions.
-
-    :param override_regions: List of override region tuples.
-    :type override_regions: List[Tuple[str, int, int, int, int]]
-    :param base_regions: List of base region tuples.
-    :type base_regions: List[Tuple[str, int, int, int, int]]
-    :return: Merged list of region tuples.
-    :rtype: List[Tuple[str, int, int, int, int]]
-    """
-    if len(override_regions) == 0:
-        return base_regions
-    proper_regions = override_regions.copy()
-    override_names = [region[0] for region in override_regions]
-    for region in base_regions:
-        if region[0] in override_names:
-            continue
-        proper_regions.append(region)
-    return proper_regions
 
 
 class PokemonStateParser(StateParser, ABC):

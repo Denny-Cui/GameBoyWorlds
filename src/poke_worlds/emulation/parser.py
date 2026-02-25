@@ -15,6 +15,31 @@ import cv2
 from PIL import Image
 
 
+def _get_proper_regions(
+    override_regions: List[Tuple[str, int, int, int, int]],
+    base_regions: List[Tuple[str, int, int, int, int]],
+) -> List[Tuple[str, int, int, int, int]]:
+    """
+    Merges base regions with override regions, giving precedence to override regions.
+
+    :param override_regions: List of override region tuples.
+    :type override_regions: List[Tuple[str, int, int, int, int]]
+    :param base_regions: List of base region tuples.
+    :type base_regions: List[Tuple[str, int, int, int, int]]
+    :return: Merged list of region tuples.
+    :rtype: List[Tuple[str, int, int, int, int]]
+    """
+    if len(override_regions) == 0:
+        return base_regions
+    proper_regions = override_regions.copy()
+    override_names = [region[0] for region in override_regions]
+    for region in base_regions:
+        if region[0] in override_names:
+            continue
+        proper_regions.append(region)
+    return proper_regions
+
+
 class NamedScreenRegion:
     """
     Saves a reference to a named screen region (always a rectangle) for easy access.
