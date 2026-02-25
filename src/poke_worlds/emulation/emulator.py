@@ -173,31 +173,39 @@ class VideoWriter:
         self._frame_writer = None
         self.video_running = False
         """ Whether the video writer is currently recording video. """
+        project_dir = self._parameters["project_root"]
         self._button_images = {
-            None: cv2.imread("assets/buttons/idle.png", cv2.IMREAD_UNCHANGED),
+            None: cv2.imread(
+                os.path.join(project_dir, "assets/buttons/idle.png"),
+                cv2.IMREAD_UNCHANGED,
+            ),
             LowLevelActions.PRESS_ARROW_DOWN: cv2.imread(
-                "assets/buttons/down.png", cv2.IMREAD_UNCHANGED
+                os.path.join(project_dir, "assets/buttons/down.png"),
+                cv2.IMREAD_UNCHANGED,
             ),
             LowLevelActions.PRESS_ARROW_LEFT: cv2.imread(
-                "assets/buttons/left.png", cv2.IMREAD_UNCHANGED
+                os.path.join(project_dir, "assets/buttons/left.png"),
+                cv2.IMREAD_UNCHANGED,
             ),
             LowLevelActions.PRESS_ARROW_RIGHT: cv2.imread(
-                "assets/buttons/right.png", cv2.IMREAD_UNCHANGED
+                os.path.join(project_dir, "assets/buttons/right.png"),
+                cv2.IMREAD_UNCHANGED,
             ),
             LowLevelActions.PRESS_ARROW_UP: cv2.imread(
-                "assets/buttons/up.png", cv2.IMREAD_UNCHANGED
+                os.path.join(project_dir, "assets/buttons/up.png"), cv2.IMREAD_UNCHANGED
             ),
             LowLevelActions.PRESS_BUTTON_A: cv2.imread(
-                "assets/buttons/a.png", cv2.IMREAD_UNCHANGED
+                os.path.join(project_dir, "assets/buttons/a.png"), cv2.IMREAD_UNCHANGED
             ),
             LowLevelActions.PRESS_BUTTON_B: cv2.imread(
-                "assets/buttons/b.png", cv2.IMREAD_UNCHANGED
+                os.path.join(project_dir, "assets/buttons/b.png"), cv2.IMREAD_UNCHANGED
             ),
             LowLevelActions.PRESS_BUTTON_START: cv2.imread(
-                "assets/buttons/start.png", cv2.IMREAD_UNCHANGED
+                os.path.join(project_dir, "assets/buttons/start.png"),
+                cv2.IMREAD_UNCHANGED,
             ),
             # LowLevelActions.PRESS_BUTTON_SELECT: cv2.imread(
-            #     "assets/buttons/select.png", cv2.IMREAD_UNCHANGED
+            #     os.path.join(project_dir, "assets/buttons/select.png"), cv2.IMREAD_UNCHANGED
             # ),
         }
 
