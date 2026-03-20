@@ -199,3 +199,5 @@ tmp*
 *.DS_Store
 
 CLAUDE.md
+configs/
+quick_tests.sh
