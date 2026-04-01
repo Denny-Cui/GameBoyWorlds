@@ -186,6 +186,7 @@ rom_data/*/*.gb.state
 rom_data/*/*.gbc.state
 
 videos/
+configs/config.env
 download_roms.sh
 rom_data.zip
 *.out
@@ -197,3 +198,5 @@ tmp.py
 */*/*/*.DS_Store
 tmp*
 *.DS_Store
+
+CLAUDE.md
