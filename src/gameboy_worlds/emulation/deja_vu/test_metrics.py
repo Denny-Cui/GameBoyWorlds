@@ -42,6 +42,24 @@ class CloseDoorTerminationMetric(RegionMatchTerminationOnlyMetric):
     _TERMINATION_NAMED_REGION = "dialogue_box_area"
     _TERMINATION_TARGET_NAME = "closed_door"
 
+class OpenPocketTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "opened_pocket"
+
+class OpenWalletTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "opened_wallet"
+
+# class ClosedPocketTerminationMetric(RegionMatchTerminationOnlyMetric):
+#     REQUIRED_PARSER = DejaVu1StateParser
+
+#     _TERMINATION_NAMED_REGION = "dialogue_box_area"
+#     _TERMINATION_TARGET_NAME = "closed_pocket"
+
 
 # subgoal classes
 class SelectedTakeActionInNormalSubGoal(AnyRegionMatchSubGoal):
@@ -62,4 +80,24 @@ class SelectedCloseActionInNormalSubGoal(AnyRegionMatchSubGoal):
 class NoActionSelectedInNormalSubGoal(AnyRegionMatchSubGoal):
     NAME = "no_action_selected"
     _NAMED_REGIONS = ["action_bar_in_normal"]
+    _TARGET_NAMES = ["no_action_selected"]
+
+class SelectedTakeActionInMenuSubGoal(AnyRegionMatchSubGoal):
+    NAME = "selected_take_action_in_menu"
+    _NAMED_REGIONS = ["action_bar_in_menu"]
+    _TARGET_NAMES = ["selected_take_action"]
+
+class SelectedOpenActionInMenuSubGoal(AnyRegionMatchSubGoal):
+    NAME = "selected_open_action_in_menu"
+    _NAMED_REGIONS = ["action_bar_in_menu"]
+    _TARGET_NAMES = ["selected_open_action"]
+
+class SelectedCloseActionInMenuSubGoal(AnyRegionMatchSubGoal):
+    NAME = "selected_close_action_in_menu"
+    _NAMED_REGIONS = ["action_bar_in_menu"]
+    _TARGET_NAMES = ["selected_close_action"]
+
+class NoActionSelectedInMenuSubGoal(AnyRegionMatchSubGoal):
+    NAME = "no_action_selected_in_menu"
+    _NAMED_REGIONS = ["action_bar_in_menu"]
     _TARGET_NAMES = ["no_action_selected"]

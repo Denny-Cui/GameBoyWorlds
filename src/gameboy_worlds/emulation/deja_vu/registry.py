@@ -10,6 +10,8 @@ from gameboy_worlds.emulation.deja_vu.parsers import (
 from gameboy_worlds.emulation.deja_vu.trackers import (
     DejaVuCoatTestTracker,
     DejaVuOCRTracker,
+    DejaVuOpenPocketTestTracker,
+    DejaVuOpenWalletTestTracker,
     DejaVuTakeGunTestTracker,
     DejaVuOpenDoorTestTracker,
     DejaVuCloseDoorTestTracker,
@@ -40,8 +42,13 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "take_gun_test": DejaVuTakeGunTestTracker,
         "open_door_test": DejaVuOpenDoorTestTracker,
         "close_door_test": DejaVuCloseDoorTestTracker,
+        "open_pocket_test": DejaVuOpenPocketTestTracker,
+        "open_wallet_test": DejaVuOpenWalletTestTracker,
+
     },
-    "deja_vu_2": {"default": DejaVuOCRTracker},
+    "deja_vu_2": {
+        "default": DejaVuOCRTracker
+    },
 }
 """ Mapping of game names to their available StateTracker classes with string identifiers. """
 

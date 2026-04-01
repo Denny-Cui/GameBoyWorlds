@@ -70,8 +70,8 @@ class DejaVuStateParser(StateParser, ABC):
     """
 
     COMMON_REGIONS = [
-        ("dialogue_top_left_hook", 0, 73, 10, 6),  # Top left hook that appears after certain events. Can be used to determine if certain game mechanics are available.
-        ("menu_bottom_line", 0, 143, 160, 1),  # Bottom line that appears when any menu is open, can be used to prevent agent interaction with the UI frame of the emulator.
+        ("dialogue_top_left_hook", 0, 73, 10, 6),
+        ("menu_bottom_line", 0, 143, 160, 1),
     ]
     """ 
     List of common named screen regions for Deja Vu game.
@@ -277,6 +277,10 @@ class DejaVu1StateParser(DejaVuStateParser):
             "dialogue_box_area": [
                 "took_coat",
                 "took_gun",
+                "opened_pocket",
+                "opened_wallet",
+                "closed_pocket",
+                "closed_wallet",
             ],
         }
 
