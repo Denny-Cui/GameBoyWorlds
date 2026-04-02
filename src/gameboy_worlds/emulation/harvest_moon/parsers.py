@@ -68,9 +68,6 @@ class HarvestMoonStateParser(StateParser, ABC):
             "cow_barn_entrance",
             "chicken_coop_entrance",
         ],
-        "dialogue_box_top":[
-            "pick_up_watercan",
-        ],
     }
     """ Common multi-targets for the common multi-target named screen regions.
     - screen_bottom: Location/event captures for the bottom strip of the screen.
@@ -245,7 +242,10 @@ class HarvestMoon1Parser(BaseHarvestMoonStateParser):
             ],
             "item_watercan_below":[
                 "pickup_watercan_up",
-            ]
+            ],
+            "dialogue_box_top":[
+                "pick_up_watercan",
+            ],
         }
 
         super().__init__(
