@@ -203,3 +203,4 @@ tmp*
 .claude/
 CLAUDE.md
 README_pipeline.md
+dev/save_region_from_screenshot.py
