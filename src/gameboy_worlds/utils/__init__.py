@@ -25,6 +25,20 @@ def import_cv2(parameters: dict = None):
     return cv2
 
 
+def import_pygame(parameters: dict):
+    """
+    Import pygame lazily so headless runs don't pull in SDL unless rendering is requested.
+    """
+    try:
+        import pygame
+    except ImportError:
+        log_error(
+            "pygame is required for render() / human play display. Install pygame or run without render.",
+            parameters,
+        )
+    return pygame
+
+
 def is_none_str(s) -> bool:
     """
     Checks if a string is None or represents a null value.
