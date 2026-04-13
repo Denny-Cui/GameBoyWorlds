@@ -114,7 +114,7 @@ for series in "${!rom_series[@]}"; do
         echo "Downloading [$series / $game] -> $dest"
         # gdown saves with the original Google Drive filename;
         # cd into dest so the file lands there directly.
-        (cd "$dest" && gdown --fuzzy "$link")
+        (cd "$dest" && gdown "$link")
     done
 done
 
