@@ -11,6 +11,20 @@ import pandas as pd
 from time import perf_counter_ns
 
 
+def import_cv2(parameters: dict = None):
+    """
+    Import cv2 lazily so headless runs without video writing do not load extra SDL libraries.
+    """
+    try:
+        import cv2
+    except ImportError:
+        log_error(
+            "OpenCV (cv2) is required for emulator video recording utilities.",
+            parameters,
+        )
+    return cv2
+
+
 def is_none_str(s) -> bool:
     """
     Checks if a string is None or represents a null value.

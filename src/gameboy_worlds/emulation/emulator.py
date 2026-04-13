@@ -19,10 +19,9 @@ from gameboy_worlds.utils import (
     is_none_str,
     verify_parameters,
     log_dict,
+    import_cv2,
 )
 
-
-import cv2
 
 from pyboy import PyBoy
 from pyboy.utils import WindowEvent
@@ -174,6 +173,7 @@ class VideoWriter:
         self.video_running = False
         """ Whether the video writer is currently recording video. """
         project_dir = self._parameters["project_root"]
+        cv2 = import_cv2(self._parameters)
         self._button_images = {
             None: cv2.imread(
                 os.path.join(project_dir, "assets/buttons/idle.png"),
@@ -254,6 +254,7 @@ class VideoWriter:
         os.makedirs(base_dir, exist_ok=True)
         video_path = os.path.join(base_dir, f"{video_id}")
         self.close_video()
+        cv2 = import_cv2(self._parameters)
         self._frame_writer = cv2.VideoWriter(
             video_path,
             cv2.VideoWriter_fourcc(*"mp4v"),
@@ -289,6 +290,7 @@ class VideoWriter:
         button_offset = 0
         button_x = self._output_shape[0] - button_size - button_offset
         button_y = self._output_shape[1] - button_size - button_offset
+        cv2 = import_cv2(self._parameters)
         button_image = cv2.resize(button_image, (button_size, button_size))
         alphas = button_image[:, :, 3] / 255.0
 
