@@ -203,3 +203,6 @@ tmp*
 .claude/
 CLAUDE.md
 README_pipeline.md
+
+# Local docs / notes
+docs/
