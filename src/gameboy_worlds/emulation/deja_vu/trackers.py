@@ -137,7 +137,7 @@ class DejaVuTestTracker(TestTrackerMixin, DejaVuOCRTracker):
     SUBGOAL_METRIC = DummySubGoalMetric
 
 # deja_vu_1 test trackers
-class DejaVuCoatTestTracker(DejaVuTestTracker):
+class DejaVu1CoatTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent takes the coat.
     """
@@ -145,7 +145,7 @@ class DejaVuCoatTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = TakenCoatTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedTakeActionInNormalSubGoal])
 
-class DejaVuTakeGunTestTracker(DejaVuTestTracker):
+class DejaVu1TakeGunTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent takes the gun.
     """
@@ -153,7 +153,7 @@ class DejaVuTakeGunTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = TakenGunTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedTakeActionInNormalSubGoal])
 
-class DejaVuOpenDoorTestTracker(DejaVuTestTracker):
+class DejaVu1OpenDoorTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent opens the door.
     """
@@ -162,7 +162,7 @@ class DejaVuOpenDoorTestTracker(DejaVuTestTracker):
     SUBGOAL_METRIC = DummySubGoalMetric
     # make_subgoal_metric_class([SelectedOpenActionInNormalSubGoal, NoActionSelectedInNormalSubGoal])
 
-class DejaVuCloseDoorTestTracker(DejaVuTestTracker):
+class DejaVu1CloseDoorTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent closes the door.
     """
@@ -170,7 +170,7 @@ class DejaVuCloseDoorTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = ClosedDoorTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedCloseActionInNormalSubGoal])
 
-class DejaVuOpenPocketTestTracker(DejaVuTestTracker):
+class DejaVu1OpenPocketTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent opens the pocket.
     """
@@ -178,7 +178,7 @@ class DejaVuOpenPocketTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = OpenedPocketTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedOpenActionInMenuSubGoal])
 
-class DejaVuOpenWalletTestTracker(DejaVuTestTracker):
+class DejaVu1OpenWalletTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent opens the wallet.
     """
@@ -186,7 +186,7 @@ class DejaVuOpenWalletTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = OpenedWalletTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedOpenActionInMenuSubGoal])
 
-class DejaVuClosePocketTestTracker(DejaVuTestTracker):
+class DejaVu1ClosePocketTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent closes the pocket.
     """
@@ -198,7 +198,7 @@ class DejaVuClosePocketTestTracker(DejaVuTestTracker):
         PointedAtCoatSubGoal,
     ])
 
-class DejaVuCloseWalletTestTracker(DejaVuTestTracker):
+class DejaVu1CloseWalletTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent closes the wallet.
     """
@@ -210,7 +210,7 @@ class DejaVuCloseWalletTestTracker(DejaVuTestTracker):
         PointedAtWalletSubGoal,
     ])
 
-class DejaVuCheckCoatTestTracker(DejaVuTestTracker):
+class DejaVu1CheckCoatTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent checks the coat.
     """
@@ -218,7 +218,7 @@ class DejaVuCheckCoatTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = CheckedCoatTerminationMetric
     SUBGOAL_METRIC = DummySubGoalMetric
 
-class DejaVuCheckGunTestTracker(DejaVuTestTracker):
+class DejaVu1CheckGunTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent checks the gun.
     """
@@ -226,7 +226,7 @@ class DejaVuCheckGunTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = CheckedGunTerminationMetric
     SUBGOAL_METRIC = DummySubGoalMetric
 
-class DejaVuOpenSpigotTestTracker(DejaVuTestTracker):
+class DejaVu1OpenSpigotTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent opens the spigot.
     """
@@ -234,7 +234,7 @@ class DejaVuOpenSpigotTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = OpenedSpigotTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedOpenActionInNormalSubGoal])
 
-class DejaVuHitBottleTestTracker(DejaVuTestTracker):
+class DejaVu1HitBottleTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent hits the bottle.
     """
@@ -245,7 +245,7 @@ class DejaVuHitBottleTestTracker(DejaVuTestTracker):
         SockoOnScreenSubGoal,
     ])
 
-class DejaVuEnterCellarTestTracker(DejaVuTestTracker):
+class DejaVu1EnterCellarTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent enters the cellar.
     """
@@ -253,7 +253,7 @@ class DejaVuEnterCellarTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = EnteredCellarTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([OpenedCellarDoorOnScreenSubGoal])
 
-class DejaVuEnterConnectingRoomTestTracker(DejaVuTestTracker):
+class DejaVu1EnterConnectingRoomTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent enters the connecting room.
     """
@@ -261,7 +261,7 @@ class DejaVuEnterConnectingRoomTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = EnteredConnectingRoomTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([NoActionSelectedInNormalSubGoal])
 
-class DejaVuMakeBetTestTracker(DejaVuTestTracker):
+class DejaVu1MakeBetTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent makes a bet in casino.
     """
@@ -273,7 +273,7 @@ class DejaVuMakeBetTestTracker(DejaVuTestTracker):
         UsingCoinSubGoal,
     ])
 
-class DejaVuEnterEmptyRoomFromMapTestTracker(DejaVuTestTracker):
+class DejaVu1EnterEmptyRoomFromMapTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent enters an empty room from the map.
     """
@@ -284,7 +284,7 @@ class DejaVuEnterEmptyRoomFromMapTestTracker(DejaVuTestTracker):
         PointedAt13OnMapSubGoal,
     ])
 
-class DejaVuUnlockFrontDoorTestTracker(DejaVuTestTracker):
+class DejaVu1UnlockFrontDoorTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent unlocks the front door.
     """
@@ -295,7 +295,7 @@ class DejaVuUnlockFrontDoorTestTracker(DejaVuTestTracker):
         SelectedUseActionInMenuSubGoal,
     ])
 
-class DejaVuMeetMuggerTestTracker(DejaVuTestTracker):
+class DejaVu1MeetMuggerTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent meets the mugger.
     """
@@ -303,7 +303,7 @@ class DejaVuMeetMuggerTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = MeetMuggerTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([NoActionSelectedInNormalSubGoal])
 
-class DejaVuHitMuggerTestTracker(DejaVuTestTracker):
+class DejaVu1HitMuggerTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent hits the mugger.
     """
@@ -311,7 +311,7 @@ class DejaVuHitMuggerTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = HitMuggerTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedHitActionInNormalSubGoal])
 
-class DejaVuUnlockCarDoorTestTracker(DejaVuTestTracker):
+class DejaVu1UnlockCarDoorTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu games that terminates when the agent unlocks the car door.
     """
@@ -321,7 +321,7 @@ class DejaVuUnlockCarDoorTestTracker(DejaVuTestTracker):
 
 
 # deja_vu_2 test trackers
-class DejaVuOpenTrenchCoatTestTracker(DejaVuTestTracker):
+class DejaVu2OpenTrenchCoatTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent opens the trench coat pocket.
     """
@@ -329,7 +329,7 @@ class DejaVuOpenTrenchCoatTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = OpenedTrenchCoatPocketTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedOpenActionInNormalSubGoal])
 
-class DejaVuOpenBathroomDoorTestTracker(DejaVuTestTracker):
+class DejaVu2OpenBathroomDoorTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent opens the bathroom door.
     """
@@ -337,7 +337,7 @@ class DejaVuOpenBathroomDoorTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = OpenedBathroomDoorTerminationMetric
     SUBGOAL_METRIC = DummySubGoalMetric
 
-class DejaVuTakeGumTestTracker(DejaVuTestTracker):
+class DejaVu2TakeGumTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent takes the gum.
     """
@@ -349,7 +349,7 @@ class DejaVuTakeGumTestTracker(DejaVuTestTracker):
         InTrenchCoatPocketMenuSubGoal,
     ])
 
-class DejaVuOpenPantsPocketTestTracker(DejaVuTestTracker):
+class DejaVu2OpenPantsPocketTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent opens the pants pocket.
     """
@@ -357,7 +357,7 @@ class DejaVuOpenPantsPocketTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = OpenedPantsPocketTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedOpenActionInNormalSubGoal])
 
-class DejaVuTakePantsTestTracker(DejaVuTestTracker):
+class DejaVu2TakePantsTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent takes the pants.
     """
@@ -365,7 +365,7 @@ class DejaVuTakePantsTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = TakenPantsTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedTakeActionInNormalSubGoal])
 
-class DejaVuClosePantsPocketTestTracker(DejaVuTestTracker):
+class DejaVu2ClosePantsPocketTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent closes the pants pocket.
     """
@@ -377,7 +377,7 @@ class DejaVuClosePantsPocketTestTracker(DejaVuTestTracker):
         PointedAtPantsSubGoal,
     ])
 
-class DejaVuPutOnTrenchCoatTestTracker(DejaVuTestTracker):
+class DejaVu2PutOnTrenchCoatTestTracker(DejaVuTestTracker):
     """ 
     A TestTracker for Deja Vu 2 that terminates when the agent puts on the trench coat.
     """
@@ -389,7 +389,7 @@ class DejaVuPutOnTrenchCoatTestTracker(DejaVuTestTracker):
         SelectedOutfitButtonSubGoal,
     ])
 
-class DejaVuPutOnPantsTestTracker(DejaVuTestTracker):
+class DejaVu2PutOnPantsTestTracker(DejaVuTestTracker):
     """ 
     A TestTracker for Deja Vu 2 that terminates when the agent puts on the pants.
     """
@@ -401,7 +401,7 @@ class DejaVuPutOnPantsTestTracker(DejaVuTestTracker):
         SelectedOutfitButtonSubGoal,
     ])
 
-class DejaVuOpenWallet1TestTracker(DejaVuTestTracker):
+class DejaVu2OpenWallet1TestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent open wallet1.
     """
@@ -413,7 +413,7 @@ class DejaVuOpenWallet1TestTracker(DejaVuTestTracker):
         PointedAtWallet1SubGoal,
     ])
 
-class DejaVuTakeNewsclip1TestTracker(DejaVuTestTracker):
+class DejaVu2TakeNewsclip1TestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent takes newsclip1.
     """
@@ -425,7 +425,7 @@ class DejaVuTakeNewsclip1TestTracker(DejaVuTestTracker):
         PointedAtNewsclip1SubGoal,
     ])
 
-class DejaVuTakeLicense1TestTracker(DejaVuTestTracker):
+class DejaVu2TakeLicense1TestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent takes license1.
     """
@@ -437,7 +437,7 @@ class DejaVuTakeLicense1TestTracker(DejaVuTestTracker):
         PointedAtLicense1SubGoal,
     ])
 
-class DejaVuCloseWallet1TestTracker(DejaVuTestTracker):
+class DejaVu2CloseWallet1TestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent closes wallet1.
     """
@@ -449,7 +449,7 @@ class DejaVuCloseWallet1TestTracker(DejaVuTestTracker):
         PointedAtWallet1SubGoal,
     ])
 
-class DejaVuOpenColdTapTestTracker(DejaVuTestTracker):
+class DejaVu2OpenColdTapTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent opens the cold tap.
     """
@@ -457,7 +457,7 @@ class DejaVuOpenColdTapTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = OpenedColdTapTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedOpenActionInNormalSubGoal])
 
-class DejaVuCloseColdTapTestTracker(DejaVuTestTracker):
+class DejaVu2CloseColdTapTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent closes the cold tap.
     """
@@ -465,7 +465,7 @@ class DejaVuCloseColdTapTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = ClosedColdTapTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedCloseActionInNormalSubGoal])
 
-class DejaVuCheckNewsclip1TestTracker(DejaVuTestTracker):
+class DejaVu2CheckNewsclip1TestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent checks newsclip1.
     """
@@ -476,7 +476,7 @@ class DejaVuCheckNewsclip1TestTracker(DejaVuTestTracker):
         InGoodsMenuSubGoal,
     ])
 
-class DejaVuTakeRing1TestTracker(DejaVuTestTracker):
+class DejaVu2TakeRing1TestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent takes ring1.
     """
@@ -484,7 +484,7 @@ class DejaVuTakeRing1TestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = TakenRing1TerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([SelectedTakeActionInNormalSubGoal])
 
-class DejaVuOpenDoorFromMapTestTracker(DejaVuTestTracker):
+class DejaVu2OpenDoorFromMapTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent opens the door from the map.
     """
@@ -492,7 +492,7 @@ class DejaVuOpenDoorFromMapTestTracker(DejaVuTestTracker):
     TERMINATION_TRUNCATION_METRIC = OpenedDoorFromMapTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([PointedAt21OnMapSubGoal])
 
-class DejaVuCloseDoorFromMapTestTracker(DejaVuTestTracker):
+class DejaVu2CloseDoorFromMapTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent closes the door from the map.
     """
@@ -503,7 +503,7 @@ class DejaVuCloseDoorFromMapTestTracker(DejaVuTestTracker):
         SelectedCloseActionInNormalSubGoal,
     ])
 
-class DejaVuEnterHallwayTestTracker(DejaVuTestTracker):
+class DejaVu2EnterHallwayTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent enters the hallway.
     """
@@ -514,7 +514,7 @@ class DejaVuEnterHallwayTestTracker(DejaVuTestTracker):
         NoActionSelectedInNormalSubGoal,
     ])
 
-class DejaVuBuy2ChipsTestTracker(DejaVuTestTracker):
+class DejaVu2Buy2ChipsTestTracker(DejaVuTestTracker):
     """
     A TestTracker for Deja Vu 2 that terminates when the agent buys 2 chips.
     """
