@@ -126,3 +126,45 @@ class EnterDarkForestTerminateMetric(ZeldaRegionMatchTerminationOnlyMetric):
 
 class OpenChestTerminateMetric(ZeldaRegionMatchTerminationOnlyMetric):
     _TERMINATION_NAMED_REGION = "open_chest_tracker"
+
+class MakeCall2TerminateMetric(ZeldaRegionMatchTerminationOnlyMetric):
+    _TERMINATION_NAMED_REGION = "bring_keyword_tracker"
+
+
+class SkeletonHouseTerminateMetric(ZeldaRegionMatchTerminationOnlyMetric):
+    _TERMINATION_NAMED_REGION = "skeleton_tracker"
+
+
+class UndergroundTerminateMetric(ZeldaRegionMatchTerminationOnlyMetric):
+    _TERMINATION_NAMED_REGION = "skeleton2_tracker"
+
+
+class DiamondKidTalkTerminateMetric(ZeldaRegionAndStateTerminationMetric):
+    _TERMINATION_NAMED_REGION = "diamond_tracker"
+    _TERMINATION_AGENT_STATE = "in_dialogue"
+
+
+class InsideHouseTerminateMetric(ZeldaRegionMatchTerminationOnlyMetric):
+    _TERMINATION_NAMED_REGION = "stool"
+
+
+class PotRoomTerminateMetric(ZeldaRegionMatchTerminationOnlyMetric):
+    _TERMINATION_NAMED_REGION = "char_onstairs"
+
+
+class PondTerminateMetric(ZeldaRegionMatchTerminationOnlyMetric):
+    _TERMINATION_NAMED_REGION = "pond"
+
+
+class WeirdTunnelInsideTerminateMetric(ZeldaRegionMatchTerminationOnlyMetric):
+    _TERMINATION_NAMED_REGION = "witch_tracker"
+
+
+class WitchTalkTerminateMetric(ZeldaRegionAndStateTerminationMetric):
+    _TERMINATION_NAMED_REGION = "pots_tracker"
+    _TERMINATION_AGENT_STATE = "in_dialogue"
+
+
+class PotholesSignboardReadTerminateMetric(ZeldaRegionAndStateTerminationMetric):
+    _TERMINATION_NAMED_REGION = "signboard_tracker"
+    _TERMINATION_AGENT_STATE = "in_dialogue"

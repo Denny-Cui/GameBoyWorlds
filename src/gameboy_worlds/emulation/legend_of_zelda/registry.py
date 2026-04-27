@@ -20,6 +20,16 @@ from gameboy_worlds.emulation.legend_of_zelda.trackers import (
     ZeldaLinksAwakeningMakeCallTestTracker,
     ZeldaLinksAwakeningEnterDarkForestTestTracker,
     ZeldaLinksAwakeningOpenChestTestTracker,
+    ZeldaLinksAwakeningMakeCall2TestTracker,
+    ZeldaLinksAwakeningSkeletonTestTracker,
+    ZeldaLinksAwakeningUndergroundTestTracker,
+    ZeldaLinksAwakeningKidTalkTestTracker,
+    ZeldaLinksAwakeningInsideHouseTestTracker,
+    ZeldaLinksAwakeningPotRoomTestTracker,
+    ZeldaLinksAwakeningPondTestTracker,
+    ZeldaLinksAwakeningWeirdTunnelInsideTestTracker,
+    ZeldaLinksAwakeningWitchTalkTestTracker,
+    ZeldaLinksAwakeningSignboardReaderTestTracker,
 )
 
 
@@ -54,6 +64,17 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "make_call_test": ZeldaLinksAwakeningMakeCallTestTracker,
         "enter_dark_forest_test": ZeldaLinksAwakeningEnterDarkForestTestTracker,
         "open_chest_test": ZeldaLinksAwakeningOpenChestTestTracker,
+        "make_call_2_test": ZeldaLinksAwakeningMakeCall2TestTracker,
+        "skeleton_test": ZeldaLinksAwakeningSkeletonTestTracker,
+        "underground_test": ZeldaLinksAwakeningUndergroundTestTracker,
+        "kid_talk_test": ZeldaLinksAwakeningKidTalkTestTracker,
+        "inside_house_test": ZeldaLinksAwakeningInsideHouseTestTracker,
+        "pot_room_test": ZeldaLinksAwakeningPotRoomTestTracker,
+        "pond_tracker": ZeldaLinksAwakeningPondTestTracker,
+        "weird_tunnel_inside_tracker": ZeldaLinksAwakeningWeirdTunnelInsideTestTracker,
+        "witch_talk_tracker": ZeldaLinksAwakeningWitchTalkTestTracker,
+        "signboard_reader_tracker": ZeldaLinksAwakeningSignboardReaderTestTracker,
+
         },
     "legend_of_zelda_the_oracle_of_seasons": {"default": CoreLegendOfZeldaTracker},
 }

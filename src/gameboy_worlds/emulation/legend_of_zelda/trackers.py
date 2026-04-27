@@ -13,6 +13,16 @@ from gameboy_worlds.emulation.legend_of_zelda.test_metrics import (
     MakeCallTerminateMetric,
     EnterDarkForestTerminateMetric,
     OpenChestTerminateMetric,
+    MakeCall2TerminateMetric,
+    SkeletonHouseTerminateMetric,
+    UndergroundTerminateMetric,
+    DiamondKidTalkTerminateMetric,
+    InsideHouseTerminateMetric,
+    PotRoomTerminateMetric,
+    PondTerminateMetric,
+    WeirdTunnelInsideTerminateMetric,
+    WitchTalkTerminateMetric,
+    PotholesSignboardReadTerminateMetric,
 )
 
 # from gameboy_worlds.emulation.tracker import (
@@ -192,3 +202,107 @@ class ZeldaLinksAwakeningOpenChestTestTracker(
 ):
     TERMINATION_TRUNCATION_METRIC = OpenChestTerminateMetric
     SUBGOAL_METRIC = OpenChestSubGoalMetric
+
+class NoGrassSubGoal(SubGoal):
+    NAME = "no_grass"
+
+    def _check_completed(self, frame, parser) -> bool:
+        return parser.named_region_matches_target(frame, "no_grass")
+
+
+class UndergroundSubGoalMetric(SubGoalMetric):
+    SUBGOALS = [NoGrassSubGoal]
+
+
+class HouseRightWindowSubGoal(SubGoal):
+    NAME = "house_right_window"
+
+    def _check_completed(self, frame, parser) -> bool:
+        return parser.named_region_matches_target(frame, "house_right_window")
+
+
+class InsideHouseSubGoalMetric(SubGoalMetric):
+    SUBGOALS = [HouseRightWindowSubGoal]
+
+
+class PotSubGoal(SubGoal):
+    NAME = "pot"
+
+    def _check_completed(self, frame, parser) -> bool:
+        return parser.named_region_matches_target(frame, "pot")
+
+
+class PotRoomSubGoalMetric(SubGoalMetric):
+    SUBGOALS = [PotSubGoal]
+
+
+class WitchSubGoal(SubGoal):
+    NAME = "witch_tracker"
+
+    def _check_completed(self, frame, parser) -> bool:
+        return parser.named_region_matches_target(frame, "witch_tracker")
+
+
+class WitchTalkSubGoalMetric(SubGoalMetric):
+    SUBGOALS = [WitchSubGoal]
+
+
+class PotholesSignboardSubGoal(SubGoal):
+    NAME = "signboard_tracker"
+
+    def _check_completed(self, frame, parser) -> bool:
+        return parser.named_region_matches_target(frame, "signboard_tracker")
+
+
+class PotholesSignboardSubGoalMetric(SubGoalMetric):
+    SUBGOALS = [PotholesSignboardSubGoal]
+
+
+class ZeldaLinksAwakeningMakeCall2TestTracker(TestTrackerMixin, CoreLegendOfZeldaTracker):
+    TERMINATION_TRUNCATION_METRIC = MakeCall2TerminateMetric
+    SUBGOAL_METRIC = DummySubGoalMetric
+
+
+class ZeldaLinksAwakeningSkeletonTestTracker(TestTrackerMixin, CoreLegendOfZeldaTracker):
+    TERMINATION_TRUNCATION_METRIC = SkeletonHouseTerminateMetric
+    SUBGOAL_METRIC = DummySubGoalMetric
+
+
+class ZeldaLinksAwakeningUndergroundTestTracker(TestTrackerMixin, CoreLegendOfZeldaTracker):
+    TERMINATION_TRUNCATION_METRIC = UndergroundTerminateMetric
+    SUBGOAL_METRIC = UndergroundSubGoalMetric
+
+
+class ZeldaLinksAwakeningKidTalkTestTracker(TestTrackerMixin, CoreLegendOfZeldaTracker):
+    TERMINATION_TRUNCATION_METRIC = DiamondKidTalkTerminateMetric
+    SUBGOAL_METRIC = DummySubGoalMetric
+
+
+class ZeldaLinksAwakeningInsideHouseTestTracker(TestTrackerMixin, CoreLegendOfZeldaTracker):
+    TERMINATION_TRUNCATION_METRIC = InsideHouseTerminateMetric
+    SUBGOAL_METRIC = InsideHouseSubGoalMetric
+
+
+class ZeldaLinksAwakeningPotRoomTestTracker(TestTrackerMixin, CoreLegendOfZeldaTracker):
+    TERMINATION_TRUNCATION_METRIC = PotRoomTerminateMetric
+    SUBGOAL_METRIC = PotRoomSubGoalMetric
+
+
+class ZeldaLinksAwakeningPondTestTracker(TestTrackerMixin, CoreLegendOfZeldaTracker):
+    TERMINATION_TRUNCATION_METRIC = PondTerminateMetric
+    SUBGOAL_METRIC = DummySubGoalMetric
+
+
+class ZeldaLinksAwakeningWeirdTunnelInsideTestTracker(TestTrackerMixin, CoreLegendOfZeldaTracker):
+    TERMINATION_TRUNCATION_METRIC = WeirdTunnelInsideTerminateMetric
+    SUBGOAL_METRIC = DummySubGoalMetric
+
+
+class ZeldaLinksAwakeningWitchTalkTestTracker(TestTrackerMixin, CoreLegendOfZeldaTracker):
+    TERMINATION_TRUNCATION_METRIC = WitchTalkTerminateMetric
+    SUBGOAL_METRIC = WitchTalkSubGoalMetric
+
+
+class ZeldaLinksAwakeningSignboardReaderTestTracker(TestTrackerMixin, CoreLegendOfZeldaTracker):
+    TERMINATION_TRUNCATION_METRIC = PotholesSignboardReadTerminateMetric
+    SUBGOAL_METRIC = PotholesSignboardSubGoalMetric
