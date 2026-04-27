@@ -4,7 +4,17 @@ from gameboy_worlds.emulation.tracker import (
     DummySubGoalMetric,
     make_subgoal_metric_class,
 )
+from gameboy_worlds.emulation.sword_of_hope.base_metrics import SwordOfHopeOCRMetric
 from gameboy_worlds.emulation.sword_of_hope.test_metrics import (
+    SoH2DialogueClearedTerminateMetric,
+    SoH2DialogueActiveSubGoal,
+    SoH2DialogueAdvancedTerminateMetric,
+    SoH2DialogueInitiatedSubGoal,
+    SoH2ExplorationMenuTerminateMetric,
+    SoH2MenuOpenSubGoal,
+    SoH2DialogueVisibleSubGoal,
+    SoH2FirstAdjacentRoomTerminateMetric,
+    SoH2StarterRoomSubGoal,
     MillRoomTerminateMetric,
     ShamanRoomTerminateMetric,
     DialogueClearedTerminateMetric,
@@ -50,7 +60,19 @@ from gameboy_worlds.emulation.sword_of_hope.test_metrics import (
 )
 
 
-class SwordOfHope1TestTracker(TestTrackerMixin, StateTracker):
+class SwordOfHopeOCRTracker(StateTracker):
+    """
+    Base StateTracker that always captures the full Game Boy screen as an OCR region.
+    Used as the default tracker for both Sword of Hope 1 and Sword of Hope 2 so that
+    OCR-eligible captures are always available for downstream agents.
+    """
+
+    def start(self):
+        super().start()
+        self.metric_classes.append(SwordOfHopeOCRMetric)
+
+
+class SwordOfHope1TestTracker(TestTrackerMixin, SwordOfHopeOCRTracker):
     """
     Base TestTracker for Sword of Hope 1.
     Inherit this class and set TERMINATION_TRUNCATION_METRIC to create task-specific trackers.
@@ -58,6 +80,67 @@ class SwordOfHope1TestTracker(TestTrackerMixin, StateTracker):
 
     TERMINATION_TRUNCATION_METRIC = MillRoomTerminateMetric
     SUBGOAL_METRIC = DummySubGoalMetric
+
+
+class SwordOfHope2TestTracker(TestTrackerMixin, SwordOfHopeOCRTracker):
+    """
+    Base TestTracker for Sword of Hope 2.
+    Inherit this class and set TERMINATION_TRUNCATION_METRIC to create task-specific trackers.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = None
+    SUBGOAL_METRIC = DummySubGoalMetric
+
+
+class SwordOfHope2DialogueClearTestTracker(SwordOfHope2TestTracker):
+    """
+    Terminates when the dialogue is cleared and control returns to the player.
+    Subgoals: dialogue_active -> (termination) dialogue_cleared.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = SoH2DialogueClearedTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([SoH2DialogueActiveSubGoal])
+
+
+class SwordOfHope2TalkToNpcTestTracker(SwordOfHope2TestTracker):
+    """
+    Terminates when the agent talks to an NPC and advances one full dialogue page.
+    Subgoals: dialogue_initiated -> (termination) dialogue_advanced.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = SoH2DialogueAdvancedTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([SoH2DialogueInitiatedSubGoal])
+
+
+class SwordOfHope2MenuOpenCloseTestTracker(SwordOfHope2TestTracker):
+    """
+    Terminates when the agent closes an open menu and returns to exploration.
+    Subgoals: menu_open -> (termination) exploration_menu.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = SoH2ExplorationMenuTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([SoH2MenuOpenSubGoal])
+
+
+class SwordOfHope2FirstAdjacentRoomTestTracker(SwordOfHope2TestTracker):
+    """
+    Terminates when the agent reaches the first adjacent room from the start state
+    (room_label/castle_corridor). Subgoal: castle_throne starting room visible.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = SoH2FirstAdjacentRoomTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([SoH2StarterRoomSubGoal])
+
+
+class SwordOfHope2OverworldFromDefaultTestTracker(SwordOfHope2TestTracker):
+    """
+    Terminates when the agent reaches a stable overworld position with no open
+    dialogue or menu (the Look/Open/Hit/Use/Magic/Power command grid is showing).
+    Subgoals: dialogue_visible -> (termination) exploration_menu.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = SoH2ExplorationMenuTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([SoH2DialogueVisibleSubGoal])
 
 
 class SwordOfHope1MillRoomTestTracker(SwordOfHope1TestTracker):

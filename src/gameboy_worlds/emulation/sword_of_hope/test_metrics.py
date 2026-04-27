@@ -1,4 +1,7 @@
-from gameboy_worlds.emulation.sword_of_hope.parsers import SwordOfHope1Parser
+from gameboy_worlds.emulation.sword_of_hope.parsers import (
+    SwordOfHope1Parser,
+    SwordOfHope2Parser,
+)
 from gameboy_worlds.emulation.tracker import (
     RegionMatchTerminationMetric,
     TerminationMetric,
@@ -277,3 +280,66 @@ class EscapeConfirmedTerminateMetric(RegionMatchTerminationMetric, TerminationMe
 
     _TERMINATION_NAMED_REGION = "battle_command"
     _TERMINATION_TARGET_NAME = "escape_confirmed"
+
+
+# ---------------------------------------------------------------------------
+# Sword of Hope 2 metrics (5-task starter set)
+# ---------------------------------------------------------------------------
+
+
+class SoH2DialogueClearedTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = SwordOfHope2Parser
+
+    _TERMINATION_NAMED_REGION = "status_command"
+    _TERMINATION_TARGET_NAME = "dialogue_cleared"
+
+
+class SoH2DialogueActiveSubGoal(RegionMatchSubGoal):
+    NAME = "dialogue_active"
+    _NAMED_REGION = "status_command"
+    _TARGET_NAME = "dialogue_active"
+
+
+class SoH2DialogueAdvancedTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = SwordOfHope2Parser
+
+    _TERMINATION_NAMED_REGION = "status_command"
+    _TERMINATION_TARGET_NAME = "dialogue_advanced"
+
+
+class SoH2DialogueInitiatedSubGoal(RegionMatchSubGoal):
+    NAME = "dialogue_initiated"
+    _NAMED_REGION = "status_command"
+    _TARGET_NAME = "dialogue_initiated"
+
+
+class SoH2ExplorationMenuTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = SwordOfHope2Parser
+
+    _TERMINATION_NAMED_REGION = "command_area"
+    _TERMINATION_TARGET_NAME = "exploration_menu"
+
+
+class SoH2MenuOpenSubGoal(RegionMatchSubGoal):
+    NAME = "menu_open"
+    _NAMED_REGION = "command_area"
+    _TARGET_NAME = "menu_open"
+
+
+class SoH2DialogueVisibleSubGoal(RegionMatchSubGoal):
+    NAME = "dialogue_visible"
+    _NAMED_REGION = "status_command"
+    _TARGET_NAME = "dialogue_visible"
+
+
+class SoH2FirstAdjacentRoomTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = SwordOfHope2Parser
+
+    _TERMINATION_NAMED_REGION = "room_label"
+    _TERMINATION_TARGET_NAME = "castle_corridor"
+
+
+class SoH2StarterRoomSubGoal(RegionMatchSubGoal):
+    NAME = "castle_throne"
+    _NAMED_REGION = "room_label"
+    _TARGET_NAME = "castle_throne"

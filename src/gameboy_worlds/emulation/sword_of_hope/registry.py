@@ -7,6 +7,7 @@ from gameboy_worlds.emulation.sword_of_hope.parsers import (
     SwordOfHope2Parser,
 )
 from gameboy_worlds.emulation.sword_of_hope.trackers import (
+    SwordOfHopeOCRTracker,
     SwordOfHope1MillRoomTestTracker,
     SwordOfHope1ShamanRoomTestTracker,
     SwordOfHope1DialogueClearTestTracker,
@@ -29,11 +30,16 @@ from gameboy_worlds.emulation.sword_of_hope.trackers import (
     SwordOfHope1CastGraceAltarTestTracker,
     SwordOfHope1CompleteTeleportTestTracker,
     SwordOfHope1EscapeBattleTestTracker,
+    SwordOfHope2DialogueClearTestTracker,
+    SwordOfHope2TalkToNpcTestTracker,
+    SwordOfHope2MenuOpenCloseTestTracker,
+    SwordOfHope2FirstAdjacentRoomTestTracker,
+    SwordOfHope2OverworldFromDefaultTestTracker,
 )
 
 GAME_TO_GB_NAME = {
-    "sword_of_hope_1": "SwordOfHope.gb",
-    "sword_of_hope_2": "SwordOfHope2.gb",
+    "sword_of_hope_1": "SwordofHope.gb",
+    "sword_of_hope_2": "SwordofHope2.gb",
 }
 """ Expected save name for each game. Save the file to <storage_dir_from_config_file>/<game_name>_rom_data/<gb_name>"""
 
@@ -50,7 +56,7 @@ This means there is never a reason to use a weaker parser.
 
 AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
     "sword_of_hope_1": {
-        "default": StateTracker,
+        "default": SwordOfHopeOCRTracker,
         "mill_room_test": SwordOfHope1MillRoomTestTracker,
         "shaman_room_test": SwordOfHope1ShamanRoomTestTracker,
         "dialogue_clear_test": SwordOfHope1DialogueClearTestTracker,
@@ -74,7 +80,14 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "complete_teleport_test": SwordOfHope1CompleteTeleportTestTracker,
         "escape_battle_test": SwordOfHope1EscapeBattleTestTracker,
     },
-    "sword_of_hope_2": {"default": StateTracker},
+    "sword_of_hope_2": {
+        "default": SwordOfHopeOCRTracker,
+        "dialogue_clear_test": SwordOfHope2DialogueClearTestTracker,
+        "talk_to_npc_test": SwordOfHope2TalkToNpcTestTracker,
+        "menu_open_close_test": SwordOfHope2MenuOpenCloseTestTracker,
+        "first_adjacent_room_test": SwordOfHope2FirstAdjacentRoomTestTracker,
+        "overworld_from_default_test": SwordOfHope2OverworldFromDefaultTestTracker,
+    },
 }
 """ Mapping of game names to their available StateTracker classes with string identifiers. """
 
