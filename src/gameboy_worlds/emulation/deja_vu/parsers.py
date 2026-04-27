@@ -91,8 +91,8 @@ class DejaVuStateParser(StateParser, ABC):
     COMMON_MULTI_TARGET_REGIONS = [
         ("dialogue_box_area", 0, 74, 160, 55),
         ("menu_box_area", 0, 70, 160, 70),
-        ("action_bar_in_normal", 0, 113, 160, 15),
-        ("action_bar_in_menu", 0, 25, 160, 15),
+        ("action_bar_in_normal", 0, 114, 160, 14),
+        ("action_bar_in_menu", 0, 26, 160, 14),
         ("menu_title_area", 23, 56, 96, 17),
         ("game_screen_area", 0, 0, 112, 112),
         # ("map_area", 120, 48, 40, 40),
@@ -121,20 +121,25 @@ class DejaVuStateParser(StateParser, ABC):
             "a_default_target",
             "no_action_selected",
             "selected_watch_action",
+            "selected_use_action",
             "selected_take_action",
             "selected_open_action",
             "selected_close_action",
+            "selected_talk_action",
             "selected_hit_action",
-            "selected_use_action",
+            "selected_throw_action",
         ],
         "action_bar_in_menu": [
             "a_default_target",
             "no_action_selected",
             "selected_watch_action",
+            "selected_use_action",
             "selected_take_action",
             "selected_open_action",
             "selected_close_action",
-            "selected_use_action",
+            "selected_talk_action",
+            "selected_hit_action",
+            "selected_throw_action",
         ],
         "menu_title_area": [
             "a_default_target",
@@ -314,6 +319,10 @@ class DejaVu1StateParser(DejaVuStateParser):
         override_regions = [
             ("selected_coat_item", 0, 79, 160, 8),
             ("selected_wallet_item", 0, 120, 160, 8),
+            ("selected_coin_item", 0, 95, 160, 8),
+            ("using_coin_item", 0, 95, 160, 8),
+            ("using_key3_item", 0, 88, 160, 8),
+            ("using_key2_item", 0, 128, 160, 8),
         ]
         override_multi_target_regions = []
         override_multi_targets = {
@@ -329,6 +338,13 @@ class DejaVu1StateParser(DejaVuStateParser):
                 "opened_spigot",
                 "hit_bottle",
                 "entered_cellar",
+                "entered_connecting_room",
+                "made_bet",
+                "entered_empty_room",
+                "unlocked_front_door",
+                "met_mugger",
+                "hit_mugger",
+                "unlocked_car_door",
             ],
             "menu_title_area": [
                 "coat_pocket_menu",

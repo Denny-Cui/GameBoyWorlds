@@ -24,8 +24,13 @@ from gameboy_worlds.emulation.deja_vu.test_metrics import (
     ClosedWallet1TerminationMetric,
     ClosedWalletTerminationMetric,
     EnteredCellarTerminationMetric,
+    EnteredConnectingRoomTerminationMetric,
+    EnteredEmptyRoomFromMapTerminationMetric,
     EnteredHallwayTerminationMetric,
     HitBottleTerminationMetric,
+    HitMuggerTerminationMetric,
+    MadeBetTerminationMetric,
+    MeetMuggerTerminationMetric,
     OpenedBathroomDoorTerminationMetric,
     OpenedColdTapTerminationMetric,
     OpenedDoorFromMapTerminationMetric,
@@ -46,6 +51,8 @@ from gameboy_worlds.emulation.deja_vu.test_metrics import (
     TakenNewsclip1TerminationMetric,
     TakenPantsTerminationMetric,
     TakenRing1TerminationMetric,
+    UnlockedCarDoorTerminationMetric,
+    UnlockedFrontDoorTerminationMetric,
 )
 # import subgoal classes for the subgoal metrics
 from gameboy_worlds.emulation.deja_vu.test_metrics import (
@@ -77,6 +84,11 @@ from gameboy_worlds.emulation.deja_vu.test_metrics import (
     SelectedWatchActionInMenuSubGoal,
     PointedAt21OnMapSubGoal,
     Selected2ChipsSubGoal,
+    PointedAtCoinSubGoal,
+    UsingCoinSubGoal,
+    PointedAt13OnMapSubGoal,
+    UsingKey3SubGoal,
+    UsingKey2SubGoal,
 )
 
 
@@ -240,6 +252,73 @@ class DejaVuEnterCellarTestTracker(DejaVuTestTracker):
 
     TERMINATION_TRUNCATION_METRIC = EnteredCellarTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([OpenedCellarDoorOnScreenSubGoal])
+
+class DejaVuEnterConnectingRoomTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent enters the connecting room.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = EnteredConnectingRoomTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([NoActionSelectedInNormalSubGoal])
+
+class DejaVuMakeBetTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent makes a bet in casino.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = MadeBetTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([
+        SelectedUseActionInMenuSubGoal,
+        PointedAtCoinSubGoal,
+        UsingCoinSubGoal,
+    ])
+
+class DejaVuEnterEmptyRoomFromMapTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent enters an empty room from the map.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = EnteredEmptyRoomFromMapTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([
+        NoActionSelectedInNormalSubGoal,
+        PointedAt13OnMapSubGoal,
+    ])
+
+class DejaVuUnlockFrontDoorTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent unlocks the front door.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = UnlockedFrontDoorTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([
+        UsingKey3SubGoal,
+        SelectedUseActionInMenuSubGoal,
+    ])
+
+class DejaVuMeetMuggerTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent meets the mugger.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = MeetMuggerTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([NoActionSelectedInNormalSubGoal])
+
+class DejaVuHitMuggerTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent hits the mugger.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = HitMuggerTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([SelectedHitActionInNormalSubGoal])
+
+class DejaVuUnlockCarDoorTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent unlocks the car door.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = UnlockedCarDoorTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([UsingKey2SubGoal])
+
 
 # deja_vu_2 test trackers
 class DejaVuOpenTrenchCoatTestTracker(DejaVuTestTracker):

@@ -99,6 +99,47 @@ class EnteredCellarTerminationMetric(RegionMatchTerminationOnlyMetric):
     _TERMINATION_NAMED_REGION = "dialogue_box_area"
     _TERMINATION_TARGET_NAME = "entered_cellar"
 
+class EnteredConnectingRoomTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "entered_connecting_room"
+
+class MadeBetTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "made_bet"
+
+class EnteredEmptyRoomFromMapTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "entered_empty_room"
+
+class UnlockedFrontDoorTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "unlocked_front_door"
+
+class MeetMuggerTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "met_mugger"
+
+class HitMuggerTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "hit_mugger"
+
+class UnlockedCarDoorTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "unlocked_car_door"
 
 # deja_vu_2 termination metrics
 class OpenedTrenchCoatPocketTerminationMetric(RegionMatchTerminationOnlyMetric):
@@ -220,6 +261,7 @@ class Bought2ChipsTerminationMetric(RegionMatchTerminationOnlyMetric):
 
     _TERMINATION_NAMED_REGION = "dialogue_box_area"
     _TERMINATION_TARGET_NAME = "bought_2_chips"
+
 
 # subgoal classes
 # subgoal classes with multiple region match requirements
@@ -358,3 +400,23 @@ class PointedAtLicense1SubGoal(SingleRegionMatchSubGoal):
 class PointedAt21OnMapSubGoal(SingleRegionMatchSubGoal):
     NAME = "pointed_at_21_on_map"
     _NAMED_REGION = "pointed_at_21_on_map"
+
+class PointedAt13OnMapSubGoal(SingleRegionMatchSubGoal):
+    NAME = "pointed_at_13_on_map"
+    _NAMED_REGION = "pointed_at_13_on_map"
+
+class PointedAtCoinSubGoal(SingleRegionMatchSubGoal):
+    NAME = "pointed_at_coin"
+    _NAMED_REGION = "selected_coin_item"
+
+class UsingCoinSubGoal(SingleRegionMatchSubGoal):
+    NAME = "using_coin"
+    _NAMED_REGION = "using_coin_item"
+
+class UsingKey3SubGoal(SingleRegionMatchSubGoal):
+    NAME = "using_key3"
+    _NAMED_REGION = "using_key3_item"
+
+class UsingKey2SubGoal(SingleRegionMatchSubGoal):
+    NAME = "using_key2"
+    _NAMED_REGION = "using_key2_item"

@@ -13,7 +13,11 @@ from gameboy_worlds.emulation.deja_vu.trackers import (
     DejaVuCloseColdTapTestTracker,
     DejaVuCloseDoorFromMapTestTracker,
     DejaVuCloseWallet1TestTracker,
+    DejaVuEnterConnectingRoomTestTracker,
     DejaVuEnterHallwayTestTracker,
+    DejaVuHitMuggerTestTracker,
+    DejaVuMakeBetTestTracker,
+    DejaVuMeetMuggerTestTracker,
     DejaVuOCRTracker,
     DejaVuClosePantsPocketTestTracker,
     DejaVuCoatTestTracker,
@@ -42,6 +46,9 @@ from gameboy_worlds.emulation.deja_vu.trackers import (
     DejaVuTakeNewsclip1TestTracker,
     DejaVuTakePantsTestTracker,
     DejaVuTakeRing1TestTracker,
+    DejaVuEnterEmptyRoomFromMapTestTracker,
+    DejaVuUnlockCarDoorTestTracker,
+    DejaVuUnlockFrontDoorTestTracker,
 )
 from gameboy_worlds.emulation.deja_vu.emulators import DejaVuEmulator
 
@@ -78,6 +85,13 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "hit_bottle_test": DejaVuHitBottleTestTracker,
         "open_spigot_test": DejaVuOpenSpigotTestTracker,
         "enter_cellar_test": DejaVuEnterCellarTestTracker,
+        "enter_connecting_room_test": DejaVuEnterConnectingRoomTestTracker,
+        "make_bet_test": DejaVuMakeBetTestTracker,
+        "enter_empty_room_from_map_test": DejaVuEnterEmptyRoomFromMapTestTracker,
+        "unlock_front_door_test": DejaVuUnlockFrontDoorTestTracker,
+        "meet_mugger_test": DejaVuMeetMuggerTestTracker,
+        "hit_mugger_test": DejaVuHitMuggerTestTracker,
+        "unlock_car_door_test": DejaVuUnlockCarDoorTestTracker,
     },
     "deja_vu_2": {
         "default": DejaVuOCRTracker,
