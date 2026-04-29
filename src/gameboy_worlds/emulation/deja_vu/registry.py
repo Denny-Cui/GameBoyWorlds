@@ -2,14 +2,14 @@ from typing import Optional, Union, Type, Dict
 from gameboy_worlds.emulation.parser import StateParser
 from gameboy_worlds.emulation.tracker import StateTracker
 from gameboy_worlds.emulation.emulator import Emulator
-
-from gameboy_worlds.emulation.deja_vu.parsers import (
-    DejaVu1StateParser,
-    DejaVu2StateParser,
-)
+from gameboy_worlds.emulation.deja_vu.emulators import DejaVuEmulator
+from gameboy_worlds.emulation.deja_vu.parsers import DejaVu1StateParser, DejaVu2StateParser
+# deja_vu_1 trackers
 from gameboy_worlds.emulation.deja_vu.trackers import (
-    DejaVuOCRTracker,
     DejaVu1CheckGunTestTracker,
+    DejaVu1CheckedNote2TestTracker,
+    DejaVu1CheckedMapTestTracker,
+    DejaVu1CheckedSnapshotTestTracker,
     DejaVu1CloseDoorTestTracker,
     DejaVu1ClosePocketTestTracker,
     DejaVu1CloseWalletTestTracker,
@@ -17,6 +17,9 @@ from gameboy_worlds.emulation.deja_vu.trackers import (
     DejaVu1EnterCellarTestTracker,
     DejaVu1EnterConnectingRoomTestTracker,
     DejaVu1EnterEmptyRoomFromMapTestTracker,
+    DejaVu1EnterTaxiTestTracker,
+    DejaVu1GoNewsstandTestTracker,
+    DejaVu1GotoWestendTestTracker,
     DejaVu1HitBottleTestTracker,
     DejaVu1HitMuggerTestTracker,
     DejaVu1MeetMuggerTestTracker,
@@ -26,8 +29,14 @@ from gameboy_worlds.emulation.deja_vu.trackers import (
     DejaVu1OpenWalletTestTracker,
     DejaVu1TakeGunTestTracker,
     DejaVu1CheckCoatTestTracker,
+    DejaVu1TalkToTaxiDriverTestTracker,
     DejaVu1UnlockCarDoorTestTracker,
     DejaVu1UnlockFrontDoorTestTracker,
+    DejaVu1CloseDashbrdTestTracker,
+    DejaVu1OpenDashbrdTestTracker,
+)
+# deja_vu_2 trackers
+from gameboy_worlds.emulation.deja_vu.trackers import (
     DejaVu2Buy2ChipsTestTracker,
     DejaVu2CheckNewsclip1TestTracker,
     DejaVu2CloseDoorFromMapTestTracker,
@@ -46,8 +55,7 @@ from gameboy_worlds.emulation.deja_vu.trackers import (
     DejaVu2TakeNewsclip1TestTracker,
     DejaVu2TakePantsTestTracker,
 )
-from gameboy_worlds.emulation.deja_vu.emulators import DejaVuEmulator
-
+from gameboy_worlds.emulation.deja_vu.trackers import  DejaVuOCRTracker
 GAME_TO_GB_NAME = {
     "deja_vu_1": "DejaVu.gbc",
     "deja_vu_2": "DejaVu.gbc",
@@ -88,6 +96,15 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "meet_mugger_test": DejaVu1MeetMuggerTestTracker,
         "hit_mugger_test": DejaVu1HitMuggerTestTracker,
         "unlock_car_door_test": DejaVu1UnlockCarDoorTestTracker,
+        "open_dashbrd_test": DejaVu1OpenDashbrdTestTracker,
+        "close_dashbrd_test": DejaVu1CloseDashbrdTestTracker,
+        "checked_note2_test": DejaVu1CheckedNote2TestTracker,
+        "checked_map_test": DejaVu1CheckedMapTestTracker,
+        "checked_snapshot_test": DejaVu1CheckedSnapshotTestTracker,
+        "go_newsstand_test": DejaVu1GoNewsstandTestTracker,
+        "enter_taxi_test": DejaVu1EnterTaxiTestTracker,
+        "talk_to_taxi_driver_test": DejaVu1TalkToTaxiDriverTestTracker,
+        "goto_westend_test": DejaVu1GotoWestendTestTracker,
     },
     "deja_vu_2": {
         "default": DejaVuOCRTracker,

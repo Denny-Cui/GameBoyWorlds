@@ -16,8 +16,12 @@ from gameboy_worlds.emulation.deja_vu.test_metrics import (
     Bought2ChipsTerminationMetric,
     CheckedCoatTerminationMetric,
     CheckedGunTerminationMetric,
+    CheckedMapTerminationMetric,
     CheckedNewsclip1TerminationMetric,
+    CheckedNote2TerminationMetric,
+    CheckedSnapshotTerminationMetric,
     ClosedColdTapTerminationMetric,
+    ClosedDashbrdTerminationMetric,
     ClosedDoorFromMapTerminationMetric,
     ClosedPantsPocketTerminationMetric,
     ClosedPocketTerminationMetric,
@@ -27,12 +31,16 @@ from gameboy_worlds.emulation.deja_vu.test_metrics import (
     EnteredConnectingRoomTerminationMetric,
     EnteredEmptyRoomFromMapTerminationMetric,
     EnteredHallwayTerminationMetric,
+    EnteredTaxiTerminationMetric,
+    GoNewsstandTerminationMetric,
+    GotoWestendTerminationMetric,
     HitBottleTerminationMetric,
     HitMuggerTerminationMetric,
     MadeBetTerminationMetric,
     MeetMuggerTerminationMetric,
     OpenedBathroomDoorTerminationMetric,
     OpenedColdTapTerminationMetric,
+    OpenedDashbrdTerminationMetric,
     OpenedDoorFromMapTerminationMetric,
     OpenedDoorTerminationMetric,
     OpenedPantsPocketTerminationMetric,
@@ -51,6 +59,7 @@ from gameboy_worlds.emulation.deja_vu.test_metrics import (
     TakenNewsclip1TerminationMetric,
     TakenPantsTerminationMetric,
     TakenRing1TerminationMetric,
+    TalkedToTaxiDriverTerminationMetric,
     UnlockedCarDoorTerminationMetric,
     UnlockedFrontDoorTerminationMetric,
 )
@@ -89,6 +98,9 @@ from gameboy_worlds.emulation.deja_vu.test_metrics import (
     PointedAt13OnMapSubGoal,
     UsingKey3SubGoal,
     UsingKey2SubGoal,
+    PointedAt11OnMapSubGoal,
+    SelectedTalkActionInNormalSubGoal,
+    PointedAtWestendAddressSubGoal,
 )
 
 
@@ -318,6 +330,90 @@ class DejaVu1UnlockCarDoorTestTracker(DejaVuTestTracker):
 
     TERMINATION_TRUNCATION_METRIC = UnlockedCarDoorTerminationMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([UsingKey2SubGoal])
+
+class DejaVu1OpenDashbrdTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent opens the car dashboard.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = OpenedDashbrdTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([SelectedOpenActionInNormalSubGoal])
+
+class DejaVu1CloseDashbrdTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent closes the car dashboard.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = ClosedDashbrdTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([SelectedCloseActionInNormalSubGoal])
+
+class DejaVu1CheckedNote2TestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent checks note 2.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = CheckedNote2TerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([
+        SelectedWatchActionInMenuSubGoal,
+        InGoodsMenuSubGoal,
+    ])
+
+class DejaVu1CheckedMapTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent checks the map.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = CheckedMapTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([
+        SelectedWatchActionInMenuSubGoal,
+        InGoodsMenuSubGoal,
+    ])
+
+class DejaVu1CheckedSnapshotTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent checks the snapshot.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = CheckedSnapshotTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([
+        SelectedWatchActionInMenuSubGoal,
+        InGoodsMenuSubGoal,
+    ])
+
+class DejaVu1GoNewsstandTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent goes to the newsstand.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = GoNewsstandTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([
+        PointedAt11OnMapSubGoal,
+        NoActionSelectedInNormalSubGoal,
+    ])
+
+class DejaVu1EnterTaxiTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent enters the taxi.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = EnteredTaxiTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([NoActionSelectedInNormalSubGoal])
+
+class DejaVu1TalkToTaxiDriverTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent talks to the taxi driver.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = TalkedToTaxiDriverTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([SelectedTalkActionInNormalSubGoal])
+
+class DejaVu1GotoWestendTestTracker(DejaVuTestTracker):
+    """
+    A TestTracker for Deja Vu games that terminates when the agent goes to westend.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = GotoWestendTerminationMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([PointedAtWestendAddressSubGoal])
 
 
 # deja_vu_2 test trackers

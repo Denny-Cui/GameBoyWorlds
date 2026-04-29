@@ -75,6 +75,7 @@ class DejaVuStateParser(StateParser, ABC):
         ("selected_outfit_button", 120, 17, 14, 15),
         ("pointed_at_13_on_map", 136, 80, 8, 8),
         ("pointed_at_21_on_map", 120, 72, 8, 8),
+        ("pointed_at_11_on_map", 120, 80, 8, 8),
     ]
     """ 
     List of common named screen regions for Deja Vu game.
@@ -86,6 +87,7 @@ class DejaVuStateParser(StateParser, ABC):
     (the map is divided into a 5x5 grid of locations, with (1,1) being the bottom left and (5,5) being the top right - (i,j) corresponds to i-th row from the bottom and j-th column from the left)
     - pointed_at_13_on_map: The agent is currently pointing at location (1,3) on the map.
     - pointed_at_21_on_map: The agent is currently pointing at location (2,1) on the map.
+    - pointed_at_11_on_map: The agent is currently pointing at location (1,1) on the map.
     """
 
     COMMON_MULTI_TARGET_REGIONS = [
@@ -323,6 +325,7 @@ class DejaVu1StateParser(DejaVuStateParser):
             ("using_coin_item", 0, 95, 160, 8),
             ("using_key3_item", 0, 88, 160, 8),
             ("using_key2_item", 0, 128, 160, 8),
+            ("selected_westend_address", 0, 88, 160, 8),
         ]
         override_multi_target_regions = []
         override_multi_targets = {
@@ -345,6 +348,15 @@ class DejaVu1StateParser(DejaVuStateParser):
                 "met_mugger",
                 "hit_mugger",
                 "unlocked_car_door",
+                "opened_dashbrd",
+                "closed_dashbrd",
+                "checked_note2",
+                "checked_map",
+                "checked_snapshot",
+                "in_front_of_newsstand",
+                "entered_taxi",
+                "talked_to_taxi_driver",
+                "went_to_westend",
             ],
             "menu_title_area": [
                 "coat_pocket_menu",

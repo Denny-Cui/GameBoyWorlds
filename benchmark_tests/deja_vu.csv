@@ -13,7 +13,6 @@ deja_vu_1	action	open the spigot	in_cellar	open_spigot_test			deja_vu_2
 deja_vu_1	action	hit the bottle	in_cellar	hit_bottle_test			deja_vu_2
 deja_vu_1	navigation	get into cellar	in_empty_restaurant	enter_cellar_test			deja_vu_2
 deja_vu_1	navigation	enter connecting room	hit_bottle	enter_connecting_room_test			deja_vu_2
-deja_vu_1	interaction	make a bet	in_casino	make_bet_test			deja_vu_2
 deja_vu_1	navigation	go to empty room from map	back_to_cellar	enter_empty_room_from_map_test			deja_vu_2
 deja_vu_1	navigation	unlock the front	back_to_empty_restaurant	unlock_front_door_test			deja_vu_2
 deja_vu_1	interaction	meet the mugger	unlocked_front_door	meet_mugger_test			deja_vu_2

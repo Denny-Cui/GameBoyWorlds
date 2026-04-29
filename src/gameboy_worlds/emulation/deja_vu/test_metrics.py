@@ -141,6 +141,61 @@ class UnlockedCarDoorTerminationMetric(RegionMatchTerminationOnlyMetric):
     _TERMINATION_NAMED_REGION = "dialogue_box_area"
     _TERMINATION_TARGET_NAME = "unlocked_car_door"
 
+class OpenedDashbrdTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "opened_dashbrd"
+
+class ClosedDashbrdTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "closed_dashbrd"
+
+class CheckedNote2TerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "checked_note2"
+
+class CheckedMapTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "checked_map"
+
+class CheckedSnapshotTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "checked_snapshot"
+
+class GoNewsstandTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "in_front_of_newsstand"
+
+class EnteredTaxiTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "entered_taxi"
+
+class TalkedToTaxiDriverTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "talked_to_taxi_driver"
+
+class GotoWestendTerminationMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = DejaVu1StateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_area"
+    _TERMINATION_TARGET_NAME = "went_to_westend"
+
+
 # deja_vu_2 termination metrics
 class OpenedTrenchCoatPocketTerminationMetric(RegionMatchTerminationOnlyMetric):
     REQUIRED_PARSER = DejaVu2StateParser
@@ -360,6 +415,11 @@ class Selected2ChipsSubGoal(AnyRegionMatchSubGoal):
     _NAMED_REGIONS = ["dialogue_box_area"]
     _TARGET_NAMES = ["selected_2_chips"]
 
+class SelectedTalkActionInNormalSubGoal(AnyRegionMatchSubGoal):
+    NAME = "selected_talk_action_in_normal"
+    _NAMED_REGIONS = ["action_bar_in_normal"]
+    _TARGET_NAMES = ["selected_talk_action"]
+
 # subgoal classes with single region match requirement
 class PointedAtCoatSubGoal(SingleRegionMatchSubGoal):
     NAME = "pointed_at_coat"
@@ -405,6 +465,10 @@ class PointedAt13OnMapSubGoal(SingleRegionMatchSubGoal):
     NAME = "pointed_at_13_on_map"
     _NAMED_REGION = "pointed_at_13_on_map"
 
+class PointedAt11OnMapSubGoal(SingleRegionMatchSubGoal):
+    NAME = "pointed_at_11_on_map"
+    _NAMED_REGION = "pointed_at_11_on_map"
+
 class PointedAtCoinSubGoal(SingleRegionMatchSubGoal):
     NAME = "pointed_at_coin"
     _NAMED_REGION = "selected_coin_item"
@@ -420,3 +484,7 @@ class UsingKey3SubGoal(SingleRegionMatchSubGoal):
 class UsingKey2SubGoal(SingleRegionMatchSubGoal):
     NAME = "using_key2"
     _NAMED_REGION = "using_key2_item"
+
+class PointedAtWestendAddressSubGoal(SingleRegionMatchSubGoal):
+    NAME = "pointed_at_westend_address"
+    _NAMED_REGION = "selected_westend_address"
