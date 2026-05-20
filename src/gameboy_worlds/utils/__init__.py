@@ -9,6 +9,7 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 from time import perf_counter_ns
+from typing import Optional, List, Dict
 
 
 def import_cv2(parameters: dict = None):
@@ -198,13 +199,16 @@ def get_benchmark_tasks_dfs(parameters: dict = None) -> dict[str, pd.DataFrame]:
     return benchmark_dfs
 
 
-def get_benchmark_tasks(game: str, parameters: dict = None) -> pd.DataFrame:
+def get_benchmark_tasks(
+    game: str, parameters: dict = None, shifted_included: bool = False
+) -> pd.DataFrame:
     """
     Loads the benchmark tasks for the specified game from the benchmark/tests/tasks.csv file
 
     Args:
         game (str): The variant of the game to get benchmark tasks for.
         parameters (dict, optional): Additional parameters for error logging.
+        shifted_included (bool, optional): Whether to include task rows from other titles in the same series as part of the benchmark tasks.
 
     Returns:
         pd.DataFrame: DataFrame containing the benchmark tasks for the specified game.
@@ -228,13 +232,69 @@ def get_benchmark_tasks(game: str, parameters: dict = None) -> pd.DataFrame:
             f"Game variant '{game}' not found in benchmark tasks. Available game variants: {available_games}",
             parameters=parameters,
         )
-    game_tasks_df = task_df[task_df["game"] == game]
-    if len(game_tasks_df) == 0:
-        log_error(
-            f"No benchmark tasks found for game variant '{game}'. Please ensure that the benchmark/tests/tasks.csv file contains tasks for this game.",
+    if not shifted_included:
+        game_tasks_df = task_df[task_df["game"] == game].reset_index(drop=True)
+    else:
+        game_tasks_df = task_df
+    return game_tasks_df
+
+
+def get_training_states(game: str, parameters: dict = None) -> Optional[List[str]]:
+    """
+    Loads the training states for the specified game from the benchmark/tasks.csv file
+
+    Args:
+        game (str): The variant of the game to get training states for.
+        parameters (dict, optional): Additional parameters for error logging.
+
+    Returns:
+        Optional[List[str]]: A list of training states for the specified game, or None if no training states are specified.
+    """
+    parameters = load_parameters(parameters)
+    tasks_df = get_benchmark_tasks(game, parameters, shifted_included=False)
+    training_rows = tasks_df[tasks_df["can_train_from_init_state"] == True]
+    if len(training_rows) == 0:
+        log_warn(
+            f"No training states specified for game variant '{game}' in benchmark tasks.",
             parameters,
         )
-    return game_tasks_df
+        return None
+    training_states = list(set(training_rows["initial_state"].tolist()))
+    return training_states
+
+
+def get_shifted_training_states(
+    game: str, parameters: dict = None
+) -> Dict[str, List[str]]:
+    """
+    Loads the shifted training states for the specified game from the benchmark/tasks.csv file.
+
+    This ends up being all available training states from every other title of the same series. So if you ask for pokemon_red's shifted states, you will get pokemon_crystal's training states.
+
+    Args:
+        game (str): The variant of the game to get shifted training states for.
+        parameters (dict, optional): Additional parameters for error logging.
+    Returns:
+        Dict[str, List[str]]: A dictionary of lists of shifted training states for the specified game. Each entry is in format {game: [training_states]}, where game is a different title in the same series as the input game.
+    """
+    parameters = load_parameters(parameters)
+    tasks_df = get_benchmark_tasks(game, parameters, shifted_included=True)
+    other_task_rows = tasks_df[tasks_df["game"] != game].reset_index(drop=True)
+    training_rows = other_task_rows[
+        other_task_rows["can_train_from_init_state"] == True
+    ]
+    if len(training_rows) == 0:
+        log_error(
+            f"No shifted training states specified for game variant '{game}' in benchmark tasks. This shouldn't happen.",
+            parameters,
+        )
+    shifted_training_states = {}
+    for _, row in training_rows.iterrows():
+        other_game = row["game"]
+        if other_game not in shifted_training_states:
+            shifted_training_states[other_game] = []
+        shifted_training_states[other_game].append(row["initial_state"])
+    return shifted_training_states
 
 
 class _Profiler:
