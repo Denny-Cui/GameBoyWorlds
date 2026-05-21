@@ -225,6 +225,13 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "open_box_test": DejaVu2OpenBoxTestTracker,
         "open_pocket_knife_test": DejaVu2OpenPocketKnifeTestTracker,
         "open_door_by_knife": DejaVu2OpenDoorByKnifeTestTracker,
+        "put_on_flashlight_test": DejaVu2PutOnFlashlightTestTracker,
+        "enter_joe_place_test": DejaVu2EnterJoePlaceTestTracker,
+        "open_slot_lock_test": DejaVu2OpenSlotLockTestTracker,
+        "turn_off_flashlight_test": DejaVu2TurnOffFlashlightTestTracker,
+        "get_location_from_card_test": DejaVu2GetLocationFromCardTestTracker,
+        "open_bag_with_knife_test": DejaVu2OpenBagWithKnifeTestTracker,
+        "ask_about_nametag2_test": DejaVu2AskAboutNametag2TestTracker,
     },
 }
 """ Mapping of game names to their available StateTracker classes with string identifiers. """
