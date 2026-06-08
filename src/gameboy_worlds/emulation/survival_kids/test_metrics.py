@@ -146,6 +146,14 @@ class AfterFillingWaterTerminateMetric(
     _TERMINATION_TARGET_NAME = "after_filling_water"
 
 
+class AfterDrinkingWaterTerminateMetric(
+    RegionMatchTerminationMetric, TerminationMetric
+):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "after_drinking_water"
+
+
 class GotTheWaterTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
     REQUIRED_PARSER = SurvivalKidsParser
     _TERMINATION_NAMED_REGION = "screen"
@@ -194,6 +202,22 @@ class InventoryOpenTerminateMetric(RegionMatchTerminationMetric, TerminationMetr
     _TERMINATION_TARGET_NAME = "inventory_open"
 
 
+class InventoryAfterFireLitTerminateMetric(
+    RegionMatchTerminationMetric, TerminationMetric
+):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "menu_area"
+    _TERMINATION_TARGET_NAME = "inventory_after_fire_lit"
+
+
+class InventorySelectItemTerminateMetric(
+    RegionMatchTerminationMetric, TerminationMetric
+):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "inventory_select_item"
+
+
 class PickupItemDialogueTerminateMetric(
     RegionMatchTerminationMetric, TerminationMetric
 ):
@@ -208,6 +232,12 @@ class CanteenPickupDialogueTerminateMetric(
     REQUIRED_PARSER = SurvivalKidsParser
     _TERMINATION_NAMED_REGION = "dialogue_area"
     _TERMINATION_TARGET_NAME = "canteen_pickup_dialogue"
+
+
+class GotTheClamTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "dialogue_area"
+    _TERMINATION_TARGET_NAME = "got_the_clam"
 
 
 class BagIconTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
@@ -298,8 +328,20 @@ class TakeLeaveMenuTerminateMetric(RegionMatchTerminationMetric, TerminationMetr
 
 class SelectTakeTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
     REQUIRED_PARSER = SurvivalKidsParser
-    _TERMINATION_NAMED_REGION = "item_action_menu_two_options"
+    _TERMINATION_NAMED_REGION = "item_action_menu"
     _TERMINATION_TARGET_NAME = "select_take"
+
+
+class SelectDropTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "inventory_item_action_menu"
+    _TERMINATION_TARGET_NAME = "select_drop"
+
+
+class SelectMeatTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "inventory_description_area"
+    _TERMINATION_TARGET_NAME = "select_meat"
 
 
 class CanteenTakeLeaveMenuTerminateMetric(
@@ -354,6 +396,36 @@ class MeatActionMenuTerminateMetric(RegionMatchTerminationMetric, TerminationMet
     _TERMINATION_TARGET_NAME = "meat_take_eat_leave_menu"
 
 
+class CookedMeatActionMenuTerminateMetric(
+    RegionMatchTerminationMetric, TerminationMetric
+):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "item_action_menu"
+    _TERMINATION_TARGET_NAME = "cooked_meat_action_menu"
+
+
+class CookedMeatEatSelectedTerminateMetric(
+    RegionMatchTerminationMetric, TerminationMetric
+):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "item_action_menu"
+    _TERMINATION_TARGET_NAME = "cooked_meat_eat_selected"
+
+
+class MeatBurnSelectedTerminateMetric(
+    RegionMatchTerminationMetric, TerminationMetric
+):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "inventory_item_action_menu"
+    _TERMINATION_TARGET_NAME = "meat_burn_selected"
+
+
+class BurnConfirmTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "inventory_item_action_menu"
+    _TERMINATION_TARGET_NAME = "burn_confirm"
+
+
 class MeatEatSelectedTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
     REQUIRED_PARSER = SurvivalKidsParser
     _TERMINATION_NAMED_REGION = "item_action_menu"
@@ -364,3 +436,25 @@ class MeatEatenDialogueTerminateMetric(RegionMatchTerminationMetric, Termination
     REQUIRED_PARSER = SurvivalKidsParser
     _TERMINATION_NAMED_REGION = "dialogue_area"
     _TERMINATION_TARGET_NAME = "meat_eaten_dialogue"
+
+
+class MeatCookedDialogueTerminateMetric(
+    RegionMatchTerminationMetric, TerminationMetric
+):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "dialogue_area"
+    _TERMINATION_TARGET_NAME = "meat_cooked_dialogue"
+
+
+class CookedMeatEatenDialogueTerminateMetric(
+    RegionMatchTerminationMetric, TerminationMetric
+):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "dialogue_area"
+    _TERMINATION_TARGET_NAME = "cooked_meat_eaten_dialogue"
+
+
+class CookedMeatStoredTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = SurvivalKidsParser
+    _TERMINATION_NAMED_REGION = "dialogue_area"
+    _TERMINATION_TARGET_NAME = "cooked_meat_stored"

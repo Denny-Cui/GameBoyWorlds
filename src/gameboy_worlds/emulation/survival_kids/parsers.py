@@ -59,9 +59,11 @@ class SurvivalKidsParser(StateParser):
         ("choose_item_area", 0, 20, 160, 80),
         ("dialogue_area", 8, 112, 144, 28),
         ("inventory_select_area", 0, 0, 88, 72),
+        ("inventory_description_area", 8, 98, 144, 30),
         ("item_action_menu", 0, 0, 64, 56),
         ("item_action_menu_two_options", 0, 0, 64, 40),
         ("item_action_menu_three_options", 0, 0, 64, 57),
+        ("inventory_item_action_menu", 8, 98, 144, 38),
         ("item_use_menu_area", 0, 84, 160, 56),
         ("merge_menu_area", 0, 24, 160, 76),
         ("item_action_cursor", 6, 8, 12, 8),
@@ -72,6 +74,7 @@ class SurvivalKidsParser(StateParser):
 
     MULTI_TARGETS: Dict[str, List[str]] = {
         "screen": [
+            "after_drinking_water",
             "after_filling_water",
             "day_reference",
             "entered_shelter",
@@ -85,6 +88,7 @@ class SurvivalKidsParser(StateParser):
             "water_menu_open",
         ],
         "menu_area": [
+            "inventory_after_fire_lit",
             "inventory_open",
         ],
         "merge_menu_area": [
@@ -102,6 +106,10 @@ class SurvivalKidsParser(StateParser):
         "dialogue_area": [
             "pickup_item_dialogue",
             "canteen_pickup_dialogue",
+            "cooked_meat_eaten_dialogue",
+            "cooked_meat_stored",
+            "got_the_clam",
+            "meat_cooked_dialogue",
         ],
         "bag_icon_area": [
             "bag_icon",
@@ -118,6 +126,9 @@ class SurvivalKidsParser(StateParser):
         "inventory_select_area": [
             "kindling_merged",
         ],
+        "inventory_description_area": [
+            "select_meat",
+        ],
         "item_use_menu_area": [
             "canteen_action_menu",
             "canteen_drink_selected",
@@ -125,7 +136,15 @@ class SurvivalKidsParser(StateParser):
         ],
         "item_action_menu": [
             "canteen_take_leave_menu",
+            "cooked_meat_action_menu",
+            "cooked_meat_eat_selected",
             "meat_take_eat_leave_menu",
+            "select_take",
+        ],
+        "inventory_item_action_menu": [
+            "burn_confirm",
+            "meat_burn_selected",
+            "select_drop",
         ],
         "game_viewport": [
             "animal_killed",
@@ -185,6 +204,12 @@ class SurvivalKidsParser(StateParser):
             subdir = os.path.join(captures_dir, region_name)
             for target_name in multi_targets.get(region_name, []):
                 target_path = os.path.join(subdir, target_name)
+                root_target_path = os.path.join(captures_dir, target_name)
+                if (
+                    not os.path.exists(f"{target_path}.npy")
+                    and os.path.exists(f"{root_target_path}.npy")
+                ):
+                    target_path = root_target_path
                 force_load_missing = target_name in self.FORCE_LOAD_MISSING_MULTI_TARGETS.get(
                     region_name, []
                 )
