@@ -109,6 +109,8 @@ class SurvivalKidsParser(StateParser):
             "cooked_meat_eaten_dialogue",
             "cooked_meat_stored",
             "got_the_clam",
+            "got_the_log",
+            "log_found_dialogue",
             "meat_cooked_dialogue",
         ],
         "bag_icon_area": [
@@ -127,6 +129,7 @@ class SurvivalKidsParser(StateParser):
             "kindling_merged",
         ],
         "inventory_description_area": [
+            "select_log",
             "select_meat",
         ],
         "item_use_menu_area": [
@@ -143,6 +146,8 @@ class SurvivalKidsParser(StateParser):
         ],
         "inventory_item_action_menu": [
             "burn_confirm",
+            "log_action_menu",
+            "log_select_take",
             "meat_burn_selected",
             "select_drop",
         ],
@@ -150,6 +155,8 @@ class SurvivalKidsParser(StateParser):
             "animal_killed",
             "chapter1_path_cleared",
             "fire_lit",
+            "grass_cut",
+            "grass_cut_before_pickup_log",
             "in_the_shelter",
             "path_after_blocking_grass",
         ],
@@ -289,7 +296,18 @@ class SurvivalKids2Parser(SurvivalKidsParser):
     VARIANT = "survival_kids_2"
     LOAD_ONLY_EXISTING_MULTI_TARGETS = True
     FORCE_LOAD_MISSING_MULTI_TARGETS = {
+        "dialogue_area": [
+            "got_the_log",
+            "log_found_dialogue",
+            "water_available_dialogue",
+        ],
         "screen": ["knife_equipped"],
+        "game_viewport": [
+            "grass_cut",
+            "grass_cut_before_pickup_log",
+            "grass_cut_before_sharp_stone",
+            "helmet_found",
+        ],
     }
     MULTI_TARGET_REGIONS = _get_proper_regions(
         override_regions=[
@@ -304,14 +322,27 @@ class SurvivalKids2Parser(SurvivalKidsParser):
             "dialogue_area": [
                 "fruit_found_dialogue",
                 "fruit_taken_dialogue",
-                "fruit_eaten_dialogue",
+                "got_the_log",
+                "log_found_dialogue",
+                "pry_stone_dialogue",
                 "tree_bark_pickup_dialogue",
+                "water_available_dialogue",
             ],
             "game_viewport": [
                 "fruit_eaten",
+                "grass_cut",
+                "grass_cut_before_pickup_log",
+                "grass_cut_before_push_stone_2",
+                "grass_cut_before_sharp_stone",
+                "helmet_found",
+                "near_pry_stone",
                 "new_path_1_found",
                 "new_path_2_found",
+                "path_after_pried_stone",
+                "path_after_pushed_stone_2",
+                "path_after_blocking_grass_c1",
                 "sharp_stone_found",
+                "stone_pushed_open_2",
             ],
             "hunger_area": [
                 "fruit_eaten",
@@ -319,13 +350,12 @@ class SurvivalKids2Parser(SurvivalKidsParser):
             "item_action_menu": [
                 "fruit_action_menu",
                 "fruit_eat_selected",
+                "log_action_menu",
+                "log_select_take",
             ],
             "item_action_menu_two_options": [
                 "fruit_action_menu",
                 "fruit_eat_selected",
-            ],
-            "menu_area": [
-                "inventory_select_item",
             ],
             "object_area": [
                 "bag_icon",
@@ -335,13 +365,26 @@ class SurvivalKids2Parser(SurvivalKidsParser):
             ],
             "screen": [
                 "afternoon_reference",
+                "club_equipped",
                 "day_reference",
                 "fruit_eaten",
                 "got_the_sharp_stone",
                 "got_the_stone",
                 "got_the_vine",
                 "knife_equipped",
+                "near_push_stone_2",
                 "night_reference",
+                "push_stone_dialogue_2",
+                "select_club_near_pry_stone",
+            ],
+            "menu_area": [
+                "inventory_open_with_club",
+                "inventory_open_with_club_near_pry_stone",
+                "inventory_open_with_club_near_push_stone_2",
+                "inventory_select_item",
+            ],
+            "inventory_description_area": [
+                "select_club",
             ],
         },
     )
