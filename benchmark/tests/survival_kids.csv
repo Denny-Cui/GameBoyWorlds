@@ -46,6 +46,9 @@ survival_kids_1,survival,Get water from the water menu,water_menu_open,got_the_w
 survival_kids_1,"interaction, menu",Select Take from the feather menu,before_feather_pickup,select_take_test,,survival_kids_1
 survival_kids_1,"menu, survival",Open the meat action menu,before_eat_meat,meat_action_menu_test,,survival_kids_1
 survival_kids_1,combat,Hunt the animal,before_hunt_animal,animal_killed_test,,survival_kids_1
+survival_kids_1,"menu, survival",Open the merge menu,inventory_open,merge_menu_test,,survival_kids_1
+survival_kids_1,"interaction, menu",Open the canteen take or leave menu,before_canteen_pickup,canteen_take_leave_menu_test,,survival_kids_1
+survival_kids_1,"interaction, menu",Open the feather take or leave menu,before_feather_pickup,take_leave_menu_test,,survival_kids_1
 survival_kids_2,interaction,Find the hidden bag,near_hidden_bag,object_test,,survival_kids_1
 survival_kids_2,menu,Open the inventory,has_bag_before_inventory,inventory_open_test,,survival_kids_1
 survival_kids_2,"menu, interaction",Choose the knife,before_choose_knife,knife_chosen_test,,survival_kids_1
@@ -93,3 +96,6 @@ survival_kids_2,interaction,Open the second push stone dialogue,near_push_stone_
 survival_kids_2,"menu, interaction",Open inventory near the second push stone with club,push_stone_dialogue_2,inventory_open_with_club_near_push_stone_2_test,,survival_kids_1
 survival_kids_2,interaction,Push open the second stone,club_equipped_near_push_stone_2,stone_pushed_open_2_test,,survival_kids_1
 survival_kids_2,navigation,Move to the path after pushing the second stone,stone_pushed_open_2,path_after_pushed_stone_2_test,,survival_kids_1
+survival_kids_2,interaction,Cut grass before the log,near_grass_before_log,grass_cut_before_pickup_log_test,,survival_kids_1
+survival_kids_2,interaction,Find the log,near_grass_before_log,log_found_dialogue_test,,survival_kids_1
+survival_kids_2,interaction,Pick up the log,near_grass_before_log,got_the_log_test,,survival_kids_1
