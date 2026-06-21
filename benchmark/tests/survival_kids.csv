@@ -8,17 +8,31 @@ survival_kids_1,interaction,Pick up the bird feather,before_pickup_brdfeather,go
 survival_kids_1,"menu, interaction",Choose the knife,before_choose_knife,knife_chosen_test,,survival_kids_1
 survival_kids_1,"menu, interaction",Equip the knife,before_equip_knife,knife_equipped_test,,survival_kids_1
 survival_kids_1,"menu, survival",Make kindling from the inventory,inventory_open,kindling_merged_test,,survival_kids_1
+survival_kids_1,"menu, interaction",Drop trash from the inventory,inventory_open,select_drop_test,,survival_kids_1
 survival_kids_1,"menu, survival",Select kindling from the inventory,before_use_kindling,select_kindling_test,,survival_kids_1
 survival_kids_1,"menu, survival",Use kindling,before_use_kindling,use_kindling_test,,survival_kids_1
 survival_kids_1,survival,Light a fire with kindling,use_kindling,fire_lit_test,,survival_kids_1
-survival_kids_1,interaction,Cut grass,near_grass,game_viewport_changed_test,,survival_kids_1
+survival_kids_1,"menu, survival",Open the inventory after lighting a fire,fire_lit,inventory_after_fire_lit_test,,survival_kids_1
+survival_kids_1,"menu, survival",Enter Items after lighting a fire,fire_lit,inventory_select_item_test,,survival_kids_1
+survival_kids_1,"menu, survival",Select meat from the inventory,fire_lit,select_meat_test,,survival_kids_1
+survival_kids_1,"menu, survival",Select Burn on the meat,fire_lit,meat_burn_selected_test,,survival_kids_1
+survival_kids_1,"menu, survival",Confirm burning the meat,fire_lit,burn_confirm_test,,survival_kids_1
+survival_kids_1,survival,Cook the meat over the fire,fire_lit,meat_cooked_dialogue_test,,survival_kids_1
+survival_kids_1,"menu, survival",Open the cooked meat action menu,fire_lit,cooked_meat_action_menu_test,,survival_kids_1
+survival_kids_1,survival,Store the cooked meat,fire_lit,cooked_meat_stored_test,,survival_kids_1
+survival_kids_1,"menu, survival",Select Eat on the cooked meat,fire_lit,cooked_meat_eat_selected_test,,survival_kids_1
+survival_kids_1,survival,Eat the cooked meat,fire_lit,cooked_meat_eaten_dialogue_test,,survival_kids_1
+survival_kids_1,interaction,Cut grass,near_grass,grass_cut_test,,survival_kids_1
 survival_kids_1,"interaction, menu",Select Take from the item menu,item_take_leave_menu,select_take_test,,survival_kids_1
+survival_kids_1,"interaction, menu",Select Take from the clam menu,before_take_clamp,select_take_test,,survival_kids_1
+survival_kids_1,interaction,Pick up the clam,before_take_clamp,got_the_clam_test,,survival_kids_1
 survival_kids_1,interaction,Pick up the canteen,before_canteen_pickup,canteen_pickup_dialogue_test,,survival_kids_1
 survival_kids_1,"interaction, menu",Select Take from the canteen menu,before_canteen_pickup,select_take_test,,survival_kids_1
 survival_kids_1,"menu, survival",Choose the canteen,has_canteen_near_water,canteen_chosen_test,,survival_kids_1
 survival_kids_1,"menu, survival",Open the canteen action menu,has_canteen_near_water,canteen_action_menu_test,,survival_kids_1
 survival_kids_1,"menu, survival",Select Use on the canteen,canteen_action_menu,canteen_use_selected_test,,survival_kids_1
 survival_kids_1,"menu, survival",Select Drink on the canteen,canteen_action_menu,canteen_drink_selected_test,,survival_kids_1
+survival_kids_1,survival,Drink from the canteen,canteen_action_menu,after_drinking_water_test,,survival_kids_1
 survival_kids_1,navigation,Clear the first blocked path,before_blocking_grass,chapter1_path_cleared_test,,survival_kids_1
 survival_kids_1,navigation,Enter the shelter after clearing grass,before_blocking_grass,in_the_shelter_test,,survival_kids_1
 survival_kids_1,navigation,Find the river,chapter1_near_river,found_river_test,,survival_kids_1
@@ -37,8 +51,8 @@ survival_kids_2,menu,Open the inventory,has_bag_before_inventory,inventory_open_
 survival_kids_2,"menu, interaction",Choose the knife,before_choose_knife,knife_chosen_test,,survival_kids_1
 survival_kids_2,"menu, interaction",Equip the knife,before_equip_knife,knife_equipped_test,,survival_kids_1
 survival_kids_2,interaction,Pick up the stick,before_pickup_stick,got_the_stick_test,,survival_kids_1
-survival_kids_2,interaction,Cut grass,near_grass,game_viewport_changed_test,,survival_kids_1
-survival_kids_2,interaction,Cut grass before the sharp stone,near_grass_sharp_stone,game_viewport_changed_test,,survival_kids_1
+survival_kids_2,interaction,Cut grass,near_grass,grass_cut_test,,survival_kids_1
+survival_kids_2,interaction,Cut grass before the sharp stone,near_grass_sharp_stone,grass_cut_before_sharp_stone_test,,survival_kids_1
 survival_kids_2,navigation,Find the sharp stone,near_grass_sharp_stone,sharp_stone_found_test,,survival_kids_1
 survival_kids_2,interaction,Pick up the sharp stone,near_grass_sharp_stone,got_the_sharp_stone_test,,survival_kids_1
 survival_kids_2,interaction,Pick up the stone,before_pickup_stone,got_the_stone_test,,survival_kids_1
@@ -52,3 +66,30 @@ survival_kids_2,navigation,Enter the shelter,before_enter_shelter,entered_shelte
 survival_kids_2,survival,Reach afternoon,daytime,afternoon_reference_test,,survival_kids_1
 survival_kids_2,survival,Reach daytime,daytime,day_reference_test,,survival_kids_1
 survival_kids_2,survival,Reach nighttime,save_1,night_reference_test,,survival_kids_1
+survival_kids_2,"menu, interaction",Enter Items from the inventory,inventory_open,inventory_select_item_test,,survival_kids_1
+survival_kids_2,interaction,Find the helmet,before_helmet_found,helmet_found_test,,survival_kids_1
+survival_kids_2,interaction,Find the fruit,before_pickup_fruit,fruit_found_dialogue_test,,survival_kids_1
+survival_kids_2,"interaction, menu",Open the fruit action menu,before_pickup_fruit,fruit_action_menu_test,,survival_kids_1
+survival_kids_2,"interaction, menu",Select Eat on the fruit,before_pickup_fruit,fruit_eat_selected_test,,survival_kids_1
+survival_kids_2,interaction,Pick up the fruit,before_pickup_fruit,fruit_taken_dialogue_test,,survival_kids_1
+survival_kids_2,survival,Eat the fruit,before_pickup_fruit,fruit_eaten_dialogue_test,,survival_kids_1
+survival_kids_2,survival,Recover hunger by eating fruit,before_pickup_fruit,fruit_eaten_test,,survival_kids_1
+survival_kids_2,interaction,Pick up the tree bark,before_pickup_tree_bark,tree_bark_pickup_dialogue_test,,survival_kids_1
+survival_kids_2,navigation,Move past the cleared C1 grass,near_grass_c1,path_after_blocking_grass_c1_test,,survival_kids_1
+survival_kids_2,navigation,Enter shelter after C1 grass,near_grass_c1,entered_shelter_test,,survival_kids_1
+survival_kids_2,"interaction, survival",Find water,near_water,water_available_dialogue_test,,survival_kids_1
+survival_kids_2,menu,Open the inventory with club,has_club_before_inventory,inventory_open_with_club_test,,survival_kids_1
+survival_kids_2,"menu, interaction",Select the club,has_club_inventory_open,select_club_test,,survival_kids_1
+survival_kids_2,"menu, interaction",Equip the club,before_select_club,club_equipped_test,,survival_kids_1
+survival_kids_2,navigation,Approach the pry stone,club_equipped,near_pry_stone_test,,survival_kids_1
+survival_kids_2,interaction,Open the pry stone dialogue,near_pry_stone,pry_stone_dialogue_test,,survival_kids_1
+survival_kids_2,"menu, interaction",Open inventory near the pry stone with club,pry_stone_dialogue,inventory_open_with_club_near_pry_stone_test,,survival_kids_1
+survival_kids_2,"menu, interaction",Select the club near the pry stone,near_pry_stone_inventory_open,select_club_near_pry_stone_test,,survival_kids_1
+survival_kids_2,"menu, interaction",Equip the club near the pry stone,near_pry_stone_inventory_open,club_equipped_test,,survival_kids_1
+survival_kids_2,navigation,Move to the path after prying the stone,stone_pried_open,path_after_pried_stone_test,,survival_kids_1
+survival_kids_2,interaction,Cut grass before the push stone,club_equipped,grass_cut_before_push_stone_2_test,,survival_kids_1
+survival_kids_2,navigation,Approach the second push stone,grass_cut_before_push_stone_2,near_push_stone_2_test,,survival_kids_1
+survival_kids_2,interaction,Open the second push stone dialogue,near_push_stone_2,push_stone_dialogue_2_test,,survival_kids_1
+survival_kids_2,"menu, interaction",Open inventory near the second push stone with club,push_stone_dialogue_2,inventory_open_with_club_near_push_stone_2_test,,survival_kids_1
+survival_kids_2,interaction,Push open the second stone,club_equipped_near_push_stone_2,stone_pushed_open_2_test,,survival_kids_1
+survival_kids_2,navigation,Move to the path after pushing the second stone,stone_pushed_open_2,path_after_pushed_stone_2_test,,survival_kids_1
