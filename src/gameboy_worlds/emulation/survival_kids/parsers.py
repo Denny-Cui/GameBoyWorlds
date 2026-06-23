@@ -109,8 +109,6 @@ class SurvivalKidsParser(StateParser):
             "cooked_meat_eaten_dialogue",
             "cooked_meat_stored",
             "got_the_clam",
-            "got_the_log",
-            "log_found_dialogue",
             "meat_cooked_dialogue",
         ],
         "bag_icon_area": [
@@ -129,7 +127,6 @@ class SurvivalKidsParser(StateParser):
             "kindling_merged",
         ],
         "inventory_description_area": [
-            "select_log",
             "select_meat",
         ],
         "item_use_menu_area": [
@@ -146,8 +143,6 @@ class SurvivalKidsParser(StateParser):
         ],
         "inventory_item_action_menu": [
             "burn_confirm",
-            "log_action_menu",
-            "log_select_take",
             "meat_burn_selected",
             "select_drop",
         ],
@@ -156,7 +151,6 @@ class SurvivalKidsParser(StateParser):
             "chapter1_path_cleared",
             "fire_lit",
             "grass_cut",
-            "grass_cut_before_pickup_log",
             "in_the_shelter",
             "path_after_blocking_grass",
         ],
@@ -385,6 +379,11 @@ class SurvivalKids2Parser(SurvivalKidsParser):
             ],
             "inventory_description_area": [
                 "select_club",
+                "select_log",
+            ],
+            "inventory_item_action_menu": [
+                "log_action_menu",
+                "log_select_take",
             ],
         },
     )
