@@ -96,6 +96,6 @@ survival_kids_2,interaction,Open the second push stone dialogue,near_push_stone_
 survival_kids_2,"menu, interaction",Open inventory near the second push stone with club,push_stone_dialogue_2,inventory_open_with_club_near_push_stone_2_test,,survival_kids_1
 survival_kids_2,interaction,Push open the second stone,club_equipped_near_push_stone_2,stone_pushed_open_2_test,,survival_kids_1
 survival_kids_2,navigation,Move to the path after pushing the second stone,stone_pushed_open_2,path_after_pushed_stone_2_test,,survival_kids_1
-survival_kids_2,interaction,Cut grass before the log,near_grass_before_log,grass_cut_before_pickup_log_test,,survival_kids_1
-survival_kids_2,interaction,Find the log,near_grass_before_log,log_found_dialogue_test,,survival_kids_1
-survival_kids_2,interaction,Pick up the log,near_grass_before_log,got_the_log_test,,survival_kids_1
+survival_kids_2,interaction,Cut grass before the log,near_grass_before_log,grass_cut_before_pickup_log_test,,survival_kids_2
+survival_kids_2,interaction,Find the log,near_grass_before_log,log_found_dialogue_test,,survival_kids_2
+survival_kids_2,interaction,Pick up the log,near_grass_before_log,got_the_log_test,,survival_kids_2
