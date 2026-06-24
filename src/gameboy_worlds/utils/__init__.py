@@ -259,7 +259,7 @@ def get_training_states(game: str, parameters: dict = None) -> Optional[List[str
             parameters,
         )
         return None
-    training_states = list(set(training_rows["initial_state"].tolist()))
+    training_states = list(set(training_rows["init_state"].tolist()))
     return training_states
 
 
@@ -293,7 +293,7 @@ def get_shifted_training_states(
         other_game = row["game"]
         if other_game not in shifted_training_states:
             shifted_training_states[other_game] = []
-        shifted_training_states[other_game].append(row["initial_state"])
+        shifted_training_states[other_game].append(row["init_state"])
     return shifted_training_states
 
 
