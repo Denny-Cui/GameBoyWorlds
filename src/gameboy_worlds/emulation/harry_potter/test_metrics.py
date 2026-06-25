@@ -7,6 +7,7 @@ from gameboy_worlds.emulation.harry_potter.parsers import (
 from gameboy_worlds.emulation.tracker import (
     TerminationMetric,
     RegionMatchTerminationMetric,
+    RegionMatchTerminationOnlyMetric,
     RegionMatchSubGoal,
 )
 import numpy as np
