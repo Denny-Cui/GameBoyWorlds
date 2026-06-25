@@ -116,6 +116,7 @@ class HarryPotterChamberOfSecretsParser(_BaseHarryPotterParser):
         ("rons_room_area", 137, 0, 22, 71),         # termination: inside_rons_room
         # -- Burrow kitchen / garden quest tasks --
         ("garden_door_area", 80, 24, 10, 8),        # subgoal: outside_garden_door
+        ("car_area", 80, 65, 55, 70),
     ]
 
     MULTI_TARGETS = {
@@ -167,6 +168,7 @@ class HarryPotterChamberOfSecretsParser(_BaseHarryPotterParser):
         "garden_door_area": [
             "outside_garden_door",
         ],
+        "car_area": ["next_to_car"],
     }
 
 

@@ -7,6 +7,7 @@ from gameboy_worlds.emulation.harry_potter.parsers import (
 from gameboy_worlds.emulation.tracker import (
     TerminationMetric,
     RegionMatchTerminationMetric,
+    RegionMatchTerminationOnlyMetric,
     RegionMatchSubGoal,
 )
 import numpy as np
@@ -434,3 +435,9 @@ class OutsideGardenDoorSubgoal(RegionMatchSubGoal):
     NAME = "outside_garden_door"
     _NAMED_REGION = "garden_door_area"
     _TARGET_NAME = "outside_garden_door"
+
+
+class NavigateToCarTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterChamberOfSecretsParser
+    _TERMINATION_NAMED_REGION = "car_area"
+    _TERMINATION_TARGET_NAME = "next_to_car"
