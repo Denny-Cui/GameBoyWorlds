@@ -3,7 +3,7 @@ from typing import Optional
 import numpy as np
 
 from gameboy_worlds.emulation.legend_of_zelda.parsers import BaseLegendOfZeldaParser
-from gameboy_worlds.emulation.tracker import MetricGroup
+from gameboy_worlds.emulation.tracker import MetricGroup, OCRegionMetric
 
 
 class CoreLegendOfZeldaMetrics(MetricGroup):
@@ -37,3 +37,24 @@ class CoreLegendOfZeldaMetrics(MetricGroup):
 
     def report_final(self) -> dict:
         return {}
+
+
+class LegendOfZeldaOCRMetric(OCRegionMetric):
+    REQUIRED_PARSER = BaseLegendOfZeldaParser
+
+    def reset(self, first=False):
+        super().reset(first)
+
+    def start(self):
+        self.kinds = {"dialogue": "dialogue_top"}
+        super().start()
+
+    def can_read_kind(self, current_frame: np.ndarray, kind: str) -> bool:
+        if kind == "dialogue":
+            return (
+                self.state_parser.named_region_matches_target(
+                    current_frame, "dialogue_top"
+                )
+                and self.state_parser.get_agent_state(current_frame) == "in_dialogue"
+            )
+        return False

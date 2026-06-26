@@ -719,6 +719,21 @@ class PokemonStarBeastsStateParser(BasePokemonRedStateParser):
         )
 
 
+class PokemonStarBeastsCometStateParser(BasePokemonRedStateParser):
+    def __init__(self, pyboy, parameters):
+        #override_regions = [
+            #("pokemon_list_hp_text", 33, 10, 4, 4),
+            #("battle_enemy_hp_text", 6, 15, 5, 5),
+            #("battle_player_hp_text", 88, 72, 5, 5),
+        #]
+        super().__init__(
+            pyboy,
+            variant="pokemon_starbeasts_comet",
+            parameters=parameters,
+            #override_regions=override_regions,
+        )
+
+
 class PokemonCrystalStateParser(BasePokemonCrystalStateParser):
     def __init__(self, pyboy, parameters):
         super().__init__(pyboy, variant="pokemon_crystal", parameters=parameters)
