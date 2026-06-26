@@ -46,14 +46,17 @@ class LegendOfZeldaOCRMetric(OCRegionMetric):
         super().reset(first)
 
     def start(self):
-        self.kinds = {"dialogue": "dialogue_top"}
+        self.kinds = {
+            "dialogue_top": "dialogue_top_ocr",
+            "dialogue_bottom": "dialogue_bottom_ocr",
+        }
         super().start()
 
     def can_read_kind(self, current_frame: np.ndarray, kind: str) -> bool:
-        if kind == "dialogue":
+        if kind in self.kinds:
             return (
                 self.state_parser.named_region_matches_target(
-                    current_frame, "dialogue_top"
+                    current_frame, kind
                 )
                 and self.state_parser.get_agent_state(current_frame) == "in_dialogue"
             )

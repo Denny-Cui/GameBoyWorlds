@@ -31,6 +31,8 @@ class BaseLegendOfZeldaParser(StateParser):
         ("playable_area", 0, 0, 159, 143),
         ("dialogue_top", 8, 8, 143, 5),
         ("dialogue_bottom", 8, 80, 143, 5),
+        ("dialogue_top_ocr", 9, 9, 141, 36),
+        ("dialogue_bottom_ocr", 9, 81, 141, 36),
     ]
 
     """ List of common named screen regions for Pokémon games.
@@ -42,6 +44,8 @@ class BaseLegendOfZeldaParser(StateParser):
     - dialogue_top: Dialogues may sometimes appear at the top.
 
     - dialogue_bottom: Dialogues may sometimes appear at the bottom.
+
+    - dialogue_top_ocr/dialogue_bottom_ocr: Larger dialogue crops used for OCR.
     """
 
     def __init__(
@@ -246,6 +250,8 @@ class LegendOfZeldaTheOracleOfSeasonsParser(BaseLegendOfZeldaParser):
             # ("dialogue_bottom", 8, 96, 143, 38),
             ("dialogue_top", 8, 25, 8, 37),
             ("dialogue_bottom", 8, 97, 8, 37),
+            ("dialogue_top_ocr", 8, 25, 143, 38),
+            ("dialogue_bottom_ocr", 8, 96, 143, 38),
             ("bricks", 152, 24, 7, 100),
             ("beer_guy_tracker", 15, 48, 18, 16),
             ("red_edges", 106, 76, 15, 12),
