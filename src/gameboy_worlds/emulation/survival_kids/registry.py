@@ -109,7 +109,6 @@ from gameboy_worlds.emulation.survival_kids.trackers import (
     SurvivalKidsStonePushedOpen2Tracker,
     SurvivalKidsTakeLeaveMenuTracker,
     SurvivalKidsThirstChangedTracker,
-    SurvivalKidsTracker,
     SurvivalKidsTreeBarkPickupDialogueTracker,
     SurvivalKidsUseKindlingTracker,
     SurvivalKidsVitalsTracker,
@@ -130,7 +129,7 @@ STRONGEST_PARSERS: Dict[str, Type[StateParser]] = {
 
 AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
     "survival_kids_1": {
-        "default": SurvivalKidsTracker,
+        "default": SurvivalKidsOCRTracker,
         "hud": SurvivalKidsHudTracker,
         "ocr": SurvivalKidsOCRTracker,
         "vitals": SurvivalKidsVitalsTracker,
@@ -202,7 +201,7 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "cooked_meat_stored_test": SurvivalKidsCookedMeatStoredTracker,
     },
     "survival_kids_2": {
-        "default": SurvivalKidsTracker,
+        "default": SurvivalKidsOCRTracker,
         "hud": SurvivalKidsHudTracker,
         "ocr": SurvivalKidsOCRTracker,
         "vitals": SurvivalKidsVitalsTracker,

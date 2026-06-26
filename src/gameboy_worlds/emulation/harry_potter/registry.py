@@ -68,7 +68,7 @@ This means there is never a reason to use a weaker parser.
 
 AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
     "harry_potter_philosophers_stone": {
-        "default": StateTracker,
+        "default": HarryPotterOCRTracker,
         "ocr": HarryPotterOCRTracker,
         "potions_shop_test": PotionsShopTestTracker,
         "enter_ollivanders_test": EnterOllivandersTestTracker,
@@ -97,7 +97,7 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "talk_to_hagrid_diagon_test": TalkToHagridDiagonTestTracker,
     },
     "harry_potter_chamber_of_secrets": {
-        "default": StateTracker,
+        "default": HarryPotterOCRTracker,
         "ocr": HarryPotterOCRTracker,
         "find_dobby_test": FindDobbyTestTracker,
         "select_card_deck_cos_test": SelectCardDeckCosTestTracker,
