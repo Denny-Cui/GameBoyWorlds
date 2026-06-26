@@ -226,9 +226,17 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         ("outside_sugarplums_area", 55, 22, 22, 20),    # subgoal: outside_sugarplums
         ("inside_sugarplums_area", 25, 30, 75, 35),     # termination: inside_sugarplums
         ("sugarplums_menu_area", 0, 0, 130, 30),        # termination: sugarplums_buy_menu_open
+        ("find_location", 0, 100, 160, 44),
+        ("menu", 0, 0, 90, 120),
     ]
 
     MULTI_TARGETS = {
+        "find_location": [
+            "diagon_alley",
+        ],
+        "menu": [
+            "start_menu",
+        ],
         "dialogue_box_full": [
             "talk_to_flourish_clerk",
             "hagrid_diagon_dialogue",

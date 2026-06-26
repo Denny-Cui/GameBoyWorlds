@@ -37,3 +37,4 @@ harry_potter_chamber_of_secrets,"navigation, interaction",talk to Ron in his roo
 harry_potter_chamber_of_secrets,"navigation, interaction",reach the kitchen and trigger Mrs Weasley's quest dialogue,rons_room,enter_kitchen_burrow_test,harry_potter_philosophers_stone,False
 harry_potter_chamber_of_secrets,"navigation, interaction",reach the garden and start dialogue with Ron,post_quest,enter_burrow_garden_test,harry_potter_philosophers_stone,False
 harry_potter_chamber_of_secrets,navigation,navigate to left side of white car,burrow_start,navigate_to_car_test,harry_potter_philosophers_stone,False
+harry_potter_philosophers_stone,navigation,"bring up the location banner to say you're in Diagon Alley, then open the start menu",shopping_complete,start_menu_test,harry_potter_chamber_of_secrets,True

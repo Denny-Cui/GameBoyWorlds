@@ -1,15 +1,21 @@
 # Guide: Implementing New Tasks for GameBoyWorlds (Harry Potter Example)
 
-This guide provides a mechanical, step-by-step walkthrough for adding a new evaluation task to the GameBoyWorlds framework, capturing the necessary screen states, wiring up the trackers, and pushing your dataset to Hugging Face.
+This guide provides a rigid, step-by-step process for implementing new benchmark tasks into the `GameBoyWorlds` environment. The example used throughout this guide targets `harry_potter_chamber_of_secrets`, but the principles apply to any game in the benchmark (including `harry_potter_philosophers_stone`).
 
-**Role Legend:**
-- 🧑 **(Human)**: Requires manual effort from you (playing the game, visual verification).
-- 🤖 **(LLM)**: An LLM can easily write or autofill this code for you if you provide it the names.
+### Prerequisites
+Before starting, ensure your local binary files are fully synced with the remote database to avoid conflicts:
+```bash
+python -m gameboy_worlds.setup_data pull --game harry_potter_chamber_of_secrets
+```
 
 ---
 
 ## Step 1: Create an Initial Save State
 You need a starting state from which the agent will attempt to solve the task.
+
+**Role Legend:**
+- 🧑 **(Human)**: Requires manual effort from you (playing the game, visual verification).
+- 🤖 **(LLM)**: An LLM can easily write or autofill this code for you if you provide it the names.
 
 1. 🧑 **(Human) Run the Emulator in Dev Mode:**
    ```bash
@@ -45,7 +51,8 @@ You need a starting state from which the agent will attempt to solve the task.
 ## Step 2: Configure the Parser and Capture Target Regions
 To detect when the task is "completed" (e.g., standing next to the car), you must define a screen bounding box and capture a reference image of what success looks like.
 
-*(Newcomer Tip: To figure out the exact `x, y, width, height` coordinates for your new bounding box, you can type `d` in the dev play terminal prompt to open a full-screen image viewer. Hovering your mouse over the image will show the exact pixel coordinates!)*
+**How to find exact pixel coordinates for a new box:**
+If you don't know the exact `(x, y, width, height)` coordinates for your bounding box yet, pause the dev emulator at the screen you want to capture and type the command `d` in the terminal. A full-screen image viewer will pop up. If you hover your mouse over the corners of the area you want, it will show the exact `X` and `Y` pixel coordinates at the bottom of the window! Calculate your width and height, close the window, and use those numbers in the next step.
 
 1. 🤖 **(LLM) Define Bounding Box:**
    Open `src/gameboy_worlds/emulation/harry_potter/parsers.py`. Locate `HarryPotterChamberOfSecretsParser` (or similar subclass). Add your region to `MULTI_TARGET_REGIONS` and the target name to `MULTI_TARGETS`:
@@ -62,7 +69,7 @@ To detect when the task is "completed" (e.g., standing next to the car), you mus
    ```
 
 2. 🧑 **(Human) Play to the "Success" Screen:**
-   *(Pitfall: Ensure you have changed `gameboy_dev_play_stop` back to `false` in `configs/gameboy_vars.yaml` first, otherwise the emulator will instantly freeze!)*
+   *(Pitfalls: Ensure you have changed `gameboy_dev_play_stop` back to `false` in `configs/gameboy_vars.yaml` first. You MUST ALSO ensure `debug_mode: true` is set in `configs/project_vars.yaml`. If `debug_mode` is false, the emulator will instantly crash on boot because it strictly verifies that all targets defined in `parsers.py` have matching `.npy` files on disk!)*
    Load back into your new state:
    ```bash
    python dev/dev_play.py --game harry_potter_chamber_of_secrets --init_state burrow_start
@@ -74,6 +81,7 @@ To detect when the task is "completed" (e.g., standing next to the car), you mus
    ```bash
    c car_area,next_to_car
    ```
+   *(CRITICAL WARNING: Do NOT put a space after the comma! The command must be exactly one continuous string. If you add a space, a bug in the terminal parser will ignore your input and accidentally save a screenshot of whatever bounding box you used previously!)*
    *(Note: The `c` command references the region name defined in your parser, followed by a comma, followed by the specific target name. This saves it to a `.npy` file. Verify the image pop-up looks correct before closing it).*
 
 ---
@@ -134,6 +142,7 @@ Trackers bundle the termination metrics and subgoal metrics so the environment c
        TERMINATION_TRUNCATION_METRIC = NavigateToCarTerminateMetric
        SUBGOAL_METRIC = NavigateToCarSubGoalMetric 
    ```
+   *(Note: If you skipped Step 3.5 and didn't define any subgoals, you must import and use `DummySubGoalMetric` from `gameboy_worlds.emulation.tracker` for `SUBGOAL_METRIC` instead).*
 
 ---
 

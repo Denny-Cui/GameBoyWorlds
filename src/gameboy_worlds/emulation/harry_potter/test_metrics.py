@@ -441,3 +441,15 @@ class NavigateToCarTerminateMetric(RegionMatchTerminationOnlyMetric):
     REQUIRED_PARSER = HarryPotterChamberOfSecretsParser
     _TERMINATION_NAMED_REGION = "car_area"
     _TERMINATION_TARGET_NAME = "next_to_car"
+
+
+class DiagonAlleySubgoal(RegionMatchSubGoal):
+    NAME = "diagon_alley"
+    _NAMED_REGION = "find_location"
+    _TARGET_NAME = "diagon_alley"
+
+
+class StartMenuTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "menu"
+    _TERMINATION_TARGET_NAME = "start_menu"

@@ -77,6 +77,8 @@ from gameboy_worlds.emulation.harry_potter.test_metrics import (
     EnterBurrowGardenTerminateMetric,
     OutsideGardenDoorSubgoal,
     NavigateToCarTerminateMetric,
+    StartMenuTerminateMetric,
+    DiagonAlleySubgoal,
 )
 
 
@@ -311,3 +313,7 @@ class EnterBurrowGardenTestTracker(HarryPotterTestTracker):
 class NavigateToCarTestTracker(HarryPotterTestTracker):
     TERMINATION_TRUNCATION_METRIC = NavigateToCarTerminateMetric
     SUBGOAL_METRIC = DummySubGoalMetric
+
+class StartMenuTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = StartMenuTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([DiagonAlleySubgoal])
