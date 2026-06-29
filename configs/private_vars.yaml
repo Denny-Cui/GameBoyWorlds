@@ -1,1 +1,1 @@
-storage_dir: "storage/" # Path to the directory where heavy duty storage will be done, meant for large files like models and datasets. Change this value to store output files in a different location.
+storage_dir: "storage" # Relative to GameBoyWorlds root. On GPU, set to absolute path with sufficient space (e.g. /data/gameboy_worlds/storage).

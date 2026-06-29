@@ -1,6 +1,6 @@
 from typing import Optional
 
-from gameboy_worlds.emulation.pokemon.parsers import PokemonRedStateParser
+from gameboy_worlds.emulation.pokemon.parsers import PokemonRedStateParser, PokemonPrismStateParser
 from gameboy_worlds.emulation.tracker import (
     RegionMatchTerminationOnlyMetric,
     TerminationMetric,
@@ -142,3 +142,28 @@ class OpenMapTerminateMetric(TerminationMetric):
             if in_map:
                 return True
         return False
+
+
+# ---------------------------------------------------------------------------
+# Pokemon Prism metrics
+# ---------------------------------------------------------------------------
+
+# Pokemon Prism is Crystal-engine based. Naljo badges share the same memory
+# layout as Johto badges in Crystal: byte at 0xD57C, one bit per badge.
+# Bit 0 = Magma Badge (Gym 1 – Brimstone City, Leader Tansy, Fire type).
+_PRISM_BADGE_ADDR = 0xD57C
+
+
+class PokemonPrismFirstBadgeTerminateMetric(
+    TerminationMetric, PokemonExitBattleTruncationMetric
+):
+    """Terminates when the player has obtained the first Naljo badge (Magma Badge)."""
+
+    REQUIRED_PARSER = PokemonPrismStateParser
+
+    def determine_terminated(
+        self, current_frame: np.ndarray, recent_frames: Optional[np.ndarray]
+    ) -> bool:
+        badge_byte = self.state_parser.read_m(_PRISM_BADGE_ADDR)
+        # Bit 0 set means the first badge has been awarded
+        return bool(badge_byte & 0x01)
