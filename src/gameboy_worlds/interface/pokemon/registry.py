@@ -35,6 +35,12 @@ AVAILABLE_ENVIRONMENTS: Dict[str, Dict[str, Type[Environment]]] = {
         "train": PokemonTrainEnvironment,
         "test": PokemonTestEnvironment,
     },
+    "pokemon_starbeasts_comet": {
+        "default": PokemonOCREnvironment,
+        "basic": PokemonEnvironment,
+        "train": PokemonTrainEnvironment,
+        "test": PokemonTestEnvironment,
+    },
     "pokemon_crystal": {
         "default": PokemonOCREnvironment,
         "basic": PokemonEnvironment,
@@ -66,6 +72,9 @@ AVAILABLE_CONTROLLERS: Dict[str, Dict[str, Type[Controller]]] = {
         "state_wise": PokemonStateWiseController,
     },
     "pokemon_starbeasts": {
+        "state_wise": PokemonStateWiseController,
+    },
+    "pokemon_starbeasts_comet": {
         "state_wise": PokemonStateWiseController,
     },
     "pokemon_prism": {
