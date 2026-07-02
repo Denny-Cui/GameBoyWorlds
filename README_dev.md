@@ -261,7 +261,7 @@ To detect when the task is "completed" (e.g., standing next to the car), you mus
    🧑 *(Human)* Caveat: You must manually determine the bounding box dimensions for this to make sense.
 
 2. 🧑 **(Human) Play to the "Success" Screen:**
-   *(Pitfalls: Ensure you have changed `gameboy_dev_play_stop` back to `false` in `configs/gameboy_vars.yaml` first. You MUST ALSO ensure `debug_mode: true` is set in `configs/project_vars.yaml`. If `debug_mode` is false, the emulator will instantly crash on boot because it strictly verifies that all targets defined in `parsers.py` have matching `.npy` files on disk!)*
+   *(Pitfall: Ensure you have changed `gameboy_dev_play_stop` back to `false` in `configs/gameboy_vars.yaml` first, otherwise the emulator will instantly freeze!)*
    Load back into your new state:
    ```bash
    python dev/dev_play.py --game harry_potter_chamber_of_secrets --init_state burrow_start
@@ -273,7 +273,6 @@ To detect when the task is "completed" (e.g., standing next to the car), you mus
    ```bash
    c car_area,next_to_car
    ```
-   *(CRITICAL WARNING: Do NOT put a space after the comma! The command must be exactly one continuous string. If you add a space, a bug in the terminal parser will ignore your input and accidentally save a screenshot of whatever bounding box you used previously!)*
    *(Note: The `c` command references the region name defined in your parser, followed by a comma, followed by the specific target name. This saves it to a `.npy` file. Verify the image pop-up looks correct before closing it).*
 
 **Step 3: Define the Termination Metric**
