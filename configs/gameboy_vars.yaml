@@ -9,5 +9,4 @@ gameboy_headless_render: true # If true, will not open a window when running the
 gameboy_reduce_video_resolution: false # If true, will reduce the resolution of saved videos to 1/2 width and 1/2 height to save space.
 gameboy_dev_play_stop: false
 
-
 # If true, will immediately freeze the emulator and allow the user to perform useful state specific actions. Only for development.
