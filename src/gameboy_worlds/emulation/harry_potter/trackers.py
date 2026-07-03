@@ -79,6 +79,13 @@ from gameboy_worlds.emulation.harry_potter.test_metrics import (
     NavigateToCarTerminateMetric,
     StartMenuTerminateMetric,
     DiagonAlleySubgoal,
+    PumpkinPastySubgoal,
+    EatPumpkinPastyTerminateMetric,
+    EquippedPointedHatSubgoal,
+    EquippedPointedHatPlainWorkRobeTerminateMetric,
+    RemoveHatSubgoal,
+    RemoveRobeSubgoal,
+    EmptyEquipCursorRobeTerminateMetric,
 )
 
 
@@ -317,3 +324,15 @@ class NavigateToCarTestTracker(HarryPotterTestTracker):
 class StartMenuTestTracker(HarryPotterTestTracker):
     TERMINATION_TRUNCATION_METRIC = StartMenuTerminateMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([DiagonAlleySubgoal])
+
+class EatPumpkinPastyTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = EatPumpkinPastyTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([PumpkinPastySubgoal])
+
+class EquipPointedHatPlainWorkRobeTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = EquippedPointedHatPlainWorkRobeTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([EquippedPointedHatSubgoal])
+
+class RemoveAllEquippedItemsTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = EmptyEquipCursorRobeTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([RemoveHatSubgoal, RemoveRobeSubgoal])

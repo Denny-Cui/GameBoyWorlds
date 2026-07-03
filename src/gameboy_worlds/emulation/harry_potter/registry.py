@@ -48,6 +48,9 @@ from gameboy_worlds.emulation.harry_potter.trackers import (
     EnterBurrowGardenTestTracker,
     NavigateToCarTestTracker,
     StartMenuTestTracker,
+    EatPumpkinPastyTestTracker,
+    EquipPointedHatPlainWorkRobeTestTracker,
+    RemoveAllEquippedItemsTestTracker,
 )
 
 GAME_TO_GB_NAME = {
@@ -97,6 +100,9 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "open_sugarplums_buy_menu_test": OpenSugarplumsBuyMenuTestTracker,
         "talk_to_hagrid_diagon_test": TalkToHagridDiagonTestTracker,
         "start_menu_test": StartMenuTestTracker,
+        "eat_pumpkin_pasty_test": EatPumpkinPastyTestTracker,
+        "equip_pointed_hat_plain_work_robe_test": EquipPointedHatPlainWorkRobeTestTracker,
+        "remove_all_equipped_items_test": RemoveAllEquippedItemsTestTracker,
     },
     "harry_potter_chamber_of_secrets": {
         "default": HarryPotterOCRTracker,
