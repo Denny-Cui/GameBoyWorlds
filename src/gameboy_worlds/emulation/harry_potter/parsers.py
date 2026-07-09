@@ -226,9 +226,35 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         ("outside_sugarplums_area", 55, 22, 22, 20),    # subgoal: outside_sugarplums
         ("inside_sugarplums_area", 25, 30, 75, 35),     # termination: inside_sugarplums
         ("sugarplums_menu_area", 0, 0, 130, 30),        # termination: sugarplums_buy_menu_open
+        ("find_location", 0, 100, 160, 44),
+        ("menu", 0, 0, 90, 120),
+        ("last_item", 0, 105, 160, 30),
+        ("item_consumption", 0, 30, 160, 110),
+        ("equip_screen", 0, 25, 160, 119),
     ]
 
     MULTI_TARGETS = {
+        "find_location": [
+            "diagon_alley",
+        ],
+        "menu": [
+            "start_menu",
+        ],
+        "last_item": [
+            "pumpkin_pasties",
+        ],
+        "item_consumption": [
+            "ate_pumpkin_pasties",
+        ],
+        "equip_screen": [
+            "nothing_equipped",
+            "equipped_pointed_hat",
+            "equipped_pointed_hat_plain_work_robe",
+            "remove_hat",
+            "remove_robe",
+            "empty_equip_cursor_hat",
+            "empty_equip_cursor_robe",
+        ],
         "dialogue_box_full": [
             "talk_to_flourish_clerk",
             "hagrid_diagon_dialogue",

@@ -441,3 +441,57 @@ class NavigateToCarTerminateMetric(RegionMatchTerminationOnlyMetric):
     REQUIRED_PARSER = HarryPotterChamberOfSecretsParser
     _TERMINATION_NAMED_REGION = "car_area"
     _TERMINATION_TARGET_NAME = "next_to_car"
+
+
+class DiagonAlleySubgoal(RegionMatchSubGoal):
+    NAME = "diagon_alley"
+    _NAMED_REGION = "find_location"
+    _TARGET_NAME = "diagon_alley"
+
+
+class StartMenuTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "menu"
+    _TERMINATION_TARGET_NAME = "start_menu"
+
+
+class PumpkinPastySubgoal(RegionMatchSubGoal):
+    NAME = "pumpkin_pasties"
+    _NAMED_REGION = "last_item"
+    _TARGET_NAME = "pumpkin_pasties"
+
+
+class EatPumpkinPastyTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "item_consumption"
+    _TERMINATION_TARGET_NAME = "ate_pumpkin_pasties"
+
+
+class EquippedPointedHatSubgoal(RegionMatchSubGoal):
+    NAME = "equipped_pointed_hat"
+    _NAMED_REGION = "equip_screen"
+    _TARGET_NAME = "equipped_pointed_hat"
+
+
+class EquippedPointedHatPlainWorkRobeTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "equip_screen"
+    _TERMINATION_TARGET_NAME = "equipped_pointed_hat_plain_work_robe"
+
+
+class RemoveHatSubgoal(RegionMatchSubGoal):
+    NAME = "remove_hat"
+    _NAMED_REGION = "equip_screen"
+    _TARGET_NAME = "remove_hat"
+
+
+class RemoveRobeSubgoal(RegionMatchSubGoal):
+    NAME = "remove_robe"
+    _NAMED_REGION = "equip_screen"
+    _TARGET_NAME = "remove_robe"
+
+
+class EmptyEquipCursorRobeTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "equip_screen"
+    _TERMINATION_TARGET_NAME = "empty_equip_cursor_robe"
