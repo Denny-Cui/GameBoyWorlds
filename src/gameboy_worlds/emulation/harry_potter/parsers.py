@@ -252,7 +252,6 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
             "equipped_pointed_hat_plain_work_robe",
             "remove_hat",
             "remove_robe",
-            "empty_equip_cursor_hat",
             "empty_equip_cursor_robe",
         ],
         "dialogue_box_full": [
