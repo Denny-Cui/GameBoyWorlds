@@ -103,6 +103,72 @@ class FindHagridGringottsSubgoal(RegionMatchSubGoal):
     _TARGET_NAME = "find_hagrid_gringotts"
 
 
+class ReenterGringottsSubgoal(RegionMatchSubGoal):
+    NAME = "reenter_gringotts"
+    _NAMED_REGION = "full_screen_area"
+    _TARGET_NAME = "reenter_gringotts"
+
+
+class ExitGringottsTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "exit_gringotts"
+
+
+class TalkToWeasleysSubgoal(RegionMatchSubGoal):
+    NAME = "talk_to_weasleys"
+    _NAMED_REGION = "dialogue_box_full"
+    _TARGET_NAME = "talk_to_weasleys"
+
+
+class OnTrainTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "on_train"
+
+
+class TalkToRonWeasleySubgoal(RegionMatchSubGoal):
+    NAME = "talk_to_ron_weasley"
+    _NAMED_REGION = "dialogue_box_full"
+    _TARGET_NAME = "talk_to_ron_weasley"
+
+
+class ChocolateFrogs5InventoryTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "chocolate_frogs_5_inventory_area"
+    _TERMINATION_TARGET_NAME = "chocolate_frogs_5_inventory"
+
+
+class SellChocolateFrogSubgoal(RegionMatchSubGoal):
+    NAME = "sell_chocolate_frog"
+    _NAMED_REGION = "full_screen_area"
+    _TARGET_NAME = "sell_chocolate_frog"
+
+
+class ChocolateFrogs4InventoryTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "chocolate_frogs_5_inventory_area"
+    _TERMINATION_TARGET_NAME = "chocolate_frogs_4_inventory"
+
+
+class StartOfDuelSubgoal(RegionMatchSubGoal):
+    NAME = "start_of_duel"
+    _NAMED_REGION = "full_screen_area"
+    _TARGET_NAME = "start_of_duel"
+
+
+class LoseDuelTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "lose_duel"
+
+
+class WinDuelTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "win_duel"
+
+
 class GainLevelTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
     REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
     _TERMINATION_NAMED_REGION = "level_up_text"
@@ -125,6 +191,36 @@ class FindBossRatSubgoal(RegionMatchSubGoal):
     NAME = "boss_rat_found"
     _NAMED_REGION = "boss_rat_area"
     _TARGET_NAME = "boss_rat_found"
+
+
+class RatKingSpriteSubgoal(RegionMatchSubGoal):
+    NAME = "rat_king_sprite"
+    _NAMED_REGION = "rat_king_sprite_area"
+    _TARGET_NAME = "rat_king_sprite"
+
+
+class UnableToEscapeSubgoal(RegionMatchSubGoal):
+    NAME = "unable_to_escape"
+    _NAMED_REGION = "dialogue_box_full"
+    _TARGET_NAME = "unable_to_escape"
+
+
+class RespawnDeathRatTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "respawn_death_rat_screen"
+
+
+class FullyRestoreMPSubgoal(RegionMatchSubGoal):
+    NAME = "fully_restore_your_mp"
+    _NAMED_REGION = "mp_points_area"
+    _TARGET_NAME = "fully_restore_your_mp"
+
+
+class UtilizeDeflectCardsSubgoal(RegionMatchSubGoal):
+    NAME = "utilize_deflect_cards"
+    _NAMED_REGION = "large_dialogue_box"
+    _TARGET_NAME = "large_text_content"
 
 
 # ============================================================

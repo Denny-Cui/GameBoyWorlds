@@ -231,14 +231,42 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         ("last_item", 0, 105, 160, 30),
         ("item_consumption", 0, 30, 160, 110),
         ("equip_screen", 0, 25, 160, 119),
+        ("rat_king_sprite_area", 0, 0, 60, 100),
+        ("full_screen_area", 0, 0, 160, 144),
+        ("mp_points_area", 60, 120, 60, 10),
+        ("large_dialogue_box", 0, 112, 160, 32),
+        ("chocolate_frogs_5_inventory_area", 0, 60, 160, 20),
     ]
 
     MULTI_TARGETS = {
+        "large_dialogue_box": [
+            "large_text_content",
+        ],
+        "chocolate_frogs_5_inventory_area": [
+            "chocolate_frogs_5_inventory",
+            "chocolate_frogs_4_inventory",
+        ],
+        "mp_points_area": [
+            "fully_restore_your_mp",
+        ],
         "find_location": [
             "diagon_alley",
         ],
+        "full_screen_area": [
+            "respawn_death_rat_screen",
+            "reenter_gringotts",
+            "exit_gringotts",
+            "on_train",
+            "sell_chocolate_frog",
+            "start_of_duel",
+            "win_duel",
+            "lose_duel",
+        ],
         "menu": [
             "start_menu",
+        ],
+        "rat_king_sprite_area": [
+            "rat_king_sprite",
         ],
         "last_item": [
             "pumpkin_pasties",
@@ -257,6 +285,9 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         "dialogue_box_full": [
             "talk_to_flourish_clerk",
             "hagrid_diagon_dialogue",
+            "unable_to_escape",
+            "talk_to_weasleys",
+            "talk_to_ron_weasley",
         ],
         "ollivanders_area": [
             "ollivanders_interior",

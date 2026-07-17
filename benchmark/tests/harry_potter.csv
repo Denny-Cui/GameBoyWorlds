@@ -41,3 +41,11 @@ harry_potter_philosophers_stone,navigation,"bring up the location banner to say 
 harry_potter_philosophers_stone,"menu, interaction",eat a pumpkin pasty,default,eat_pumpkin_pasty_test,harry_potter_chamber_of_secrets,True
 harry_potter_philosophers_stone,"menu, interaction",equip the pointed hat and then the plain work robe,default,equip_pointed_hat_plain_work_robe_test,harry_potter_chamber_of_secrets,True
 harry_potter_philosophers_stone,"menu, interaction",remove all of your equipped items starting with your hat,equipped_hat_robe,remove_all_equipped_items_test,harry_potter_chamber_of_secrets,True
+harry_potter_philosophers_stone,"battle",Try to flee from the rat king but eventually die,before_boss,fail_rat_king_battle,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle","restore MP to full, utilize your deflect cards in order to defeat the rat king",before_boss,defeat_rat_king_with_deflect_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation, interaction",exit gringotts WITHOUT first talking with Hagrid,inside_gringotts,exit_gringotts_without_hagrid_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation, interaction",get on the train,at_train_station,get_on_train_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"menu, interaction",buy 5 chocolate frogs and confirm you have them in inventory,on_train,buy_chocolate_frogs_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"menu, interaction",sell one chocolate frog and confirm you have 4 left,after_frog_purchase,sell_one_chocolate_frog_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle",lose the duel,after_frog_purchase,lose_duel_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle",win the duel,after_frog_purchase,win_duel_test,harry_potter_philosophers_stone,True
