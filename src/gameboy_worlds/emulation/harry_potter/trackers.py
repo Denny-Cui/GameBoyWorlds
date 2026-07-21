@@ -30,6 +30,9 @@ from gameboy_worlds.emulation.harry_potter.test_metrics import (
     StartOfDuelSubgoal,
     LoseDuelTerminateMetric,
     WinDuelTerminateMetric,
+    LeftmostTrainCarTerminateMetric,
+    RightmostTrainCarSubgoal,
+    LeftmostTrainCarSubgoal,
     GainLevelTerminateMetric,
     GainSpellTerminateMetric,
     WinBattleTerminateMetric,
@@ -286,6 +289,17 @@ class EnterCauldronShopTestTracker(HarryPotterTestTracker):
 class BuyCauldronTestTracker(HarryPotterTestTracker):
     TERMINATION_TRUNCATION_METRIC = BuyCauldronTerminateMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([CauldronBuyMenuOpenSubgoal])
+
+
+class WalkTrain3TimesTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = LeftmostTrainCarTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([
+        RightmostTrainCarSubgoal,
+        LeftmostTrainCarSubgoal,
+        RightmostTrainCarSubgoal,
+        LeftmostTrainCarSubgoal,
+        RightmostTrainCarSubgoal
+    ])
 
 
 # Sugarplums Sweets filler tasks

@@ -248,6 +248,27 @@ class EnterMalkinsTerminateMetric(RegionMatchTerminationMetric, TerminationMetri
     _TERMINATION_NAMED_REGION = "inside_malkins_area"
     _TERMINATION_TARGET_NAME = "inside_malkins"
 
+# ============================================================
+# Train walk tasks
+# ============================================================
+
+class RightmostTrainCarSubgoal(RegionMatchSubGoal):
+    NAME = "rightmost_train_car"
+    _NAMED_REGION = "rightmost_train_car"
+    _TARGET_NAME = "rightmost_train_car_capture"
+
+
+class LeftmostTrainCarSubgoal(RegionMatchSubGoal):
+    NAME = "leftmost_train_car"
+    _NAMED_REGION = "leftmost_train_car"
+    _TARGET_NAME = "leftmost_train_car_capture"
+
+
+class LeftmostTrainCarTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "leftmost_train_car"
+    _TERMINATION_TARGET_NAME = "leftmost_train_car_capture"
+
 
 class OpenMalkinsBuyMenuTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
     REQUIRED_PARSER = HarryPotterPhilosophersStoneParser

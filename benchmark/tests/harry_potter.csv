@@ -49,3 +49,4 @@ harry_potter_philosophers_stone,"menu, interaction",buy 5 chocolate frogs and co
 harry_potter_philosophers_stone,"menu, interaction",sell one chocolate frog and confirm you have 4 left,after_frog_purchase,sell_one_chocolate_frog_test,harry_potter_philosophers_stone,True
 harry_potter_philosophers_stone,"battle",lose the duel,after_frog_purchase,lose_duel_test,harry_potter_philosophers_stone,True
 harry_potter_philosophers_stone,"battle",win the duel,after_frog_purchase,win_duel_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation",walk up and down the train 3 times,win_train_duel,walk_train_3_times,harry_potter_philosophers_stone,True

@@ -236,6 +236,8 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         ("mp_points_area", 60, 120, 60, 10),
         ("large_dialogue_box", 0, 112, 160, 32),
         ("chocolate_frogs_5_inventory_area", 0, 60, 160, 20),
+        ("leftmost_train_car", 0, 0, 90, 90),
+        ("rightmost_train_car", 75, 0, 85, 90),
     ]
 
     MULTI_TARGETS = {
@@ -262,6 +264,8 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
             "win_duel",
             "lose_duel",
         ],
+        "leftmost_train_car": ["leftmost_train_car_capture"],
+        "rightmost_train_car": ["rightmost_train_car_capture"],
         "menu": [
             "start_menu",
         ],
