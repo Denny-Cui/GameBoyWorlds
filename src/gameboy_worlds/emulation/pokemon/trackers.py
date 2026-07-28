@@ -20,6 +20,7 @@ from gameboy_worlds.emulation.pokemon.test_metrics import (
     BoughtPotionAtPewterPokemartTerminateMetric,
     UsedPotionOnCharmanderTerminateMetric,
     OpenMapTerminateMetric,
+    PokemonPrismFirstBadgeTerminateMetric,
 )
 
 from gameboy_worlds.emulation.pokemon.base_metrics import (
@@ -215,4 +216,15 @@ class PokemonRedOpenMapTestTracker(PokemonTestTracker):
     """
 
     TERMINATION_TRUNCATION_METRIC = OpenMapTerminateMetric
+    SUBGOAL_METRIC = DummySubGoalMetric
+
+
+class PokemonPrismFirstBadgeTestTracker(PokemonTestTracker):
+    """
+    TestTracker for Pokemon Prism: terminates when the player earns the first Naljo badge
+    (Magma Badge from Gym Leader Tansy in Brimstone City).
+    Truncates if the agent exits a battle without winning.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = PokemonPrismFirstBadgeTerminateMetric
     SUBGOAL_METRIC = DummySubGoalMetric

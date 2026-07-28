@@ -9,7 +9,7 @@ from gameboy_worlds.emulation.legend_of_zelda.parsers import (
 )
 
 from gameboy_worlds.emulation.legend_of_zelda.trackers import (
-    CoreLegendOfZeldaTracker,
+    LegendOfZeldaOCRTracker,
     ZeldaLinksAwakeningOwlTestTracker,
     ZeldaLinksAwakeningShieldTestTracker,
     ZeldaLinksAwakeningOutsideTarinHouseTestTracker,
@@ -134,7 +134,7 @@ This means there is never a reason to use a weaker parser.
 
 AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
     "legend_of_zelda_links_awakening": {
-        "default": CoreLegendOfZeldaTracker,
+        "default": LegendOfZeldaOCRTracker,
         "pickup_sword_test": ZeldaLinksAwakeningOwlTestTracker,
         "shield_test": ZeldaLinksAwakeningShieldTestTracker,
         "outside_tarinhouse_test": ZeldaLinksAwakeningOutsideTarinHouseTestTracker,
@@ -189,7 +189,7 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
 
         },
     "legend_of_zelda_the_oracle_of_seasons": {
-        "default": CoreLegendOfZeldaTracker,
+        "default": LegendOfZeldaOCRTracker,
         "other_people_tracker": ZeldaOracleOfSeasonsOtherPeopleTracker,
         "girl_talk_tracker": ZeldaOracleOfSeasonsGirlTalkTracker,
         "jumping_tracker": ZeldaOracleOfSeasonsJumpingTracker,

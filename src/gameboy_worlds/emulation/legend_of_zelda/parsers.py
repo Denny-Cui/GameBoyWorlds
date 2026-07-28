@@ -31,6 +31,8 @@ class BaseLegendOfZeldaParser(StateParser):
         ("playable_area", 0, 0, 159, 143),
         ("dialogue_top", 8, 8, 143, 5),
         ("dialogue_bottom", 8, 80, 143, 5),
+        ("dialogue_top_ocr", 9, 9, 141, 36),
+        ("dialogue_bottom_ocr", 9, 81, 141, 36),
     ]
 
     """ List of common named screen regions for Pokémon games.
@@ -42,6 +44,8 @@ class BaseLegendOfZeldaParser(StateParser):
     - dialogue_top: Dialogues may sometimes appear at the top.
 
     - dialogue_bottom: Dialogues may sometimes appear at the bottom.
+
+    - dialogue_top_ocr/dialogue_bottom_ocr: Larger dialogue crops used for OCR.
     """
 
     def __init__(
@@ -194,7 +198,14 @@ class LegendOfZeldaLinksAwakeningParser(BaseLegendOfZeldaParser):
             ("palmt", 76, 53, 11, 9),
             ("gameover", 46, 38, 67, 19),
             ("tileslong", 128, 18, 15, 108),
-            ("boardsign", 45, 14, 19, 18)
+            ("boardsign", 45, 14, 19, 18),
+            ("potsbelow", 14, 94, 35, 19),
+            ("go_out_dialogue", 8, 10, 136, 34),
+            ("twopurple", 78, 14, 19, 35),
+            ("treerighthouse", 109, 32, 36, 26),
+            ("treestopr", 64, 2, 61, 37),
+            ("onewood", 69, 65, 13, 13),
+            ("chunkgrass", 31, 32, 64, 47),
         ]
 
         """
@@ -239,6 +250,8 @@ class LegendOfZeldaTheOracleOfSeasonsParser(BaseLegendOfZeldaParser):
             # ("dialogue_bottom", 8, 96, 143, 38),
             ("dialogue_top", 8, 25, 8, 37),
             ("dialogue_bottom", 8, 97, 8, 37),
+            ("dialogue_top_ocr", 8, 25, 143, 38),
+            ("dialogue_bottom_ocr", 8, 96, 143, 38),
             ("bricks", 152, 24, 7, 100),
             ("beer_guy_tracker", 15, 48, 18, 16),
             ("red_edges", 106, 76, 15, 12),
@@ -283,13 +296,17 @@ class LegendOfZeldaTheOracleOfSeasonsParser(BaseLegendOfZeldaParser):
             ("bluetext", 6, 96, 95, 37),
             ("redtext", 9, 96, 118, 37),
             ("guyonlava", 0, 111, 159, 30),
-            ("trackempty", 0, 47, 159, 31),
+            ("trackempty", 0, 49, 159, 11),
             ("boundaryred", 0, 129, 159, 12),
             ("gameover", 41, 7, 77, 16),
             ("greencarpet", 16, 72, 46, 57),
             ("holes", 111, 62, 34, 16),
             ("trunk", 56, 31, 30, 26),
-            ("4cy", 79, 17, 16, 29)
+            ("4cy", 79, 17, 16, 29),
+            ("gobridge", 66, 0, 93, 143),
+            ("emptybeforehole", 1, 18, 158, 27),
+            ("alleytunnel", 32, 18, 45, 27),
+            ("mickeynoddy", 29, 62, 22, 18)
         ]
         """
         - bricks: bricks on the right side of the screen, signifying that the inventory is open.

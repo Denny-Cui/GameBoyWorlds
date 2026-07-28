@@ -23,16 +23,21 @@ harry_potter_philosophers_stone,"navigation, menu, interaction",buy a cauldron a
 harry_potter_philosophers_stone,navigation,enter Sugarplums Sweets shop,shopping_area,enter_sugarplums_test,harry_potter_chamber_of_secrets,True
 harry_potter_philosophers_stone,"navigation, interaction",open the Sugarplums buy menu,inside_sugarplums,open_sugarplums_buy_menu_test,harry_potter_chamber_of_secrets,True
 harry_potter_philosophers_stone,"navigation, interaction",talk to Hagrid in Diagon Alley after shopping,shopping_complete,talk_to_hagrid_diagon_test,harry_potter_chamber_of_secrets,True
-harry_potter_chamber_of_secrets,"navigation, interaction",find Dobby in the bedroom,bedroom_start,find_dobby_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,menu,select a card deck before leaving,choose_deck_cos,select_card_deck_cos_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,"navigation, interaction",board the flying car,items_collected_cos,board_flying_car_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,navigation,enter the Burrow,burrow_start,enter_burrow_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,"navigation, combat",enter a battle in the Burrow,after_breakfast,enter_battle_cos_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,navigation,enter Percy's room in the Burrow,after_breakfast,enter_percy_room_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,navigation,enter Ginny's room in the Burrow,after_breakfast,enter_ginny_room_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,navigation,enter the Weasley parents' room in the Burrow,after_breakfast,enter_parents_room_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,navigation,enter Fred and George's room in the Burrow,after_breakfast,enter_fred_george_room_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,navigation,enter Ron's room in the Burrow,after_breakfast,enter_rons_room_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,"navigation, interaction",talk to Ron in his room (sleep cutscene),rons_room,talk_to_ron_burrow_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,"navigation, interaction",reach the kitchen and trigger Mrs Weasley's quest dialogue,rons_room,enter_kitchen_burrow_test,harry_potter_philosophers_stone,True
-harry_potter_chamber_of_secrets,"navigation, interaction",reach the garden and start dialogue with Ron,post_quest,enter_burrow_garden_test,harry_potter_philosophers_stone,True
+harry_potter_chamber_of_secrets,"navigation, interaction",find Dobby in the bedroom,bedroom_start,find_dobby_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,menu,select a card deck before leaving,choose_deck_cos,select_card_deck_cos_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,"navigation, interaction",board the flying car,items_collected_cos,board_flying_car_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,navigation,enter the Burrow,burrow_start,enter_burrow_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,"navigation, combat",enter a battle in the Burrow,after_breakfast,enter_battle_cos_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,navigation,enter Percy's room in the Burrow,after_breakfast,enter_percy_room_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,navigation,enter Ginny's room in the Burrow,after_breakfast,enter_ginny_room_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,navigation,enter the Weasley parents' room in the Burrow,after_breakfast,enter_parents_room_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,navigation,enter Fred and George's room in the Burrow,after_breakfast,enter_fred_george_room_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,navigation,enter Ron's room in the Burrow,after_breakfast,enter_rons_room_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,"navigation, interaction",talk to Ron in his room (sleep cutscene),rons_room,talk_to_ron_burrow_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,"navigation, interaction",reach the kitchen and trigger Mrs Weasley's quest dialogue,rons_room,enter_kitchen_burrow_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,"navigation, interaction",reach the garden and start dialogue with Ron,post_quest,enter_burrow_garden_test,harry_potter_philosophers_stone,False
+harry_potter_chamber_of_secrets,navigation,navigate to left side of white car,burrow_start,navigate_to_car_test,harry_potter_philosophers_stone,False
+harry_potter_philosophers_stone,navigation,"bring up the location banner to say you're in Diagon Alley, then open the start menu",shopping_complete,start_menu_test,harry_potter_chamber_of_secrets,True
+harry_potter_philosophers_stone,"menu, interaction",eat a pumpkin pasty,default,eat_pumpkin_pasty_test,harry_potter_chamber_of_secrets,True
+harry_potter_philosophers_stone,"menu, interaction",equip the pointed hat and then the plain work robe,default,equip_pointed_hat_plain_work_robe_test,harry_potter_chamber_of_secrets,True
+harry_potter_philosophers_stone,"menu, interaction",remove all of your equipped items starting with your hat,equipped_hat_robe,remove_all_equipped_items_test,harry_potter_chamber_of_secrets,True

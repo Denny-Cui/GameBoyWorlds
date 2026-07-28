@@ -16,7 +16,6 @@ from gameboy_worlds.emulation.bomberman.trackers import (
     BombermanMaxStageBriefingTestTracker,
     BombermanMaxStageSelectTestTracker,
     BombermanMaxOCRTracker,
-    BombermanMaxTracker,
     BombermanPocketForestAreaIntroTestTracker,
     BombermanPocketGameOverTestTracker,
     BombermanPocketHudBottomRightChangedTestTracker,
@@ -29,7 +28,6 @@ from gameboy_worlds.emulation.bomberman.trackers import (
     BombermanPocketOceanAreaIntroTestTracker,
     BombermanPocketPauseMenuTestTracker,
     BombermanPocketOCRTracker,
-    BombermanPocketTracker,
     BombermanPocketWorldClearTestTracker,
     BombermanQuestBattleTestTracker,
     BombermanQuestBombSelectTestTracker,
@@ -52,7 +50,6 @@ from gameboy_worlds.emulation.bomberman.trackers import (
     BombermanQuestShieldSelectTestTracker,
     BombermanQuestSignDialogueTestTracker,
     BombermanQuestOCRTracker,
-    BombermanQuestTracker,
 )
 from gameboy_worlds.emulation.emulator import Emulator
 from gameboy_worlds.emulation.parser import StateParser
@@ -73,7 +70,7 @@ STRONGEST_PARSERS: Dict[str, Type[StateParser]] = {
 
 AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
     "bomberman_max": {
-        "default": BombermanMaxTracker,
+        "default": BombermanMaxOCRTracker,
         "ocr": BombermanMaxOCRTracker,
         "pause_menu_open_test": BombermanMaxPauseMenuTestTracker,
         "stage_select_test": BombermanMaxStageSelectTestTracker,
@@ -86,7 +83,7 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "pitch_area_test": BombermanMaxPitchAreaTestTracker,
     },
     "bomberman_pocket": {
-        "default": BombermanPocketTracker,
+        "default": BombermanPocketOCRTracker,
         "ocr": BombermanPocketOCRTracker,
         "pause_menu_open_test": BombermanPocketPauseMenuTestTracker,
         "stage_clear_test": BombermanPocketForestAreaIntroTestTracker,
@@ -103,7 +100,7 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "pickup_heart_test": BombermanPocketHudHeartChangedTestTracker,
     },
     "bomberman_quest": {
-        "default": BombermanQuestTracker,
+        "default": BombermanQuestOCRTracker,
         "ocr": BombermanQuestOCRTracker,
         "pause_menu_open_test": BombermanQuestPauseMenuTestTracker,
         "game_over_test": BombermanQuestGameOverTestTracker,

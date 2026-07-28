@@ -194,7 +194,7 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         # "open_cold_tap_test": DejaVu2OpenColdTapTestTracker,
         # "close_cold_tap_test": DejaVu2CloseColdTapTestTracker,
         "check_newsclip1_test": DejaVu2CheckNewsclip1TestTracker,
-        # "take_ring1_test": DejaVu2TakeRing1TestTracker,
+        "take_ring1_test": DejaVu2TakeRing1TestTracker,
         "open_door_from_map_test": DejaVu2OpenDoorFromMapTestTracker,
         "close_door_from_map_test": DejaVu2CloseDoorFromMapTestTracker,
         "enter_hallway_test": DejaVu2EnterHallwayTestTracker,

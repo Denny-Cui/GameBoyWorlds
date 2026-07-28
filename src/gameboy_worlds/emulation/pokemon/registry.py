@@ -7,6 +7,7 @@ from gameboy_worlds.emulation.pokemon.parsers import (
     MemoryBasedPokemonRedStateParser,
     PokemonBrownStateParser,
     PokemonStarBeastsStateParser,
+    PokemonStarBeastsCometStateParser,
     PokemonCrystalStateParser,
     PokemonPrismStateParser,
     PokemonFoolsGoldStateParser,
@@ -30,6 +31,7 @@ from gameboy_worlds.emulation.pokemon.trackers import (
     PokemonRedBoughtPotionAtPewterPokemartTestTracker,
     PokemonRedUsedPotionOnCharmanderTestTracker,
     PokemonRedOpenMapTestTracker,
+    PokemonPrismFirstBadgeTestTracker,
 )
 from gameboy_worlds.emulation.pokemon.emulators import PokemonEmulator
 
@@ -38,6 +40,7 @@ GAME_TO_GB_NAME = {
     "pokemon_red": "PokemonRed.gb",
     "pokemon_brown": "PokemonBrown.gb",
     "pokemon_starbeasts": "PokemonStarBeasts.gb",
+    "pokemon_starbeasts_comet": "PokemonStarBeastsComet.gb",
     "pokemon_crystal": "PokemonCrystal.gbc",
     "pokemon_fools_gold": "PokemonFoolsGold.gbc",
     "pokemon_prism": "PokemonPrism.gbc",
@@ -49,6 +52,7 @@ STRONGEST_PARSERS: Dict[str, Type[StateParser]] = {
     "pokemon_brown": PokemonBrownStateParser,
     "pokemon_crystal": PokemonCrystalStateParser,
     "pokemon_starbeasts": PokemonStarBeastsStateParser,
+    "pokemon_starbeasts_comet": PokemonStarBeastsCometStateParser,
     "pokemon_fools_gold": PokemonFoolsGoldStateParser,
     "pokemon_prism": PokemonPrismStateParser,
 }
@@ -87,11 +91,15 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
     "pokemon_starbeasts": {
         "default": PokemonOCRTracker,
     },
+    "pokemon_starbeasts_comet": {
+        "default": PokemonOCRTracker,
+    },
     "pokemon_fools_gold": {
         "default": PokemonOCRTracker,
     },
     "pokemon_prism": {
         "default": PokemonOCRTracker,
+        "first_badge_test": PokemonPrismFirstBadgeTestTracker,
     },
 }
 """ Mapping of game names to their available StateTracker classes with string identifiers. """
@@ -108,6 +116,9 @@ AVAILABLE_EMULATORS: Dict[str, Dict[str, Type[Emulator]]] = {
         "default": PokemonEmulator,
     },
     "pokemon_starbeasts": {
+        "default": PokemonEmulator,
+    },
+    "pokemon_starbeasts_comet": {
         "default": PokemonEmulator,
     },
     "pokemon_fools_gold": {

@@ -259,7 +259,7 @@ def get_training_states(game: str, parameters: dict = None) -> Optional[List[str
             parameters,
         )
         return None
-    training_states = list(set(training_rows["initial_state"].tolist()))
+    training_states = list(set(training_rows["init_state"].tolist()))
     return training_states
 
 
@@ -293,8 +293,55 @@ def get_shifted_training_states(
         other_game = row["game"]
         if other_game not in shifted_training_states:
             shifted_training_states[other_game] = []
-        shifted_training_states[other_game].append(row["initial_state"])
+        shifted_training_states[other_game].append(row["init_state"])
     return shifted_training_states
+
+
+def get_all_training_states(parameters: dict = None) -> Dict[str, List[str]]:
+    """
+    Gets all regular training states for the all games (for which training states are specified).
+
+    Args:
+        parameters (dict, optional): Additional parameters for error logging.
+
+    Returns:
+        Dict[str, List[str]]: A dictionary containing {game: training_states} entries for all games for which training states are specified in the benchmark tasks.
+    """
+    parameters = load_parameters(parameters)
+    tasks_dfs = get_benchmark_tasks_dfs(parameters)
+    all_games = set()
+    for df in tasks_dfs.values():
+        all_games.update(df["game"].unique())
+    all_training_states = {}
+    for game in all_games:
+        training_states = get_training_states(game, parameters)
+        if training_states is not None:
+            all_training_states[game] = training_states
+    return all_training_states
+
+
+def get_all_shifted_training_states(
+    parameters: dict = None,
+) -> Dict[str, Dict[str, List[str]]]:
+    """
+    Gets all shifted training states for all games.
+
+    Args:
+        parameters (dict, optional): Additional parameters for error logging.
+
+    Returns:
+        Dict[str, Dict[str, List[str]]]: A nested dictionary containing {game: {other_game: shifted_training_states}} entries for all games for which shifted training states are specified in the benchmark tasks.
+    """
+    parameters = load_parameters(parameters)
+    tasks_dfs = get_benchmark_tasks_dfs(parameters)
+    all_games = set()
+    for df in tasks_dfs.values():
+        all_games.update(df["game"].unique())
+    all_shifted_training_states = {}
+    for game in all_games:
+        shifted_states = get_shifted_training_states(game, parameters)
+        all_shifted_training_states[game] = shifted_states
+    return all_shifted_training_states
 
 
 class _Profiler:
