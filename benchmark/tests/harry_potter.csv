@@ -50,3 +50,7 @@ harry_potter_philosophers_stone,"menu, interaction",sell one chocolate frog and 
 harry_potter_philosophers_stone,"battle",lose the duel,after_frog_purchase,lose_duel_test,harry_potter_philosophers_stone,True
 harry_potter_philosophers_stone,"battle",win the duel,after_frog_purchase,win_duel_test,harry_potter_philosophers_stone,True
 harry_potter_philosophers_stone,"navigation",walk up and down the train 3 times,win_train_duel,walk_train_3_times,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation, interaction",Talk to Hagrid and get on the boat,off_train,talk_to_hagrid_boat_test,harry_potter_chamber_of_secrets,True
+harry_potter_philosophers_stone,"battle",Die,after_boat,die_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle",fight a small yellow rat then a big yellow monster both in the top left corner in that order,after_boat,fight_rat_then_monster_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle",fight a bat then a big yellow monster both in the middle of the battlefield in that order,after_boat,fight_bat_then_monster_middle_test,harry_potter_philosophers_stone,True

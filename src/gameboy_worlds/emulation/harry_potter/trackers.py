@@ -105,6 +105,14 @@ from gameboy_worlds.emulation.harry_potter.test_metrics import (
     RemoveHatSubgoal,
     RemoveRobeSubgoal,
     EmptyEquipCursorRobeTerminateMetric,
+    TalkToHagridBeforeBoatSubgoal,
+    BoatBattleTerminateMetric,
+    WeakenedHealthBarSubgoal,
+    RestoredFullHealthTerminateMetric,
+    FightYellowRatSubgoal,
+    FightBigYellowMonsterTerminateMetric,
+    FightBatMiddleSubgoal,
+    FightBigYellowMonsterMiddleTerminateMetric,
 )
 
 
@@ -408,3 +416,23 @@ class EquipPointedHatPlainWorkRobeTestTracker(HarryPotterTestTracker):
 class RemoveAllEquippedItemsTestTracker(HarryPotterTestTracker):
     TERMINATION_TRUNCATION_METRIC = EmptyEquipCursorRobeTerminateMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([RemoveHatSubgoal, RemoveRobeSubgoal])
+
+# Boat Battle Task
+class TalkToHagridBoatTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = BoatBattleTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([TalkToHagridBeforeBoatSubgoal])
+
+# Die Task
+class DieTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = RestoredFullHealthTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([WeakenedHealthBarSubgoal])
+
+# Fight Yellow Rat then Big Yellow Monster Task
+class FightRatThenMonsterTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = FightBigYellowMonsterTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([FightYellowRatSubgoal])
+
+# Fight Bat then Big Yellow Monster (middle) Task
+class FightBatThenMonsterMiddleTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = FightBigYellowMonsterMiddleTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([FightBatMiddleSubgoal])

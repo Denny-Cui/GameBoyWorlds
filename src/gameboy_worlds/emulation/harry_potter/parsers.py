@@ -238,11 +238,24 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         ("chocolate_frogs_5_inventory_area", 0, 60, 160, 20),
         ("leftmost_train_car", 0, 0, 90, 90),
         ("rightmost_train_car", 75, 0, 85, 90),
+        ("boat_battle", 100, 60, 60, 20),
+        ("top_left_battle", 0, 0, 40, 40),
+        ("middle_fight_area", 35, 35, 25, 30),
     ]
 
     MULTI_TARGETS = {
         "large_dialogue_box": [
             "large_text_content",
+            "weakened_health_bar",
+            "restored_full_health",
+        ],
+        "top_left_battle": [
+            "yellow_rat",
+            "big_yellow_monster",
+        ],
+        "middle_fight_area": [
+            "bat",
+            "big_yellow_monster",
         ],
         "chocolate_frogs_5_inventory_area": [
             "chocolate_frogs_5_inventory",
@@ -292,6 +305,7 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
             "unable_to_escape",
             "talk_to_weasleys",
             "talk_to_ron_weasley",
+            "talk_with_hagrid_before_boat",
         ],
         "ollivanders_area": [
             "ollivanders_interior",
@@ -404,5 +418,8 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         ],
         "sugarplums_menu_area": [
             "sugarplums_buy_menu_open",
+        ],
+        "boat_battle": [
+            "boat_battle_target",
         ],
     }

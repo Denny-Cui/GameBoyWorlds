@@ -60,6 +60,10 @@ from gameboy_worlds.emulation.harry_potter.trackers import (
     EatPumpkinPastyTestTracker,
     EquipPointedHatPlainWorkRobeTestTracker,
     RemoveAllEquippedItemsTestTracker,
+    TalkToHagridBoatTestTracker,
+    DieTestTracker,
+    FightRatThenMonsterTestTracker,
+    FightBatThenMonsterMiddleTestTracker,
 )
 
 GAME_TO_GB_NAME = {
@@ -121,6 +125,10 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "eat_pumpkin_pasty_test": EatPumpkinPastyTestTracker,
         "equip_pointed_hat_plain_work_robe_test": EquipPointedHatPlainWorkRobeTestTracker,
         "remove_all_equipped_items_test": RemoveAllEquippedItemsTestTracker,
+        "talk_to_hagrid_boat_test": TalkToHagridBoatTestTracker,
+        "die_test": DieTestTracker,
+        "fight_rat_then_monster_test": FightRatThenMonsterTestTracker,
+        "fight_bat_then_monster_middle_test": FightBatThenMonsterMiddleTestTracker,
     },
     "harry_potter_chamber_of_secrets": {
         "default": HarryPotterOCRTracker,

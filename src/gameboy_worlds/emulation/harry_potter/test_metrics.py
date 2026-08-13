@@ -612,3 +612,68 @@ class EmptyEquipCursorRobeTerminateMetric(RegionMatchTerminationOnlyMetric):
     REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
     _TERMINATION_NAMED_REGION = "equip_screen"
     _TERMINATION_TARGET_NAME = "empty_equip_cursor_robe"
+
+
+# ============================================================
+# Boat Battle tasks
+# ============================================================
+
+class TalkToHagridBeforeBoatSubgoal(RegionMatchSubGoal):
+    NAME = "talk_with_hagrid_before_boat"
+    _NAMED_REGION = "dialogue_box_full"
+    _TARGET_NAME = "talk_with_hagrid_before_boat"
+
+
+class BoatBattleTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "boat_battle"
+    _TERMINATION_TARGET_NAME = "boat_battle_target"
+
+
+# ============================================================
+# Die task
+# ============================================================
+
+class WeakenedHealthBarSubgoal(RegionMatchSubGoal):
+    NAME = "weakened_health_bar"
+    _NAMED_REGION = "large_dialogue_box"
+    _TARGET_NAME = "weakened_health_bar"
+
+
+class RestoredFullHealthTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "large_dialogue_box"
+    _TERMINATION_TARGET_NAME = "restored_full_health"
+
+
+# ============================================================
+# Yellow Rat then Big Yellow Monster task
+# ============================================================
+
+class FightYellowRatSubgoal(RegionMatchSubGoal):
+    NAME = "fight_yellow_rat"
+    _NAMED_REGION = "top_left_battle"
+    _TARGET_NAME = "yellow_rat"
+
+
+class FightBigYellowMonsterTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "top_left_battle"
+    _TERMINATION_TARGET_NAME = "big_yellow_monster"
+
+
+# ============================================================
+# Bat then Big Yellow Monster (middle) task
+# ============================================================
+
+class FightBatMiddleSubgoal(RegionMatchSubGoal):
+    NAME = "fight_bat_middle"
+    _NAMED_REGION = "middle_fight_area"
+    _TARGET_NAME = "bat"
+
+
+class FightBigYellowMonsterMiddleTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "middle_fight_area"
+    _TERMINATION_TARGET_NAME = "big_yellow_monster"
+
