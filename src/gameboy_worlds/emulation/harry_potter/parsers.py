@@ -231,14 +231,59 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         ("last_item", 0, 105, 160, 30),
         ("item_consumption", 0, 30, 160, 110),
         ("equip_screen", 0, 25, 160, 119),
+        ("rat_king_sprite_area", 0, 0, 60, 100),
+        ("full_screen_area", 0, 0, 160, 144),
+        ("mp_points_area", 60, 120, 60, 10),
+        ("large_dialogue_box", 0, 112, 160, 32),
+        ("chocolate_frogs_5_inventory_area", 0, 60, 160, 20),
+        ("leftmost_train_car", 0, 0, 90, 90),
+        ("rightmost_train_car", 75, 0, 85, 90),
+        ("boat_battle", 100, 60, 60, 20),
+        ("top_left_battle", 0, 0, 40, 40),
+        ("middle_fight_area", 35, 35, 25, 30),
     ]
 
     MULTI_TARGETS = {
+        "large_dialogue_box": [
+            "large_text_content",
+            "weakened_health_bar",
+            "restored_full_health",
+        ],
+        "top_left_battle": [
+            "yellow_rat",
+            "big_yellow_monster",
+        ],
+        "middle_fight_area": [
+            "bat",
+            "big_yellow_monster",
+        ],
+        "chocolate_frogs_5_inventory_area": [
+            "chocolate_frogs_5_inventory",
+            "chocolate_frogs_4_inventory",
+        ],
+        "mp_points_area": [
+            "fully_restore_your_mp",
+        ],
         "find_location": [
             "diagon_alley",
         ],
+        "full_screen_area": [
+            "respawn_death_rat_screen",
+            "reenter_gringotts",
+            "exit_gringotts",
+            "on_train",
+            "sell_chocolate_frog",
+            "start_of_duel",
+            "win_duel",
+            "lose_duel",
+        ],
+        "leftmost_train_car": ["leftmost_train_car_capture"],
+        "rightmost_train_car": ["rightmost_train_car_capture"],
         "menu": [
             "start_menu",
+        ],
+        "rat_king_sprite_area": [
+            "rat_king_sprite",
         ],
         "last_item": [
             "pumpkin_pasties",
@@ -252,12 +297,15 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
             "equipped_pointed_hat_plain_work_robe",
             "remove_hat",
             "remove_robe",
-            "empty_equip_cursor_hat",
             "empty_equip_cursor_robe",
         ],
         "dialogue_box_full": [
             "talk_to_flourish_clerk",
             "hagrid_diagon_dialogue",
+            "unable_to_escape",
+            "talk_to_weasleys",
+            "talk_to_ron_weasley",
+            "talk_with_hagrid_before_boat",
         ],
         "ollivanders_area": [
             "ollivanders_interior",
@@ -370,5 +418,8 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         ],
         "sugarplums_menu_area": [
             "sugarplums_buy_menu_open",
+        ],
+        "boat_battle": [
+            "boat_battle_target",
         ],
     }

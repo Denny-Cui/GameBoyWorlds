@@ -19,10 +19,29 @@ from gameboy_worlds.emulation.harry_potter.test_metrics import (
     OutsideGringottsSubgoal,
     TalkHagridGringottsTerminateMetric,
     FindHagridGringottsSubgoal,
+    ReenterGringottsSubgoal,
+    ExitGringottsTerminateMetric,
+    TalkToWeasleysSubgoal,
+    OnTrainTerminateMetric,
+    TalkToRonWeasleySubgoal,
+    ChocolateFrogs5InventoryTerminateMetric,
+    SellChocolateFrogSubgoal,
+    ChocolateFrogs4InventoryTerminateMetric,
+    StartOfDuelSubgoal,
+    LoseDuelTerminateMetric,
+    WinDuelTerminateMetric,
+    LeftmostTrainCarTerminateMetric,
+    RightmostTrainCarSubgoal,
+    LeftmostTrainCarSubgoal,
     GainLevelTerminateMetric,
     GainSpellTerminateMetric,
     WinBattleTerminateMetric,
     FindBossRatSubgoal,
+    RatKingSpriteSubgoal,
+    UnableToEscapeSubgoal,
+    RespawnDeathRatTerminateMetric,
+    FullyRestoreMPSubgoal,
+    UtilizeDeflectCardsSubgoal,
     # Task 14
     FindHagridVaultTerminateMetric,
     NavigateToHagridSubgoal,
@@ -86,6 +105,14 @@ from gameboy_worlds.emulation.harry_potter.test_metrics import (
     RemoveHatSubgoal,
     RemoveRobeSubgoal,
     EmptyEquipCursorRobeTerminateMetric,
+    TalkToHagridBeforeBoatSubgoal,
+    BoatBattleTerminateMetric,
+    WeakenedHealthBarSubgoal,
+    RestoredFullHealthTerminateMetric,
+    FightYellowRatSubgoal,
+    FightBigYellowMonsterTerminateMetric,
+    FightBatMiddleSubgoal,
+    FightBigYellowMonsterMiddleTerminateMetric,
 )
 
 
@@ -149,6 +176,36 @@ class TalkHagridGringottsTestTracker(HarryPotterTestTracker):
     SUBGOAL_METRIC = make_subgoal_metric_class([FindHagridGringottsSubgoal])
 
 
+class ExitGringottsWithoutHagridTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = ExitGringottsTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([ReenterGringottsSubgoal])
+
+
+class GetOnTrainTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = OnTrainTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([TalkToWeasleysSubgoal])
+
+
+class BuyChocolateFrogsTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = ChocolateFrogs5InventoryTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([TalkToRonWeasleySubgoal])
+
+
+class SellOneChocolateFrogTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = ChocolateFrogs4InventoryTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([SellChocolateFrogSubgoal])
+
+
+class LoseDuelTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = LoseDuelTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([StartOfDuelSubgoal])
+
+
+class WinDuelTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = WinDuelTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([StartOfDuelSubgoal])
+
+
 class GainLevelTestTracker(HarryPotterTestTracker):
     TERMINATION_TRUNCATION_METRIC = GainLevelTerminateMetric
     SUBGOAL_METRIC = DummySubGoalMetric
@@ -168,6 +225,18 @@ class BeatBossRatTestTracker(HarryPotterTestTracker):
     """Boss fight — termination TBD, subgoal is finding the boss rat."""
     TERMINATION_TRUNCATION_METRIC = WinBattleTerminateMetric  # placeholder until boss-specific termination
     SUBGOAL_METRIC = make_subgoal_metric_class([FindBossRatSubgoal])
+
+
+class FailRatKingBattleTestTracker(HarryPotterTestTracker):
+    """Fail the rat king battle by attempting to escape and dying."""
+    TERMINATION_TRUNCATION_METRIC = RespawnDeathRatTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([RatKingSpriteSubgoal, UnableToEscapeSubgoal])
+
+
+class DefeatRatKingWithDeflectTestTracker(HarryPotterTestTracker):
+    """Restore MP, use deflect cards, and beat the rat king."""
+    TERMINATION_TRUNCATION_METRIC = WinBattleTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([FullyRestoreMPSubgoal, UtilizeDeflectCardsSubgoal])
 
 
 # Task 14
@@ -228,6 +297,17 @@ class EnterCauldronShopTestTracker(HarryPotterTestTracker):
 class BuyCauldronTestTracker(HarryPotterTestTracker):
     TERMINATION_TRUNCATION_METRIC = BuyCauldronTerminateMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([CauldronBuyMenuOpenSubgoal])
+
+
+class WalkTrain3TimesTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = LeftmostTrainCarTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([
+        RightmostTrainCarSubgoal,
+        LeftmostTrainCarSubgoal,
+        RightmostTrainCarSubgoal,
+        LeftmostTrainCarSubgoal,
+        RightmostTrainCarSubgoal
+    ])
 
 
 # Sugarplums Sweets filler tasks
@@ -336,3 +416,23 @@ class EquipPointedHatPlainWorkRobeTestTracker(HarryPotterTestTracker):
 class RemoveAllEquippedItemsTestTracker(HarryPotterTestTracker):
     TERMINATION_TRUNCATION_METRIC = EmptyEquipCursorRobeTerminateMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([RemoveHatSubgoal, RemoveRobeSubgoal])
+
+# Boat Battle Task
+class TalkToHagridBoatTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = BoatBattleTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([TalkToHagridBeforeBoatSubgoal])
+
+# Die Task
+class DieTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = RestoredFullHealthTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([WeakenedHealthBarSubgoal])
+
+# Fight Yellow Rat then Big Yellow Monster Task
+class FightRatThenMonsterTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = FightBigYellowMonsterTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([FightYellowRatSubgoal])
+
+# Fight Bat then Big Yellow Monster (middle) Task
+class FightBatThenMonsterMiddleTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = FightBigYellowMonsterMiddleTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([FightBatMiddleSubgoal])
