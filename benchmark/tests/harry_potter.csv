@@ -41,3 +41,16 @@ harry_potter_philosophers_stone,navigation,"bring up the location banner to say 
 harry_potter_philosophers_stone,"menu, interaction",eat a pumpkin pasty,default,eat_pumpkin_pasty_test,harry_potter_chamber_of_secrets,True
 harry_potter_philosophers_stone,"menu, interaction",equip the pointed hat and then the plain work robe,default,equip_pointed_hat_plain_work_robe_test,harry_potter_chamber_of_secrets,True
 harry_potter_philosophers_stone,"menu, interaction",remove all of your equipped items starting with your hat,equipped_hat_robe,remove_all_equipped_items_test,harry_potter_chamber_of_secrets,True
+harry_potter_philosophers_stone,"battle",Try to flee from the rat king but eventually die,before_boss,fail_rat_king_battle,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle","restore MP to full, utilize your deflect cards in order to defeat the rat king",before_boss,defeat_rat_king_with_deflect_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation, interaction",exit gringotts WITHOUT first talking with Hagrid,inside_gringotts,exit_gringotts_without_hagrid_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation, interaction",get on the train,at_train_station,get_on_train_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"menu, interaction",buy 5 chocolate frogs and confirm you have them in inventory,on_train,buy_chocolate_frogs_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"menu, interaction",sell one chocolate frog and confirm you have 4 left,after_frog_purchase,sell_one_chocolate_frog_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle",lose the duel,after_frog_purchase,lose_duel_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle",win the duel,after_frog_purchase,win_duel_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation",walk up and down the train 3 times,win_train_duel,walk_train_3_times,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation, interaction",Talk to Hagrid and get on the boat,off_train,talk_to_hagrid_boat_test,harry_potter_chamber_of_secrets,True
+harry_potter_philosophers_stone,"battle",Die,after_boat,die_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle",fight a small yellow rat then a big yellow monster both in the top left corner in that order,after_boat,fight_rat_then_monster_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle",fight a bat then a big yellow monster both in the middle of the battlefield in that order,after_boat,fight_bat_then_monster_middle_test,harry_potter_philosophers_stone,True

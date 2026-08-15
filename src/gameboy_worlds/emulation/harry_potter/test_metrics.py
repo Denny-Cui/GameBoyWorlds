@@ -103,6 +103,72 @@ class FindHagridGringottsSubgoal(RegionMatchSubGoal):
     _TARGET_NAME = "find_hagrid_gringotts"
 
 
+class ReenterGringottsSubgoal(RegionMatchSubGoal):
+    NAME = "reenter_gringotts"
+    _NAMED_REGION = "full_screen_area"
+    _TARGET_NAME = "reenter_gringotts"
+
+
+class ExitGringottsTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "exit_gringotts"
+
+
+class TalkToWeasleysSubgoal(RegionMatchSubGoal):
+    NAME = "talk_to_weasleys"
+    _NAMED_REGION = "dialogue_box_full"
+    _TARGET_NAME = "talk_to_weasleys"
+
+
+class OnTrainTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "on_train"
+
+
+class TalkToRonWeasleySubgoal(RegionMatchSubGoal):
+    NAME = "talk_to_ron_weasley"
+    _NAMED_REGION = "dialogue_box_full"
+    _TARGET_NAME = "talk_to_ron_weasley"
+
+
+class ChocolateFrogs5InventoryTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "chocolate_frogs_5_inventory_area"
+    _TERMINATION_TARGET_NAME = "chocolate_frogs_5_inventory"
+
+
+class SellChocolateFrogSubgoal(RegionMatchSubGoal):
+    NAME = "sell_chocolate_frog"
+    _NAMED_REGION = "full_screen_area"
+    _TARGET_NAME = "sell_chocolate_frog"
+
+
+class ChocolateFrogs4InventoryTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "chocolate_frogs_5_inventory_area"
+    _TERMINATION_TARGET_NAME = "chocolate_frogs_4_inventory"
+
+
+class StartOfDuelSubgoal(RegionMatchSubGoal):
+    NAME = "start_of_duel"
+    _NAMED_REGION = "full_screen_area"
+    _TARGET_NAME = "start_of_duel"
+
+
+class LoseDuelTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "lose_duel"
+
+
+class WinDuelTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "win_duel"
+
+
 class GainLevelTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
     REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
     _TERMINATION_NAMED_REGION = "level_up_text"
@@ -125,6 +191,36 @@ class FindBossRatSubgoal(RegionMatchSubGoal):
     NAME = "boss_rat_found"
     _NAMED_REGION = "boss_rat_area"
     _TARGET_NAME = "boss_rat_found"
+
+
+class RatKingSpriteSubgoal(RegionMatchSubGoal):
+    NAME = "rat_king_sprite"
+    _NAMED_REGION = "rat_king_sprite_area"
+    _TARGET_NAME = "rat_king_sprite"
+
+
+class UnableToEscapeSubgoal(RegionMatchSubGoal):
+    NAME = "unable_to_escape"
+    _NAMED_REGION = "dialogue_box_full"
+    _TARGET_NAME = "unable_to_escape"
+
+
+class RespawnDeathRatTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "respawn_death_rat_screen"
+
+
+class FullyRestoreMPSubgoal(RegionMatchSubGoal):
+    NAME = "fully_restore_your_mp"
+    _NAMED_REGION = "mp_points_area"
+    _TARGET_NAME = "fully_restore_your_mp"
+
+
+class UtilizeDeflectCardsSubgoal(RegionMatchSubGoal):
+    NAME = "utilize_deflect_cards"
+    _NAMED_REGION = "large_dialogue_box"
+    _TARGET_NAME = "large_text_content"
 
 
 # ============================================================
@@ -151,6 +247,27 @@ class EnterMalkinsTerminateMetric(RegionMatchTerminationMetric, TerminationMetri
     REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
     _TERMINATION_NAMED_REGION = "inside_malkins_area"
     _TERMINATION_TARGET_NAME = "inside_malkins"
+
+# ============================================================
+# Train walk tasks
+# ============================================================
+
+class RightmostTrainCarSubgoal(RegionMatchSubGoal):
+    NAME = "rightmost_train_car"
+    _NAMED_REGION = "rightmost_train_car"
+    _TARGET_NAME = "rightmost_train_car_capture"
+
+
+class LeftmostTrainCarSubgoal(RegionMatchSubGoal):
+    NAME = "leftmost_train_car"
+    _NAMED_REGION = "leftmost_train_car"
+    _TARGET_NAME = "leftmost_train_car_capture"
+
+
+class LeftmostTrainCarTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "leftmost_train_car"
+    _TERMINATION_TARGET_NAME = "leftmost_train_car_capture"
 
 
 class OpenMalkinsBuyMenuTerminateMetric(RegionMatchTerminationMetric, TerminationMetric):
@@ -495,3 +612,68 @@ class EmptyEquipCursorRobeTerminateMetric(RegionMatchTerminationOnlyMetric):
     REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
     _TERMINATION_NAMED_REGION = "equip_screen"
     _TERMINATION_TARGET_NAME = "empty_equip_cursor_robe"
+
+
+# ============================================================
+# Boat Battle tasks
+# ============================================================
+
+class TalkToHagridBeforeBoatSubgoal(RegionMatchSubGoal):
+    NAME = "talk_with_hagrid_before_boat"
+    _NAMED_REGION = "dialogue_box_full"
+    _TARGET_NAME = "talk_with_hagrid_before_boat"
+
+
+class BoatBattleTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "boat_battle"
+    _TERMINATION_TARGET_NAME = "boat_battle_target"
+
+
+# ============================================================
+# Die task
+# ============================================================
+
+class WeakenedHealthBarSubgoal(RegionMatchSubGoal):
+    NAME = "weakened_health_bar"
+    _NAMED_REGION = "large_dialogue_box"
+    _TARGET_NAME = "weakened_health_bar"
+
+
+class RestoredFullHealthTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "large_dialogue_box"
+    _TERMINATION_TARGET_NAME = "restored_full_health"
+
+
+# ============================================================
+# Yellow Rat then Big Yellow Monster task
+# ============================================================
+
+class FightYellowRatSubgoal(RegionMatchSubGoal):
+    NAME = "fight_yellow_rat"
+    _NAMED_REGION = "top_left_battle"
+    _TARGET_NAME = "yellow_rat"
+
+
+class FightBigYellowMonsterTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "top_left_battle"
+    _TERMINATION_TARGET_NAME = "big_yellow_monster"
+
+
+# ============================================================
+# Bat then Big Yellow Monster (middle) task
+# ============================================================
+
+class FightBatMiddleSubgoal(RegionMatchSubGoal):
+    NAME = "fight_bat_middle"
+    _NAMED_REGION = "middle_fight_area"
+    _TARGET_NAME = "bat"
+
+
+class FightBigYellowMonsterMiddleTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "middle_fight_area"
+    _TERMINATION_TARGET_NAME = "big_yellow_monster"
+
