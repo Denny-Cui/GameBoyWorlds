@@ -981,12 +981,24 @@ class Emulator:
                                     )
                                     continue
                         else:
+                            region_name = parts[1].split(",")[0]
+                            region = self.state_parser.named_screen_regions[
+                                region_name
+                            ]
                             save_name = parts[2]
                             if not save_name.endswith(".npy"):
                                 save_name = save_name + ".npy"
+                            if region.multi_targets is None:
                                 save_path = os.path.join(
                                     self.state_parser.rom_data_path,
                                     "captures",
+                                    save_name,
+                                )
+                            else:
+                                save_path = os.path.join(
+                                    self.state_parser.rom_data_path,
+                                    "captures",
+                                    region_name,
                                     save_name,
                                 )
                         file_makedir(save_path)

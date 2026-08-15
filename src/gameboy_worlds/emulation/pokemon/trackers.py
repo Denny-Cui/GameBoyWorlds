@@ -21,6 +21,7 @@ from gameboy_worlds.emulation.pokemon.test_metrics import (
     UsedPotionOnCharmanderTerminateMetric,
     OpenMapTerminateMetric,
     PokemonPrismFirstBadgeTerminateMetric,
+    UsedNotVeryEffectiveAttackOnSeakingTerminateMetric,
 )
 
 from gameboy_worlds.emulation.pokemon.base_metrics import (
@@ -216,6 +217,15 @@ class PokemonRedOpenMapTestTracker(PokemonTestTracker):
     """
 
     TERMINATION_TRUNCATION_METRIC = OpenMapTerminateMetric
+    SUBGOAL_METRIC = DummySubGoalMetric
+
+
+class PokemonRedUsedNotVeryEffectiveAttackOnSeakingTestTracker(PokemonTestTracker):
+    """
+    A TestTracker for Pokémon Red that ends an episode when the agent uses a not very effective attack on Seaking.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = UsedNotVeryEffectiveAttackOnSeakingTerminateMetric
     SUBGOAL_METRIC = DummySubGoalMetric
 
 

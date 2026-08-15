@@ -127,6 +127,8 @@ class PokemonStateParser(StateParser, ABC):
             "cannot_escape",
             "cannot_run_from_trainer",
             "no_pp_for_move",
+            "used_not_very_effective_attack",
+            "used_super_effective_attack",
         ],
         "menu_box_strip": ["cursor_on_options", "cursor_on_pokedex"],
     }

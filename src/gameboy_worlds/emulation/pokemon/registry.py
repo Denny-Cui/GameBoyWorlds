@@ -31,6 +31,7 @@ from gameboy_worlds.emulation.pokemon.trackers import (
     PokemonRedBoughtPotionAtPewterPokemartTestTracker,
     PokemonRedUsedPotionOnCharmanderTestTracker,
     PokemonRedOpenMapTestTracker,
+    PokemonRedUsedNotVeryEffectiveAttackOnSeakingTestTracker,
     PokemonPrismFirstBadgeTestTracker,
 )
 from gameboy_worlds.emulation.pokemon.emulators import PokemonEmulator
@@ -81,6 +82,7 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "bought_potion_at_pewter_pokemart_test": PokemonRedBoughtPotionAtPewterPokemartTestTracker,
         "used_potion_on_charmander_test": PokemonRedUsedPotionOnCharmanderTestTracker,
         "open_map_test": PokemonRedOpenMapTestTracker,
+        "used_not_very_effective_attack": PokemonRedUsedNotVeryEffectiveAttackOnSeakingTestTracker,
     },
     "pokemon_brown": {
         "default": PokemonOCRTracker,
