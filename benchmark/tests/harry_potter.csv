@@ -54,3 +54,12 @@ harry_potter_philosophers_stone,"navigation, interaction",Talk to Hagrid and get
 harry_potter_philosophers_stone,"battle",Die,after_boat,die_test,harry_potter_philosophers_stone,True
 harry_potter_philosophers_stone,"battle",fight a small yellow rat then a big yellow monster both in the top left corner in that order,after_boat,fight_rat_then_monster_test,harry_potter_philosophers_stone,True
 harry_potter_philosophers_stone,"battle",fight a bat then a big yellow monster both in the middle of the battlefield in that order,after_boat,fight_bat_then_monster_middle_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation",find the stone gargoyles on the wall then find another pair further along,after_boat,find_stone_gargoyles_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation, interaction",get to the green dungeon room,after_boat,get_to_green_dungeon_room_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle",beat the stone boss in the purple room,purple_dungeon,beat_stone_boss_purple_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"battle",lose to the stone boss in the purple room,purple_dungeon,lose_to_stone_boss_purple_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation, interaction",find a locked door and get told by the professor to stay down there,at_hogwarts,find_locked_door_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation, interaction",figure out the number of house points each house currently has,at_hogwarts,check_house_points_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation",stand facing the hourglass near the top of the room then the one at the bottom of the room,at_hogwarts,hourglass_top_then_bottom_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation",go to the bottom of the room and stand in the middle then go up and stand in the middle of the seal facing up,at_hogwarts,bottom_room_then_seal_test,harry_potter_philosophers_stone,True
+harry_potter_philosophers_stone,"navigation",stand in the corridor between the two gargoyles then return to the middle of the room on the seal facing up,at_hogwarts,between_gargoyles_then_seal_test,harry_potter_philosophers_stone,True

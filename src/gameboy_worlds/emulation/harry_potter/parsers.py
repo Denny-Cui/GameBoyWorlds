@@ -241,6 +241,17 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         ("boat_battle", 100, 60, 60, 20),
         ("top_left_battle", 0, 0, 40, 40),
         ("middle_fight_area", 35, 35, 25, 30),
+        # Gargoyles sit on the wall band y 0-25; the pair can appear anywhere
+        # across x 20-100, so this is the capture box for the x=62 case.
+        ("stone_gargoyles_wall", 62, 0, 20, 25),
+        ("top_left_quarter", 0, 0, 80, 72),
+        ("center_right", 80, 36, 80, 72),
+        # Dead center, extending halfway toward each of the 4 screen edges.
+        ("center_half", 40, 36, 80, 72),
+        # Full-height vertical strip spanning x 20-50.
+        ("left_vertical_strip", 20, 0, 30, 144),
+        # Bottom fifth of the screen (144 / 5 ~= 29px).
+        ("bottom_fifth", 0, 115, 160, 29),
     ]
 
     MULTI_TARGETS = {
@@ -256,6 +267,11 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
         "middle_fight_area": [
             "bat",
             "big_yellow_monster",
+        ],
+        "stone_gargoyles_wall": [
+            "two_stone_gargoyles",
+            "two_stone_gargoyles_2",
+            "two_stone_gargoyles_3",
         ],
         "chocolate_frogs_5_inventory_area": [
             "chocolate_frogs_5_inventory",
@@ -276,6 +292,26 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
             "start_of_duel",
             "win_duel",
             "lose_duel",
+            "green_dungeon_room",
+            "talking_with_hagrid_dungeon",
+            "boss_purple_win",
+            "house_points",
+        ],
+        "top_left_quarter": [
+            "boss_purple_start",
+        ],
+        "center_right": [
+            "hourglass_1",
+            "hourglass_2",
+        ],
+        "center_half": [
+            "standing_on_seal_facing_up",
+        ],
+        "left_vertical_strip": [
+            "between_gargoyles",
+        ],
+        "bottom_fifth": [
+            "bottom_room",
         ],
         "leftmost_train_car": ["leftmost_train_car_capture"],
         "rightmost_train_car": ["rightmost_train_car_capture"],
@@ -306,6 +342,8 @@ class HarryPotterPhilosophersStoneParser(_BaseHarryPotterParser):
             "talk_to_weasleys",
             "talk_to_ron_weasley",
             "talk_with_hagrid_before_boat",
+            "locked_door",
+            "stay_down_there",
         ],
         "ollivanders_area": [
             "ollivanders_interior",

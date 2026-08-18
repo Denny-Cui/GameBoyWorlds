@@ -113,6 +113,21 @@ from gameboy_worlds.emulation.harry_potter.test_metrics import (
     FightBigYellowMonsterTerminateMetric,
     FightBatMiddleSubgoal,
     FightBigYellowMonsterMiddleTerminateMetric,
+    FindFirstStoneGargoylesSubgoal,
+    FindSecondStoneGargoylesTerminateMetric,
+    TalkingWithHagridDungeonSubgoal,
+    GreenDungeonRoomTerminateMetric,
+    BossPurpleStartSubgoal,
+    BossPurpleWinTerminateMetric,
+    LockedDoorSubgoal,
+    StayDownThereTerminateMetric,
+    AnyHourglassSubgoal,
+    HousePointsTerminateMetric,
+    Hourglass1Subgoal,
+    Hourglass2TerminateMetric,
+    BottomRoomSubgoal,
+    BetweenGargoylesSubgoal,
+    StandingOnSealFacingUpTerminateMetric,
 )
 
 
@@ -436,3 +451,49 @@ class FightRatThenMonsterTestTracker(HarryPotterTestTracker):
 class FightBatThenMonsterMiddleTestTracker(HarryPotterTestTracker):
     TERMINATION_TRUNCATION_METRIC = FightBigYellowMonsterMiddleTerminateMetric
     SUBGOAL_METRIC = make_subgoal_metric_class([FightBatMiddleSubgoal])
+
+# Find Stone Gargoyles Task
+class FindStoneGargoylesTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = FindSecondStoneGargoylesTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([FindFirstStoneGargoylesSubgoal])
+
+# Get To Green Dungeon Room Task
+class GetToGreenDungeonRoomTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = GreenDungeonRoomTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([TalkingWithHagridDungeonSubgoal])
+
+# Purple Room Stone Boss Tasks
+class BeatStoneBossPurpleTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = BossPurpleWinTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([BossPurpleStartSubgoal])
+
+
+class LoseToStoneBossPurpleTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = RestoredFullHealthTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([BossPurpleStartSubgoal])
+
+
+# Hogwarts Hourglass Room Tasks
+class FindLockedDoorTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = StayDownThereTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([LockedDoorSubgoal])
+
+
+class CheckHousePointsTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = HousePointsTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([AnyHourglassSubgoal])
+
+
+class HourglassTopThenBottomTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = Hourglass2TerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([Hourglass1Subgoal])
+
+
+class BottomRoomThenSealTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = StandingOnSealFacingUpTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([BottomRoomSubgoal])
+
+
+class BetweenGargoylesThenSealTestTracker(HarryPotterTestTracker):
+    TERMINATION_TRUNCATION_METRIC = StandingOnSealFacingUpTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class([BetweenGargoylesSubgoal])

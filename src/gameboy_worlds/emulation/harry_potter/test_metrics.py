@@ -8,7 +8,9 @@ from gameboy_worlds.emulation.tracker import (
     TerminationMetric,
     RegionMatchTerminationMetric,
     RegionMatchTerminationOnlyMetric,
+    AnyRegionMatchTerminationMetric,
     RegionMatchSubGoal,
+    AnyRegionMatchSubGoal,
 )
 import numpy as np
 
@@ -676,4 +678,111 @@ class FightBigYellowMonsterMiddleTerminateMetric(RegionMatchTerminationOnlyMetri
     REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
     _TERMINATION_NAMED_REGION = "middle_fight_area"
     _TERMINATION_TARGET_NAME = "big_yellow_monster"
+
+
+# ============================================================
+# Find stone gargoyles on the wall task
+# ============================================================
+
+class FindFirstStoneGargoylesSubgoal(RegionMatchSubGoal):
+    NAME = "find_first_stone_gargoyles"
+    _NAMED_REGION = "stone_gargoyles_wall"
+    _TARGET_NAME = "two_stone_gargoyles"
+
+
+class TalkingWithHagridDungeonSubgoal(RegionMatchSubGoal):
+    NAME = "talking_with_hagrid_dungeon"
+    _NAMED_REGION = "full_screen_area"
+    _TARGET_NAME = "talking_with_hagrid_dungeon"
+
+
+class GreenDungeonRoomTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "green_dungeon_room"
+
+
+# ============================================================
+# Hogwarts hourglass room tasks
+# ============================================================
+
+class LockedDoorSubgoal(RegionMatchSubGoal):
+    NAME = "locked_door"
+    _NAMED_REGION = "dialogue_box_full"
+    _TARGET_NAME = "locked_door"
+
+
+class StayDownThereTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "dialogue_box_full"
+    _TERMINATION_TARGET_NAME = "stay_down_there"
+
+
+class AnyHourglassSubgoal(AnyRegionMatchSubGoal):
+    NAME = "any_hourglass"
+    _NAMED_REGIONS = ["center_right", "center_right"]
+    _TARGET_NAMES = ["hourglass_1", "hourglass_2"]
+
+
+class HousePointsTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "house_points"
+
+
+class Hourglass1Subgoal(RegionMatchSubGoal):
+    NAME = "hourglass_1"
+    _NAMED_REGION = "center_right"
+    _TARGET_NAME = "hourglass_1"
+
+
+class Hourglass2TerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "center_right"
+    _TERMINATION_TARGET_NAME = "hourglass_2"
+
+
+class BottomRoomSubgoal(RegionMatchSubGoal):
+    NAME = "bottom_room"
+    _NAMED_REGION = "bottom_fifth"
+    _TARGET_NAME = "bottom_room"
+
+
+class BetweenGargoylesSubgoal(RegionMatchSubGoal):
+    NAME = "between_gargoyles"
+    _NAMED_REGION = "left_vertical_strip"
+    _TARGET_NAME = "between_gargoyles"
+
+
+class StandingOnSealFacingUpTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "center_half"
+    _TERMINATION_TARGET_NAME = "standing_on_seal_facing_up"
+
+
+# ============================================================
+# Purple room stone boss tasks
+# ============================================================
+
+class BossPurpleStartSubgoal(RegionMatchSubGoal):
+    NAME = "boss_purple_start"
+    _NAMED_REGION = "top_left_quarter"
+    _TARGET_NAME = "boss_purple_start"
+
+
+class BossPurpleWinTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _TERMINATION_NAMED_REGION = "full_screen_area"
+    _TERMINATION_TARGET_NAME = "boss_purple_win"
+
+
+class FindSecondStoneGargoylesTerminateMetric(AnyRegionMatchTerminationMetric):
+    """
+    Terminates on reaching either of the two later gargoyle spots on the wall,
+    so the second sighting does not have to be one specific pair.
+    """
+
+    REQUIRED_PARSER = HarryPotterPhilosophersStoneParser
+    _NAMED_REGIONS = ["stone_gargoyles_wall", "stone_gargoyles_wall"]
+    _TARGET_NAMES = ["two_stone_gargoyles_2", "two_stone_gargoyles_3"]
 
