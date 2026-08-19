@@ -64,6 +64,15 @@ from gameboy_worlds.emulation.harry_potter.trackers import (
     DieTestTracker,
     FightRatThenMonsterTestTracker,
     FightBatThenMonsterMiddleTestTracker,
+    FindStoneGargoylesTestTracker,
+    GetToGreenDungeonRoomTestTracker,
+    BeatStoneBossPurpleTestTracker,
+    LoseToStoneBossPurpleTestTracker,
+    FindLockedDoorTestTracker,
+    CheckHousePointsTestTracker,
+    HourglassTopThenBottomTestTracker,
+    BottomRoomThenSealTestTracker,
+    BetweenGargoylesThenSealTestTracker,
 )
 
 GAME_TO_GB_NAME = {
@@ -129,6 +138,15 @@ AVAILABLE_STATE_TRACKERS: Dict[str, Dict[str, Type[StateTracker]]] = {
         "die_test": DieTestTracker,
         "fight_rat_then_monster_test": FightRatThenMonsterTestTracker,
         "fight_bat_then_monster_middle_test": FightBatThenMonsterMiddleTestTracker,
+        "find_stone_gargoyles_test": FindStoneGargoylesTestTracker,
+        "get_to_green_dungeon_room_test": GetToGreenDungeonRoomTestTracker,
+        "beat_stone_boss_purple_test": BeatStoneBossPurpleTestTracker,
+        "lose_to_stone_boss_purple_test": LoseToStoneBossPurpleTestTracker,
+        "find_locked_door_test": FindLockedDoorTestTracker,
+        "check_house_points_test": CheckHousePointsTestTracker,
+        "hourglass_top_then_bottom_test": HourglassTopThenBottomTestTracker,
+        "bottom_room_then_seal_test": BottomRoomThenSealTestTracker,
+        "between_gargoyles_then_seal_test": BetweenGargoylesThenSealTestTracker,
     },
     "harry_potter_chamber_of_secrets": {
         "default": HarryPotterOCRTracker,
