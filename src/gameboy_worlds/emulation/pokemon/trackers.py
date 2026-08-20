@@ -20,6 +20,15 @@ from gameboy_worlds.emulation.pokemon.test_metrics import (
     BoughtPotionAtPewterPokemartTerminateMetric,
     UsedPotionOnCharmanderTerminateMetric,
     OpenMapTerminateMetric,
+    PokemonBrownChampionshipTerminateMetric,
+    PokemonBrownEquityBadgeSubGoal,
+    PokemonBrownFistBadgeSubGoal,
+    PokemonBrownHailBadgeSubGoal,
+    PokemonBrownMarineBadgeSubGoal,
+    PokemonBrownPsiBadgeSubGoal,
+    PokemonBrownSparkyBadgeSubGoal,
+    PokemonBrownSproutBadgeSubGoal,
+    PokemonBrownStarBadgeSubGoal,
     PokemonPrismFirstBadgeTerminateMetric,
     UsedNotVeryEffectiveAttackOnSeakingTerminateMetric,
 )
@@ -227,6 +236,27 @@ class PokemonRedUsedNotVeryEffectiveAttackOnSeakingTestTracker(PokemonTestTracke
 
     TERMINATION_TRUNCATION_METRIC = UsedNotVeryEffectiveAttackOnSeakingTerminateMetric
     SUBGOAL_METRIC = DummySubGoalMetric
+
+
+class PokemonBrownChampionshipTestTracker(PokemonTestTracker):
+    """
+    A TestTracker for Pokemon Brown that tracks all eight badges and ends an episode
+    when the player becomes the Rijon League Champion.
+    """
+
+    TERMINATION_TRUNCATION_METRIC = PokemonBrownChampionshipTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class(
+        [
+            PokemonBrownMarineBadgeSubGoal,
+            PokemonBrownHailBadgeSubGoal,
+            PokemonBrownSproutBadgeSubGoal,
+            PokemonBrownSparkyBadgeSubGoal,
+            PokemonBrownFistBadgeSubGoal,
+            PokemonBrownEquityBadgeSubGoal,
+            PokemonBrownStarBadgeSubGoal,
+            PokemonBrownPsiBadgeSubGoal,
+        ]
+    )
 
 
 class PokemonPrismFirstBadgeTestTracker(PokemonTestTracker):

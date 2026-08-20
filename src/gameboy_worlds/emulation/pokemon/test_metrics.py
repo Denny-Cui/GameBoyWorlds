@@ -1,6 +1,10 @@
 from typing import Optional
 
-from gameboy_worlds.emulation.pokemon.parsers import PokemonRedStateParser, PokemonPrismStateParser
+from gameboy_worlds.emulation.pokemon.parsers import (
+    PokemonBrownStateParser,
+    PokemonPrismStateParser,
+    PokemonRedStateParser,
+)
 from gameboy_worlds.emulation.tracker import (
     RegionMatchTerminationOnlyMetric,
     TerminationMetric,
@@ -149,6 +153,65 @@ class OpenMapTerminateMetric(TerminationMetric):
             if in_map:
                 return True
         return False
+
+
+# ---------------------------------------------------------------------------
+# Pokemon Brown metrics
+# ---------------------------------------------------------------------------
+
+
+class PokemonBrownMarineBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_marine_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_marine_badge"
+
+
+class PokemonBrownHailBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_hail_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_hail_badge"
+
+
+class PokemonBrownSproutBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_sprout_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_sprout_badge"
+
+
+class PokemonBrownSparkyBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_sparky_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_sparky_badge"
+
+
+class PokemonBrownFistBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_fist_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_fist_badge"
+
+
+class PokemonBrownEquityBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_equity_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_equity_badge"
+
+
+class PokemonBrownStarBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_star_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_star_badge"
+
+
+class PokemonBrownPsiBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_psi_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_psi_badge"
+
+
+class PokemonBrownChampionshipTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonBrownStateParser
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "collect_championship"
 
 
 # ---------------------------------------------------------------------------
