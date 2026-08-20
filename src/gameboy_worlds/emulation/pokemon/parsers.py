@@ -198,7 +198,9 @@ class PokemonStateParser(StateParser, ABC):
             base_regions=self.COMMON_MULTI_TARGET_REGIONS,
         )
         multi_target_region_names = [region[0] for region in multi_target_regions]
-        multi_targets = self.COMMON_MULTI_TARGETS.copy()
+        multi_targets = {
+            name: targets.copy() for name, targets in self.COMMON_MULTI_TARGETS.items()
+        }
         for key in override_multi_targets:
             if key in multi_targets:
                 multi_targets[key].extend(override_multi_targets[key])
@@ -703,7 +705,25 @@ class PokemonRedStateParser(BasePokemonRedStateParser):
 
 class PokemonBrownStateParser(BasePokemonRedStateParser):
     def __init__(self, pyboy, parameters):
-        super().__init__(pyboy, variant="pokemon_brown", parameters=parameters)
+        override_multi_targets = {
+            "dialogue_box_middle": [
+                "collect_marine_badge",
+                "collect_hail_badge",
+                "collect_sprout_badge",
+                "collect_sparky_badge",
+                "collect_fist_badge",
+                "collect_equity_badge",
+                "collect_star_badge",
+                "collect_psi_badge",
+                "collect_championship",
+            ],
+        }
+        super().__init__(
+            pyboy,
+            variant="pokemon_brown",
+            parameters=parameters,
+            override_multi_targets=override_multi_targets,
+        )
 
 
 class PokemonStarBeastsStateParser(BasePokemonRedStateParser):
