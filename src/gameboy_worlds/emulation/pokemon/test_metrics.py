@@ -218,22 +218,56 @@ class PokemonBrownChampionshipTerminateMetric(RegionMatchTerminationOnlyMetric):
 # Pokemon Prism metrics
 # ---------------------------------------------------------------------------
 
-# Pokemon Prism is Crystal-engine based. Naljo badges share the same memory
-# layout as Johto badges in Crystal: byte at 0xD57C, one bit per badge.
-# Bit 0 = Magma Badge (Gym 1 – Brimstone City, Leader Tansy, Fire type).
-_PRISM_BADGE_ADDR = 0xD57C
+
+class PokemonPrismPyreBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_pyre_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_pyre_badge"
 
 
-class PokemonPrismFirstBadgeTerminateMetric(
-    TerminationMetric, PokemonExitBattleTruncationMetric
-):
-    """Terminates when the player has obtained the first Naljo badge (Magma Badge)."""
+class PokemonPrismNatureBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_nature_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_nature_badge"
 
+
+class PokemonPrismCharmBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_charm_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_charm_badge"
+
+
+class PokemonPrismMidnightBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_midnight_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_midnight_badge"
+
+
+class PokemonPrismMuscleBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_muscle_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_muscle_badge"
+
+
+class PokemonPrismHazeBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_haze_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_haze_badge"
+
+
+class PokemonPrismRaucousBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_raucous_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_raucous_badge"
+
+
+class PokemonPrismNaljoBadgeSubGoal(RegionMatchSubGoal):
+    NAME = "collect_naljo_badge"
+    _NAMED_REGION = "dialogue_box_middle"
+    _TARGET_NAME = "collect_naljo_badge"
+
+
+class PokemonPrismChampionshipTerminateMetric(RegionMatchTerminationOnlyMetric):
     REQUIRED_PARSER = PokemonPrismStateParser
-
-    def determine_terminated(
-        self, current_frame: np.ndarray, recent_frames: Optional[np.ndarray]
-    ) -> bool:
-        badge_byte = self.state_parser.read_m(_PRISM_BADGE_ADDR)
-        # Bit 0 set means the first badge has been awarded
-        return bool(badge_byte & 0x01)
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "collect_championship"
