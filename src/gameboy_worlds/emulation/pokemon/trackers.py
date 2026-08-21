@@ -29,7 +29,15 @@ from gameboy_worlds.emulation.pokemon.test_metrics import (
     PokemonBrownSparkyBadgeSubGoal,
     PokemonBrownSproutBadgeSubGoal,
     PokemonBrownStarBadgeSubGoal,
-    PokemonPrismFirstBadgeTerminateMetric,
+    PokemonPrismChampionshipTerminateMetric,
+    PokemonPrismCharmBadgeSubGoal,
+    PokemonPrismHazeBadgeSubGoal,
+    PokemonPrismMidnightBadgeSubGoal,
+    PokemonPrismMuscleBadgeSubGoal,
+    PokemonPrismNaljoBadgeSubGoal,
+    PokemonPrismNatureBadgeSubGoal,
+    PokemonPrismPyreBadgeSubGoal,
+    PokemonPrismRaucousBadgeSubGoal,
     UsedNotVeryEffectiveAttackOnSeakingTerminateMetric,
 )
 
@@ -259,12 +267,22 @@ class PokemonBrownChampionshipTestTracker(PokemonTestTracker):
     )
 
 
-class PokemonPrismFirstBadgeTestTracker(PokemonTestTracker):
+class PokemonPrismChampionshipTestTracker(PokemonTestTracker):
     """
-    TestTracker for Pokemon Prism: terminates when the player earns the first Naljo badge
-    (Magma Badge from Gym Leader Tansy in Brimstone City).
-    Truncates if the agent exits a battle without winning.
+    A TestTracker for Pokemon Prism that tracks all eight badges and ends an episode
+    when the player becomes the Rijon League Champion.
     """
 
-    TERMINATION_TRUNCATION_METRIC = PokemonPrismFirstBadgeTerminateMetric
-    SUBGOAL_METRIC = DummySubGoalMetric
+    TERMINATION_TRUNCATION_METRIC = PokemonPrismChampionshipTerminateMetric
+    SUBGOAL_METRIC = make_subgoal_metric_class(
+        [
+            PokemonPrismPyreBadgeSubGoal,
+            PokemonPrismNatureBadgeSubGoal,
+            PokemonPrismCharmBadgeSubGoal,
+            PokemonPrismMidnightBadgeSubGoal,
+            PokemonPrismMuscleBadgeSubGoal,
+            PokemonPrismHazeBadgeSubGoal,
+            PokemonPrismRaucousBadgeSubGoal,
+            PokemonPrismNaljoBadgeSubGoal,
+        ]
+    )

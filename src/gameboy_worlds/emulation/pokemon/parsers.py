@@ -764,11 +764,25 @@ class PokemonCrystalStateParser(BasePokemonCrystalStateParser):
 class PokemonPrismStateParser(BasePokemonCrystalStateParser):
     def __init__(self, pyboy, parameters):
         override_regions = [("player_card_middle", 25, 58, 5, 5)]
+        override_multi_targets = {
+            "dialogue_box_middle": [
+                "collect_pyre_badge",
+                "collect_nature_badge",
+                "collect_charm_badge",
+                "collect_midnight_badge",
+                "collect_muscle_badge",
+                "collect_haze_badge",
+                "collect_raucous_badge",
+                "collect_naljo_badge",
+                "collect_championship",
+            ],
+        }
         super().__init__(
             pyboy,
             variant="pokemon_prism",
             parameters=parameters,
             override_regions=override_regions,
+            override_multi_targets=override_multi_targets,
         )
 
 
