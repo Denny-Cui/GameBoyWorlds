@@ -1149,7 +1149,7 @@ class Emulator:
                 self._parameters,
             )
         # copy the .sav file to self._gb_path.gb.ram file
-        save_destination = self._gb_path.replace(".gb", ".gb.ram")
+        save_destination = self._gb_path.replace(".gbc", ".gbc.ram").replace(".gb", ".gb.ram")
         shutil.copyfile(expected_sav, save_destination)
         self.close()
         self._pyboy = PyBoy(

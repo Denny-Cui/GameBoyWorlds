@@ -2,6 +2,7 @@ from typing import Optional
 
 from gameboy_worlds.emulation.pokemon.parsers import (
     PokemonBrownStateParser,
+    PokemonCrystalStateParser,
     PokemonPrismStateParser,
     PokemonRedStateParser,
 )
@@ -153,6 +154,606 @@ class OpenMapTerminateMetric(TerminationMetric):
             if in_map:
                 return True
         return False
+
+
+class TriedBuyBikeTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "cant_afford"
+
+
+class ClickVolcanobadgeTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "volcanobadge_info"
+
+
+class OpenedCeruleanHouseMapTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "opened_cerulean_house_map"
+
+
+class SquirtleFaintedTerminateMetric(
+    RegionMatchTerminationMetric, PokemonExitBattleTruncationMetric
+):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "defeated_blue_cerulean_bridge"
+
+
+class ClickedSwitchTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "clicked_switch"
+
+
+class UsedSurfAshTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "used_blastoise_surf_ash"
+
+
+class Sold1PsychicTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "sold_1_psychich_at_cinnabar"
+
+
+class EncounteredGhostTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "encountered_ghost"
+
+
+class RateMewNameTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "rate_mew_name"
+
+
+class ReadLetterTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "read_letter"
+
+
+class SpokeToEliteFourTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "spoke_to_elite_four"
+
+
+class UsedSuperRodTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "used_super_rod"
+
+
+class LookedIntoBinocularsTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "looked_into_binoculars"
+
+
+class SpokeToPikachuTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "spoke_to_pikachu"
+
+
+class OutsideSilfCoTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_middle"
+    _TERMINATION_TARGET_NAME = "outside_silf_co"
+
+
+class OutsideRobbedHouseBackTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_middle"
+    _TERMINATION_TARGET_NAME = "outside_robbed_house_back"
+
+
+class GaveMewtwoToDaycareTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "gave_mewtwo_to_daycare"
+
+
+class ReadSaffronSignTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "read_saffron_sign"
+
+
+class MarioGamePlayedTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "mario_game_played"
+
+
+class TossedUltraballTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "tossed_ultraball"
+
+
+class OutsideSeafoamIslandsTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_middle"
+    _TERMINATION_TARGET_NAME = "outside_seafoam_islands"
+
+
+class FlyToPalletTownFromCinnabarTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "fly_to_pallet_town_from_cinnabar"
+
+
+class WithdrewStaryuTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "withdrew_staryu"
+
+
+class UsedToxicOnPidgeottoTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "used_toxic_on_pidgeotto"
+
+
+class SwitchedToStaryuTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_bottom_half"
+    _TERMINATION_TARGET_NAME = "switched_to_staryu"
+
+
+class CaughtGoldeenTerminateMetric(
+    RegionMatchTerminationMetric, PokemonExitBattleTruncationMetric
+):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "caught_goldeen"
+
+
+class TriedToTeachStaryuToxicTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "tried_to_teach_staryu_toxic"
+
+
+class PlayFluteTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "play_flute"
+
+
+class OpenedSquirtlePokedexTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_quadrant_2"
+    _TERMINATION_TARGET_NAME = "opened_squirtle_pokedex"
+
+
+class OpenedBlastoiseStatusTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_quadrant_2"
+    _TERMINATION_TARGET_NAME = "opened_blastoise_status"
+
+
+class CharizardMovesTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "charizard_moves"
+
+
+class SpokeToLeaderTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "spoke_to_leader"
+
+
+class ReachGiovanniAreaTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonRedStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_middle"
+    _TERMINATION_TARGET_NAME = "reach_giovanni_area"
+
+
+# ---------------------------------------------------------------------------
+# Pokemon Crystal metrics
+# ---------------------------------------------------------------------------
+
+
+class EnteredCherrygroveCentreTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_middle"
+    _TERMINATION_TARGET_NAME = "entered_cherrygrove_centre"
+
+
+class WatchedTvTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "watched_tv"
+
+
+class SawMirrorTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "saw_mirror"
+
+
+class SpokeToChildTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "spoke_to_child"
+
+
+class GotBerryTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "got_berry"
+
+
+class TookDragonairItemTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "took_dragonair_item"
+
+
+class GavePidgeotCleanseTagTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "gave_pidgeot_cleanse_tag"
+
+
+class OpenedTyphlosionEntryTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_quadrant_2"
+    _TERMINATION_TARGET_NAME = "opened_typhlosion_entry"
+
+
+class ExitedMtMortarTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "exited_mt_mortar"
+
+
+class GotBiteTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "got_bite"
+
+
+class ReadElmComputerTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "read_elm_computer"
+
+
+class SpokeToAideTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "spoke_to_aide"
+
+
+class UsedEscapeRopeTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "used_escape_rope"
+
+
+class SpokeToVioletGymLeaderTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "spoke_to_violet_gym_leader"
+
+
+class BoughtAntidoteTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "bought_antidote"
+
+
+class SoldReviveTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "sold_revive"
+
+
+class PidgeotLearnedToxicTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "pidgeot_learned_toxic"
+
+
+class GotAlanNumberTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "got_alan_number"
+
+
+class InteractedCutTreeTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "interacted_cut_tree"
+
+
+class PickedUpParlzHealTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "picked_up_parlz_heal"
+
+
+class ReadBookTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "read_book"
+
+
+class SpokeToMortyTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "spoke_to_morty"
+
+
+class EnteredBurnedTowerTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_middle"
+    _TERMINATION_TARGET_NAME = "entered_burned_tower"
+
+
+class MiltankSadTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "miltank_sad"
+
+
+class GotGoodRodTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "got_good_rod"
+
+
+class EnteredLighthouseTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "screen_middle"
+    _TERMINATION_TARGET_NAME = "entered_lighthouse"
+
+
+class SpokeToRedHairGirlTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "spoke_to_red_hair_girl"
+
+
+class ForgotGustTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "forgot_gust"
+
+
+class LeftIcePathTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "left_ice_path"
+
+
+class IceMazeOtherSideTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "ice_maze_other_side"
+
+
+class UsedSuperEffectiveAttackTerminateMetric(
+    RegionMatchTerminationMetric, PokemonExitBattleTruncationMetric
+):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "used_super_effective_attack"
+
+
+class CaughtDelibirdTerminateMetric(
+    RegionMatchTerminationMetric, PokemonExitBattleTruncationMetric
+):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "caught_delibird"
+
+
+class EncounteredTangelaTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "encountered_tangela"
+
+
+class SpokeToSlowpokeTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "spoke_to_slowpoke"
+
+
+class GotCharcoalTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "got_charcoal"
+
+
+class SpokeToAzaleaGymTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "spoke_to_azalea_gym"
+
+
+class GotFastballTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "got_fastball"
+
+
+class GaveKurtApricotTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "gave_kurt_apricot"
+
+
+class CantDoThatTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "cant_do_that"
+
+
+class UsedHeadbuttTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "used_headbutt"
+
+
+class TookSuicunePicTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "screen"
+    _TERMINATION_TARGET_NAME = "suicune_pic"
+
+
+class UsedSurfCrystalTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "used_surf"
+
+
+class SeerSawAlakazamTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "seer_saw_alakazam"
+
+
+class OpenedMailboxTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "opened_mailbox"
+
+
+class CalledMomTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "called_mom"
+
+
+class CaughtPonytaTerminateMetric(
+    RegionMatchTerminationMetric, PokemonExitBattleTruncationMetric
+):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "caught_ponyta"
+
+
+class UsedFlashTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "used_flash"
+
+
+class BattleTowerExplanationTerminateMetric(RegionMatchTerminationOnlyMetric):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "battle_tower_explanation"
+
+
+class DefeatedWillTerminateMetric(
+    RegionMatchTerminationMetric, PokemonExitBattleTruncationMetric
+):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "defeated_will"
+
+
+class DefeatedKogaTerminateMetric(
+    RegionMatchTerminationMetric, PokemonExitBattleTruncationMetric
+):
+    REQUIRED_PARSER = PokemonCrystalStateParser
+
+    _TERMINATION_NAMED_REGION = "dialogue_box_middle"
+    _TERMINATION_TARGET_NAME = "defeated_koga"
 
 
 # ---------------------------------------------------------------------------
