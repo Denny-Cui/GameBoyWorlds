@@ -49,7 +49,7 @@ deja_vu_1,Interact,open the cabinet,in_grimy_office,open_cabinet_test,deja_vu_2,
 deja_vu_1,Navigation,exit grimy office,closed_cabinet,exit_grimy_office_test,deja_vu_2,TRUE
 deja_vu_1,Interact,open the wall safe,in_office_with_dead_man,open_wall_safe_test,deja_vu_2,TRUE
 deja_vu_1,Interact,open the trunk of the car,in_front_of_car_trunk,open_car_trunk_test,deja_vu_2,TRUE
-deja_vu_2,Interact,open the trench coat pocket,in_bathroom,open_trench_coat_pocket_test,deja_vu_1,TRUE
+deja_vu_2,Interact,open the trench coat pocket,in_bathroom,open_trench_coat_pocket_test,deja_vu_1,FALSE
 deja_vu_2,Interact,open the bathroom door,taken_pants_pocket,open_bathroom_door_test,deja_vu_1,FALSE
 deja_vu_2,Take,take gum from trench coat,opened_trench_coat_pocket,take_gum_test,deja_vu_1,FALSE
 deja_vu_2,Interact,open the pants pocket,in_bathroom,open_pants_pocket_test,deja_vu_1,FALSE
