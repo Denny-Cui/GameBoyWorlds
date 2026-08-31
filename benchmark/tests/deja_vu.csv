@@ -60,7 +60,7 @@ deja_vu_2,Use,put on the pants,put_on_trench_coat,put_on_trench_coat_test,deja_v
 deja_vu_2,Interact,open wallet1,put_on_pants,open_wallet1_test,deja_vu_1,FALSE
 deja_vu_2,Take,take newsclip1,opened_wallet1,take_newsclip1_test,deja_vu_1,FALSE
 deja_vu_2,Take,take license1,taken_1_dollar,take_license1_test,deja_vu_1,FALSE
-deja_vu_2,Interact,close wallet1,taken_license1,close_wallet1,deja_vu_1,FALSE
+deja_vu_2,Interact,close wallet1,taken_license1,close_wallet1_test,deja_vu_1,FALSE
 deja_vu_2,Inspect,check the newsclip1,closed_wallet1,check_newsclip1_test,deja_vu_1,FALSE
 deja_vu_2,Take,take the ring1,in_hotel_room,take_ring1_test,deja_vu_1,FALSE
 deja_vu_2,Interact,open the door from map,all_set_in_hotel_room,open_door_from_map_test,deja_vu_1,FALSE
